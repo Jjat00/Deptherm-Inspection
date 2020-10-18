@@ -2,11 +2,13 @@ class User():
     """
     Model for User table
     """
-    def __init__(self, userID, userType, name, password, cellphone, email):
+    def __init__(self, userID, userType, name, lastname, state, cellphone, email, password):
         super(User).__init__()
         self.userID = userID
         self.userType = userType
         self.name = name
+        self.lastname = lastname
+        self.state = state
         self.password = password
         self.cellphone = cellphone
         self.email = email
@@ -28,6 +30,18 @@ class User():
 
     def setName(self, name):
         self.name = name
+
+    def getLastname(self):
+        return self.lastname
+
+    def setLastname(self, lastname):
+        self.lastname = lastname
+
+    def getState(self):
+        return self.state
+
+    def setState(self, state):
+        self.state = state
 
     def getPassword(self):
         return self.password
@@ -52,6 +66,8 @@ class User():
             "userID": """ + str(self.userID) + """
             "userType": """ + str(self.userType) + """
             "name": """ + str(self.name) + """
+            "lastname": """ + str(self.lastname) + """
+            "state": """ + str(self.state) + """
             "password": """ + str(self.password) + """
             "cellphone": """ + str(self.cellphone) + """
             "email": """ + str(self.email) + """
