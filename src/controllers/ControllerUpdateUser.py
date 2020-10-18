@@ -2,17 +2,18 @@ from PySide2 import QtWidgets
 from models.entities.User import User
 from models.interfaces.UserDB import UserDB
 
-class ControllerRegisterUser():
+
+class ControllerUpdateUser():
     """
-    Controller for register user form
+    Controller for update user form
     """
 
-    def __init__(self, userRegisterWidget):
+    def __init__(self, userUpdateWidget):
         super().__init__()
-        self.window = userRegisterWidget.window
+        self.window = userUpdateWidget.window
         self.connectButtons()
-        userRegisterWidget.exec()
-        self.register = False
+        userUpdateWidget.exec()
+        self.update = False
 
     def getVulesLineEdit(self):
         """
@@ -26,10 +27,10 @@ class ControllerRegisterUser():
             self.email = self.window.lineEditEmail.text()
             self.phone = int(self.window.lineEditPhone.text())
             self.password = self.window.lineEditPassword.text()
-            self.register = True
+            self.update = True
         except ValueError:
             self.showMesagge("incorrect data")
-            self.register = False
+            self.update = False
 
     def getUserType(self):
         """
@@ -41,43 +42,38 @@ class ControllerRegisterUser():
         if userType == 'Operator':
             self.userType = 2
 
-
     def connectButtons(self):
         """
         Connect the buttons with their events
         """
-        self.window.buttonRegister.clicked.connect(self.registerUser)
-        
+        self.window.buttonUpdate.clicked.connect(self.updateUser)
 
-    def registerUser(self):
+    def updateUser(self):
         """
         Handler button register user
         """
         try:
             self.getVulesLineEdit()
             self.getUserType()
-            if self.ID != None and self.register:
+            if self.ID != None and self.update:
                 userDB = UserDB()
                 user = User(self.ID, self.userType, self.name, self.lastname,
                             True, self.phone, self.email, self.password)
                 print(user.toString())
-                count = userDB.insertUser(user)
-                print(count)
+                count = userDB.updateUser(user)
                 if count != 0:
-                    self.showMesagge("User registered successfully")
+                    self.showMesagge("Update user successfully")
+                    self.cleanLineEdit()
                 else:
-                    self.showMesagge("User is already registered")
-                self.cleanLineEdit()
+                    self.showMesagge("User does not exist")
         except AttributeError:
-            print("Fail register user")
-
+            print("Fail update user")
 
     def showMesagge(self, message):
         """
         Show response request
         """
         self.window.labelMessage.setText(message)
-
 
     def cleanLineEdit(self):
         """
@@ -90,4 +86,3 @@ class ControllerRegisterUser():
         self.window.lineEditPhone.setText("")
         self.window.lineEditPassword.setText("")
         self.ID = None
-

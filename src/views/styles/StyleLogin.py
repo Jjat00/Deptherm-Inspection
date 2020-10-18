@@ -4,6 +4,9 @@ relativePathIcons = '../public/icons/'
 
 
 class StyleLogin():
+    """
+    docstring
+    """
     def __init__(self, widget):
         super(StyleLogin).__init__()
         self.widget = widget

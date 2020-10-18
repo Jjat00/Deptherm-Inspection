@@ -4,7 +4,7 @@ relativePathIcons = '../public/icons/'
 
 class StyleDepthermInspection():
     """
-    docstring
+    Deptherm Inspection widget style
     """
     def __init__(self, widget):
         super(StyleDepthermInspection).__init__()
@@ -14,6 +14,9 @@ class StyleDepthermInspection():
         self.setStyle()
 
     def setIcons(self):
+        """
+        Set icons GUI
+        """
         self.widget.window.buttonUserManage.setIcon(
             QtGui.QPixmap(relativePathIcons+'management.png'))
         self.widget.window.buttonUserManage.setIconSize(
@@ -51,7 +54,7 @@ class StyleDepthermInspection():
 
     def setStyle(self):
         """
-        docstring
+        Set stylesheet componenets GUI
         """
         styleHeader = """
             padding-left: 5px;
@@ -70,12 +73,3 @@ class StyleDepthermInspection():
         """
         self.widget.window.frameWorkspace.setStyleSheet(styleFrameCamera)
 
-
-        loadButton = """
-            background: """ + self.styles.secondaryColor + """;
-            min-height: 24;
-            min-width: 33;
-            border-radius: 0;
-        """
-        self.widget.window.buttonLogin.setStyleSheet(loadButton)
-        self.widget.window.buttonUserManage.setStyleSheet(loadButton)

@@ -63,13 +63,13 @@ class User():
 
     def toString(self):
         userStr = """ user: {
-            "userID": """ + str(self.userID) + """
-            "userType": """ + str(self.userType) + """
-            "name": """ + str(self.name) + """
-            "lastname": """ + str(self.lastname) + """
-            "state": """ + str(self.state) + """
-            "password": """ + str(self.password) + """
-            "cellphone": """ + str(self.cellphone) + """
-            "email": """ + str(self.email) + """
+            'userID': """ + str(self.userID) + """
+            'userType': """ + str(self.userType) + """
+            'name': '""" + str(self.name) + """'
+            'lastname': '""" + str(self.lastname) + """'
+            'state': """ + str(self.state) + """
+            'password': '""" + str(self.password) + """'
+            'cellphone': """ + str(self.cellphone) + """
+            'email': '""" + str(self.email) + """'
         }"""
         return userStr

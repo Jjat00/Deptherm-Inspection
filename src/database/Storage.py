@@ -45,7 +45,7 @@ class Storage():
         self.cursor.execute(query)
         rows = self.cursor.fetchall()
         print("Select successfully")
-        #self.conn.close()
+        self.conn.close()
         return rows
 
 
@@ -60,9 +60,14 @@ class Storage():
         example:
             insert(INSERT INTO public.user(ID, userType, name, lastname, state, phone, email, password) VALUES(1085897621, 1, 'Pepe', 'Arteaga', true, 3164277878,'pepe@gmail.com','121d41s'))
         """
-        self.cursor.execute(query)
-        self.conn.commit()
-        count = self.cursor.rowcount
-        print(count, "Record inserted successfully into table")
-        self.conn.close()
+        try:
+            self.cursor.execute(query)
+            self.conn.commit()
+            count = self.cursor.rowcount
+            print(count, "Record inserted successfully into table")
+            self.conn.close()
+        except :
+            count = 0
+            print(count, "Record inserted failed into table")
+
         return count

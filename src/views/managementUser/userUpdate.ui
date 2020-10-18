@@ -7,17 +7,17 @@
     <x>0</x>
     <y>0</y>
     <width>425</width>
-    <height>482</height>
+    <height>532</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QComboBox" name="comboBox">
+  <widget class="QComboBox" name="comboBoxUserType">
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>330</y>
+     <y>370</y>
      <width>281</width>
      <height>31</height>
     </rect>
@@ -50,7 +50,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>330</y>
+     <y>370</y>
      <width>67</width>
      <height>31</height>
     </rect>
@@ -59,7 +59,7 @@
     <string>type:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="lineEditName">
    <property name="geometry">
     <rect>
      <x>110</x>
@@ -72,11 +72,11 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QLineEdit" name="lineEditEmail">
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>170</y>
+     <y>220</y>
      <width>281</width>
      <height>31</height>
     </rect>
@@ -86,7 +86,7 @@
    <property name="geometry">
     <rect>
      <x>-10</x>
-     <y>10</y>
+     <y>0</y>
      <width>461</width>
      <height>41</height>
     </rect>
@@ -102,7 +102,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>180</y>
+     <y>230</y>
      <width>67</width>
      <height>17</height>
     </rect>
@@ -115,7 +115,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>230</y>
+     <y>280</y>
      <width>67</width>
      <height>17</height>
     </rect>
@@ -137,11 +137,11 @@
     <string>ID:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_5">
+  <widget class="QLineEdit" name="lineEditPhone">
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>220</y>
+     <y>270</y>
      <width>281</width>
      <height>31</height>
     </rect>
@@ -151,7 +151,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>280</y>
+     <y>330</y>
      <width>67</width>
      <height>17</height>
     </rect>
@@ -160,7 +160,7 @@
     <string>password:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
+  <widget class="QLineEdit" name="lineEditID">
    <property name="geometry">
     <rect>
      <x>110</x>
@@ -173,27 +173,72 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_6">
+  <widget class="QLineEdit" name="lineEditPassword">
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>270</y>
+     <y>320</y>
      <width>281</width>
      <height>31</height>
     </rect>
    </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="buttonUpdate">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>400</y>
+     <y>420</y>
      <width>371</width>
      <height>41</height>
     </rect>
    </property>
    <property name="text">
     <string>Update</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelMessage">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>480</y>
+     <width>381</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>180</y>
+     <width>67</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>lastname</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditLastname">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>170</y>
+     <width>281</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>

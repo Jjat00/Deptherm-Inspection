@@ -3,7 +3,7 @@ from database.Storage import Storage
 
 class UserDB():
     """
-    docstring
+    CRUD for user table db
     """
     def __init__(self):
         super(UserDB).__init__()
@@ -18,11 +18,15 @@ class UserDB():
         return:
             user: object entity user 
         """
-        query = "SELECT * FROM public.user WHERE ID=%i" % (ID)
-        rows = self.storage.get(query)
-        ID, userType, name, lastname, state, phone, email, password = rows[0]
-        user = User(ID, userType, name, lastname,
-                         state, phone, email, password)
+        try:
+            query = "SELECT * FROM public.user WHERE ID=%i" % (ID)
+            rows = self.storage.get(query)
+            ID, userType, name, lastname, state, phone, email, password = rows[0]
+            user = User(ID, userType, name, lastname,
+                        state, phone, email, password)
+        except IndexError:
+            user = None
+
         return user
 
     def insertUser(self, user):

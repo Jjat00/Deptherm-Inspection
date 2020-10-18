@@ -32,6 +32,7 @@ class ControllerDepthermInspection():
         self.window.layoutWorkspace.addWidget(userManagementWidget)
         ControllerUserManagement(userManagementWidget)
 
+
     def cleanWorkspace(self):
         """
         Clean worksspace remove all widget

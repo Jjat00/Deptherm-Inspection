@@ -1,7 +1,7 @@
 import sys
 import os
 from PySide2 import QtWidgets, QtCore, QtUiTools
-from views.styles.StyleLogin import StyleLogin
+from views.styles.StyleUserManagement import StyleUserManagement
 
 
 class UserManagementWidget(QtWidgets.QDialog):
@@ -12,7 +12,7 @@ class UserManagementWidget(QtWidgets.QDialog):
     def __init__(self):
         super().__init__()
         self.initGUI()
-        StyleLogin(self)
+        StyleUserManagement(self)
 
     def initGUI(self):
         """

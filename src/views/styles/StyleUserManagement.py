@@ -2,20 +2,22 @@ from views.styles.Style import Styles
 from PySide2 import QtGui, QtCore
 relativePathIcons = '../public/icons/'
 
-class StyleUserRegister():
+class StyleUserManagement():
     """
-    docstring
+    User management widget style
     """
+
     def __init__(self, widget):
-        super(StyleUserRegister).__init__()
+        super(StyleUserManagement).__init__()
         self.widget = widget
         self.styles = Styles(self.widget)
         self.setStyle()
 
     def setStyle(self):
         """
-        docstring
+        Set stylesheet componenets GUI
         """
+
         styleHeader = """
             padding-left: 5px;
             background: """ + self.styles.primaryColor + """;
@@ -26,3 +28,11 @@ class StyleUserRegister():
             padding-bottom: 0;
         """
         self.widget.window.labelHeader.setStyleSheet(styleHeader)
+
+        styleMessage = """
+            padding-left: 5px;
+            font-size: 15pt;
+            color: """ + self.styles.primaryColor + """;
+            padding-bottom: 0;
+        """
+        self.widget.window.labelMessage.setStyleSheet(styleMessage)

@@ -1,5 +1,5 @@
 from PySide2 import QtWidgets, QtCore, QtUiTools
-from views.styles.StyleUserRegister import StyleUserRegister
+from views.styles.StyleUserManagement import StyleUserManagement
 import sys
 import os
 
@@ -11,7 +11,7 @@ class UserRegisterWidget(QtWidgets.QDialog):
     def __init__(self):
         super().__init__()
         self.initGUI()
-        StyleUserRegister(self)
+        StyleUserManagement(self)
 
     def initGUI(self):
         """

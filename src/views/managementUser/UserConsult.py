@@ -1,5 +1,5 @@
 from PySide2 import QtWidgets, QtCore, QtUiTools
-from views.styles.StyleUserRegister import StyleUserRegister
+from views.styles.StyleUserManagement import StyleUserManagement
 import sys
 import os
 
@@ -12,7 +12,7 @@ class UserConsultWidget(QtWidgets.QDialog):
     def __init__(self):
         super().__init__()
         self.initGUI()
-        StyleUserRegister(self)
+        StyleUserManagement(self)
 
     def initGUI(self):
         """
@@ -20,7 +20,7 @@ class UserConsultWidget(QtWidgets.QDialog):
         """
         self.loadForm()
         self.setWindowTitle("User Consult")
-        self.setGeometry(400, 100, 462, 367)
+        self.setGeometry(400, 100, 462, 460)
 
     def loadForm(self):
         """

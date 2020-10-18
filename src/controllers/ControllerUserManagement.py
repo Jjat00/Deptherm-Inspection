@@ -4,6 +4,9 @@ from views.managementUser.UserConsult import UserConsultWidget
 from views.managementUser.UserUpdate import UserUpdateWidget
 from views.managementUser.UserDelete import UserDeleteWidget
 from controllers.ControllerRegisterUser import ControllerRegisterUser
+from controllers.ControllerUpdateUser import ControllerUpdateUser
+from controllers.ControllerDeleteUser import ControllerDeleteUser
+from controllers.ControllerConsultUser import ControllerConsultUser
 
 class ControllerUserManagement():
     """
@@ -42,18 +45,18 @@ class ControllerUserManagement():
         Handler button update user
         """
         updateUserWidget = UserUpdateWidget()
-        updateUserWidget.exec()
+        ControllerUpdateUser(updateUserWidget)
 
     def showConsultUserForm(self):
         """
         Handler button consult user
         """
         consultUser = UserConsultWidget()
-        consultUser.exec()
+        ControllerConsultUser(consultUser)
 
     def showDeleteUserForm(self):
         """
         Handler button delete user
         """
-        userDelete = UserDeleteWidget()
-        userDelete.exec()
+        userDeleteWidget = UserDeleteWidget()
+        ControllerDeleteUser(userDeleteWidget)

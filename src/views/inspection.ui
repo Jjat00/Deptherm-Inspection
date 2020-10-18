@@ -18,8 +18,8 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>110</y>
-      <width>171</width>
+      <y>90</y>
+      <width>101</width>
       <height>371</height>
      </rect>
     </property>
@@ -32,9 +32,9 @@
     <widget class="QPushButton" name="buttonInspection">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>10</x>
        <y>20</y>
-       <width>101</width>
+       <width>81</width>
        <height>41</height>
       </rect>
      </property>
@@ -45,9 +45,9 @@
     <widget class="QPushButton" name="buttonCalibInt">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>10</x>
        <y>90</y>
-       <width>101</width>
+       <width>81</width>
        <height>41</height>
       </rect>
      </property>
@@ -58,9 +58,9 @@
     <widget class="QPushButton" name="buttonCalibExt">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>10</x>
        <y>160</y>
-       <width>101</width>
+       <width>81</width>
        <height>41</height>
       </rect>
      </property>
@@ -71,9 +71,9 @@
     <widget class="QPushButton" name="buttonCameraFusion">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>10</x>
        <y>230</y>
-       <width>101</width>
+       <width>81</width>
        <height>41</height>
       </rect>
      </property>
@@ -84,9 +84,9 @@
     <widget class="QPushButton" name="pushButton_7">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>10</x>
        <y>300</y>
-       <width>101</width>
+       <width>81</width>
        <height>41</height>
       </rect>
      </property>
@@ -98,9 +98,9 @@
    <widget class="QFrame" name="frameWorkspace">
     <property name="geometry">
      <rect>
-      <x>190</x>
+      <x>110</x>
       <y>70</y>
-      <width>591</width>
+      <width>671</width>
       <height>451</height>
      </rect>
     </property>
@@ -113,7 +113,7 @@
     <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>70</x>
        <y>30</y>
        <width>521</width>
        <height>401</height>
