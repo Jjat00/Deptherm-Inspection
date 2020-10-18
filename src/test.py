@@ -1,4 +1,6 @@
-from test.testUserDB import selectUserDB, insertUserDB
+from test.testUserDB import selectUserDB, insertUserDB, updatetUserDB, deleteUser
 
-selectUserDB()
-insertUserDB()
+#selectUserDB()
+#insertUserDB()
+#updatetUserDB()
+deleteUser()

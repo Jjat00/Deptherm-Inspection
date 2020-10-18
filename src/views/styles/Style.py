@@ -2,25 +2,26 @@ from PySide2 import QtGui, QtCore
 relativePathIcons = '../public/icons/'
 
 
-class StylesDepthermInspection():
+class Styles():
     def __init__(self, widget):
-        super(StylesDepthermInspection).__init__()
-        self.widgetAcq = widget
-        self.theme1()
-        #self.setIcons()
-        self.formStyle()
+        super(Styles).__init__()
+        self.widget = widget
+        self.themeLight()
+        self.setFormStyle()
 
-    def theme1(self):
+    def themeDark(self):
         self.primaryColor = '#f44333'
         self.secondaryColor = '#263238'
+        #self.secondaryColor = 'white'
         self.buttons = '#00E676'
+        #self.buttons = 'white'
         self.frameCamera = '#212121'
         self.primaryText = '#f5f5f5'
         self.secondaryText = '#757575'
         self.progressBar = '#ff795e'
         self.lineEdit = '#263238'
 
-    def theme2(self):
+    def themeLight(self):
         self.primaryColor = '#b90008'
         self.secondaryColor = '#ffffff'
         self.buttons = '#e53935'
@@ -30,13 +31,7 @@ class StylesDepthermInspection():
         self.lineEdit = '#f5f5f5'
         self.progressBar = '#ff795e'
 
-    def setIcons(self):
-        self.widgetAcq.window.acqButton.setIcon(
-            QtGui.QPixmap(relativePathIcons+'video.png'))
-        self.widgetAcq.window.acqButton.setIconSize(QtCore.QSize(20, 20))
-
-
-    def formStyle(self):
+    def setFormStyle(self):
         styleWindow = """
             QWidget{
                     background: """+self.secondaryColor+""";
@@ -116,44 +111,4 @@ class StylesDepthermInspection():
                     border: none;
                 }                
             """
-        self.widgetAcq.setStyleSheet(styleWindow)
-
-        styleHeader = """
-            padding-left: 5px;
-            background: """+self.primaryColor+""";
-            font: bold, Ubuntu sans-serif;
-            font-size: 13pt;
-            color: """+self.secondaryColor+""";
-            min-width:200px;
-            padding-bottom: 0;
-        """
-        #self.widgetAcq.window.labelHeader.setStyleSheet(styleHeader)
-
-        styleFrameCamera = """
-            background: """+self.frameCamera+""";
-            margin: 0;
-        """
-        self.widgetAcq.window.frameWorkspace.setStyleSheet(styleFrameCamera)
-
-        styleFrameParameters = """
-            color: """+self.primaryText+""";
-            font: Regular;
-        """
-        #self.widgetAcq.window.textBrowser.setStyleSheet(styleFrameCamera)
-
-        navButtons = """
-            background: """+self.frameCamera+""";
-            min-height: 30px;
-            min-width: 30px;
-        """
-        #self.widgetAcq.window.previusButton.setStyleSheet(navButtons)
-        #self.widgetAcq.window.nextButton.setStyleSheet(navButtons)
-
-        loadButton = """
-            background: """ + self.secondaryColor + """;
-            min-height: 24;
-            min-width: 33;
-            border-radius: 0;
-        """
-        #self.widgetAcq.window.loadButton.setStyleSheet(loadButton)
-        #self.widgetAcq.window.acqButton.setStyleSheet(loadButton)
+        self.widget.setStyleSheet(styleWindow)

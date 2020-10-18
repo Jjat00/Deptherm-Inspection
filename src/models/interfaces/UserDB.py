@@ -8,7 +8,7 @@ class UserDB():
     def __init__(self):
         super(UserDB).__init__()
         self.storage = Storage()
-        self.storage.getConnection()
+        self.storage.connect()
 
     def getUserByID(self, ID):
         """
@@ -31,30 +31,50 @@ class UserDB():
         parameters:
             user: user type User class
         return:
-            count: numbuer insert tuples
+            count: number insert tuples
         """
         ID = user.getUserID()
         userType = user.getUserType()
-        name = str(user.getName()).lower()
-        lastname = str(user.getLastname())
+        name = user.getName()
+        lastname = user.getLastname()
         state = user.getState()
         phone = user.getCellphone()
-        email = str(user.getEmail())
+        email = user.getEmail()
         password = user.getPassword()
         query = "INSERT INTO public.user(ID, userType, name, lastname, state, phone, email, password) VALUES(%i, %i, '%s', '%s', %r, %i, '%s', '%s')" % (
             ID, userType, name, lastname, state, phone, email, password)
         count = self.storage.insert(query)
         return count
 
-    def updateUser(self):
+    def updateUser(self, user):
         """
-        docstring
+        Update user information in database
+        parameters:
+            user: user type User Class
+        return:
+            count: number insert tuples
         """
-        pass
-
-
+        ID = user.getUserID()
+        userType = user.getUserType()
+        name = user.getName()
+        lastname = user.getLastname()
+        state = user.getState()
+        phone = user.getCellphone()
+        email = user.getEmail()
+        password = user.getPassword()
+        query = "UPDATE public.user SET id=%i, usertype=%i, name='%s', lastname='%s', state=%r, phone=%i, email='%s', password='%s' WHERE ID='%i'" % (
+            ID, userType, name, lastname, state, phone, email, password, ID)
+        count = self.storage.insert(query)
+        return count
+        
     def deleteUserByID(self, ID):
         """
-        docstring
+        Delete user from database by ID
+        parameters:
+            ID: id user 
+        return:
+            count: number insert tuples
         """
-        pass
+        query = "DELETE FROM public.user WHERE ID=%i" % (ID)
+        count = self.storage.insert(query)
+        return count

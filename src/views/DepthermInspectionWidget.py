@@ -8,7 +8,7 @@ Date create: 17-Oct-2020
 import sys
 import os
 from PySide2 import QtCore, QtUiTools, QtWidgets
-from styles.Style import StylesDepthermInspection
+from views.styles.StyleDepthermInspection import StyleDepthermInspection
 from views.LoginWidget import LoginWidget
 
 class DepthermInspectionWidget(QtWidgets.QWidget):
@@ -19,7 +19,7 @@ class DepthermInspectionWidget(QtWidgets.QWidget):
         super(DepthermInspectionWidget, self).__init__(*args, **kwargs)
         #self.loginWidget = LoginWidget()
         self.initUI()
-        StylesDepthermInspection(self)
+        StyleDepthermInspection(self)
 
     def initUI(self):
         """ 
@@ -27,7 +27,7 @@ class DepthermInspectionWidget(QtWidgets.QWidget):
         """
         self.loadForm()
         self.setWindowTitle("Deptherm Inspection")
-        self.setGeometry(200, 50, 900, 635)
+        self.setGeometry(200, 50, 850, 635)
 
     def loadForm(self):
         formUI = os.path.join(sys.path[0], 'views/inspection.ui')
@@ -37,9 +37,7 @@ class DepthermInspectionWidget(QtWidgets.QWidget):
         self.window = loader.load(file)
         layout = QtWidgets.QVBoxLayout()
         layout.addWidget(self.window)
-        self.window.layoutWorkspace.addWidget(LoginWidget())
         self.setLayout(layout)
-
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])

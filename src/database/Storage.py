@@ -6,13 +6,13 @@ class Storage():
     Management database
     """
     def __init__(self):
-
+        
         super(Storage).__init__()
         self.configDB = ConfigDB()
         self.conn = None
         self.cursor = None
 
-    def getConnection(self):
+    def connect(self):
         """
         Connect Postgres database 
         """

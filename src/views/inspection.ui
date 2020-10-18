@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>572</height>
+    <height>605</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,10 +17,10 @@
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>0</y>
+      <x>0</x>
+      <y>110</y>
       <width>171</width>
-      <height>511</height>
+      <height>371</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -29,131 +29,79 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="buttonInspection">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>130</y>
-       <width>141</width>
+       <x>40</x>
+       <y>20</y>
+       <width>101</width>
        <height>41</height>
       </rect>
      </property>
      <property name="text">
-      <string>nueva inspection</string>
+      <string/>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="buttonCalibInt">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>180</y>
-       <width>141</width>
+       <x>40</x>
+       <y>90</y>
+       <width>101</width>
        <height>41</height>
       </rect>
      </property>
      <property name="text">
-      <string>adquisición int</string>
+      <string/>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="buttonCalibExt">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>40</x>
+       <y>160</y>
+       <width>101</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="buttonCameraFusion">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
        <y>230</y>
-       <width>141</width>
+       <width>101</width>
        <height>41</height>
       </rect>
      </property>
      <property name="text">
-      <string>adquisición ext</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_4">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>280</y>
-       <width>141</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>calibración int</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_5">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>330</y>
-       <width>141</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>calibración extr</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_6">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>380</y>
-       <width>141</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>camera fusion</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_7">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>430</y>
-       <width>141</width>
+       <x>40</x>
+       <y>300</y>
+       <width>101</width>
        <height>41</height>
       </rect>
      </property>
      <property name="text">
-      <string>Reporte</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_8">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>80</y>
-       <width>141</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Login</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_9">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>30</y>
-       <width>141</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>User Management</string>
+      <string/>
      </property>
     </widget>
    </widget>
    <widget class="QFrame" name="frameWorkspace">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>20</y>
+      <x>190</x>
+      <y>70</y>
       <width>591</width>
-      <height>491</height>
+      <height>451</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -165,14 +113,66 @@
     <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>90</y>
-       <width>481</width>
-       <height>301</height>
+       <x>30</x>
+       <y>30</y>
+       <width>521</width>
+       <height>401</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="layoutWorkspace"/>
     </widget>
+   </widget>
+   <widget class="QPushButton" name="buttonLogin">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>10</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonUserManage">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>10</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelHeader">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>481</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Deptherm Inspection</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonClear">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>530</y>
+      <width>91</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

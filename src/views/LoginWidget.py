@@ -1,7 +1,7 @@
 from PySide2 import QtCore, QtUiTools, QtWidgets
 import sys
 import os
-from styles.StyleLogin import StyleLogin
+from views.styles.StyleLogin import StyleLogin
 
 class LoginWidget(QtWidgets.QWidget):
     """
@@ -18,7 +18,7 @@ class LoginWidget(QtWidgets.QWidget):
         """
         self.loadForm()
         self.setWindowTitle("User Login")
-        #self.setGeometry(200, 50, 100, 100)
+        self.setGeometry(200, 50, 401, 503)
 
     def loadForm(self):
         formUI = os.path.join(sys.path[0], 'views/login.ui')
