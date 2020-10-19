@@ -18,19 +18,24 @@ class ControllerUserManagement():
         self.window = managemetWidget.window
         self.connectButtons()
         managemetWidget.exec()
+            
 
     def connectButtons(self):
         """
         Connect the buttons with their events
         """
-        self.window.buttonRegisterUser.clicked.connect(
-            self.showRegisterUserForm)
-        self.window.buttonConsultUser.clicked.connect(
-            self.showConsultUserForm)
-        self.window.buttonUpdateUser.clicked.connect(
-            self.showUpdateUserForm)
-        self.window.buttonDeleteUser.clicked.connect(
-            self.showDeleteUserForm)
+        try:
+            self.window.buttonRegisterUser.clicked.connect(
+                self.showRegisterUserForm)
+            self.window.buttonConsultUser.clicked.connect(
+                self.showConsultUserForm)
+            self.window.buttonUpdateUser.clicked.connect(
+                self.showUpdateUserForm)
+            self.window.buttonDeleteUser.clicked.connect(
+                self.showDeleteUserForm)
+        except:
+            pass
+
 
     def showRegisterUserForm(self):
         """

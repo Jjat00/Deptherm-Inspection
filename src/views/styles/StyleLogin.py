@@ -34,3 +34,11 @@ class StyleLogin():
             padding-bottom: 0;
         """
         self.widget.window.labelHeader.setStyleSheet(styleHeader)
+
+        styleMessage = """
+            padding-left: 5px;
+            font-size: 15pt;
+            color: """ + self.styles.primaryColor + """;
+            padding-bottom: 0;
+        """
+        self.widget.window.labelMessage.setStyleSheet(styleMessage)

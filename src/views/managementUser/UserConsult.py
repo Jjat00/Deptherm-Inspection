@@ -20,7 +20,7 @@ class UserConsultWidget(QtWidgets.QDialog):
         """
         self.loadForm()
         self.setWindowTitle("User Consult")
-        self.setGeometry(400, 100, 462, 460)
+        self.setGeometry(400, 100, 462, 465)
 
     def loadForm(self):
         """

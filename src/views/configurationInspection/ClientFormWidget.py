@@ -1,27 +1,30 @@
 from PySide2 import QtCore, QtUiTools, QtWidgets
 import sys
 import os
-from views.styles.StyleLogin import StyleLogin
+from views.styles.Style import Styles
 
-class LoginWidget(QtWidgets.QDialog):
+
+class ClientFormWidget(QtWidgets.QDialog):
     """
-    Widget for login user
+    Widget for client form
     """
+
     def __init__(self, *args, **kwargs):
-        super(LoginWidget, self).__init__(*args, **kwargs)
+        super(ClientFormWidget, self).__init__(*args, **kwargs)
         self.initUI()
-        StyleLogin(self)
+        Styles(self)
 
     def initUI(self):
         """
         Initialize parameters and components
         """
         self.loadForm()
-        self.setWindowTitle("User Login")
-        self.setGeometry(200, 50, 401, 503)
+        self.setWindowTitle("Inspection Configuration")
+        self.setGeometry(200, 50, 489, 444)
 
     def loadForm(self):
-        formUI = os.path.join(sys.path[0], 'views/login.ui')
+        formUI = os.path.join(
+            sys.path[0], 'views/configurationInspection/client.ui')
         file = QtCore.QFile(formUI)
         file.open(QtCore.QFile.ReadOnly)
         loader = QtUiTools.QUiLoader()

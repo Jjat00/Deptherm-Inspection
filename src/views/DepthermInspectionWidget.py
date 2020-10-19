@@ -30,7 +30,7 @@ class DepthermInspectionWidget(QtWidgets.QWidget):
         self.setGeometry(200, 50, 850, 635)
 
     def loadForm(self):
-        formUI = os.path.join(sys.path[0], 'views/inspection.ui')
+        formUI = os.path.join(sys.path[0], 'views/DethermInspection.ui')
         file = QtCore.QFile(formUI)
         file.open(QtCore.QFile.ReadOnly)
         loader = QtUiTools.QUiLoader()

@@ -21,36 +21,58 @@ class StyleDepthermInspection():
             QtGui.QPixmap(relativePathIcons+'management.png'))
         self.widget.window.buttonUserManage.setIconSize(
             QtCore.QSize(30, 30))
-        self.widget.window.buttonUserManage.setToolTip("Management user")
+        self.widget.window.buttonUserManage.setToolTip('Management user')
 
         self.widget.window.buttonLogin.setIcon(
             QtGui.QPixmap(relativePathIcons+'login1.png'))
         self.widget.window.buttonLogin.setIconSize(QtCore.QSize(30, 30))
-        self.widget.window.buttonLogin.setToolTip("User login")
+        self.widget.window.buttonLogin.setToolTip('User login')
 
         self.widget.window.buttonInspection.setIcon(
-            QtGui.QPixmap(relativePathIcons+'inspection1.png'))
+            QtGui.QPixmap(relativePathIcons+'add.png'))
         self.widget.window.buttonInspection.setIconSize(
             QtCore.QSize(30, 30))
-        self.widget.window.buttonInspection.setToolTip("New inspection")
+        self.widget.window.buttonInspection.setToolTip('New inspection')
 
         self.widget.window.buttonCalibInt.setIcon(
-            QtGui.QPixmap(relativePathIcons+'video1.png'))
+            QtGui.QPixmap(relativePathIcons+'intrinsicCalib.png'))
         self.widget.window.buttonCalibInt.setIconSize(
             QtCore.QSize(40, 40))
-        self.widget.window.buttonCalibInt.setToolTip("Intrinsic calibration")
+        self.widget.window.buttonCalibInt.setToolTip('Intrinsic calibration')
 
         self.widget.window.buttonCalibExt.setIcon(
-            QtGui.QPixmap(relativePathIcons+'video.png'))
+            QtGui.QPixmap(relativePathIcons+'extrinsicCalib.png'))
         self.widget.window.buttonCalibExt.setIconSize(
             QtCore.QSize(40, 40))
-        self.widget.window.buttonCalibExt.setToolTip("Extrinsic calibration")
+        self.widget.window.buttonCalibExt.setToolTip('Extrinsic calibration')
 
         self.widget.window.buttonCameraFusion.setIcon(
-            QtGui.QPixmap(relativePathIcons+'3d-sensor.png'))
+            QtGui.QPixmap(relativePathIcons+'3dsensor.png'))
         self.widget.window.buttonCameraFusion.setIconSize(
             QtCore.QSize(40, 40))
-        self.widget.window.buttonCameraFusion.setToolTip("Camera Fusion")
+        self.widget.window.buttonCameraFusion.setToolTip('Camera Fusion')
+
+        self.widget.window.buttonLogout.setIcon(
+            QtGui.QPixmap(relativePathIcons+'logout.png'))
+        self.widget.window.buttonLogout.setIconSize(
+            QtCore.QSize(40, 40))
+        self.widget.window.buttonLogout.setToolTip('Logout')
+
+        self.widget.window.buttonReport.setIcon(
+            QtGui.QPixmap(relativePathIcons+'report.png'))
+        self.widget.window.buttonReport.setIconSize(
+            QtCore.QSize(40, 40))
+        self.widget.window.buttonReport.setToolTip('Generate report')
+
+        self.widget.window.buttonClean.setIcon(
+            QtGui.QPixmap(relativePathIcons+'clean.png'))
+        self.widget.window.buttonClean.setIconSize(
+            QtCore.QSize(40, 40))
+        self.widget.window.buttonClean.setToolTip('Clean workspace')
+
+        labelLogo = QtGui.QPixmap.fromImage(relativePathIcons+'PSI_LOGO.png')
+        self.widget.window.labelLogo.setPixmap(labelLogo)
+        self.widget.window.labelLogo.setScaledContents(True)
 
     def setStyle(self):
         """
@@ -72,4 +94,12 @@ class StyleDepthermInspection():
             margin: 0;
         """
         self.widget.window.frameWorkspace.setStyleSheet(styleFrameCamera)
+
+        styleMessage = """
+            padding-left: 5px;
+            font-size: 17pt;
+            color: """ + self.styles.primaryColor + """;
+            padding-bottom: 0;
+        """
+        self.widget.window.labelMessage.setStyleSheet(styleMessage)
 

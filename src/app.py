@@ -1,4 +1,4 @@
-from controllers.ControllerDepthermInspection import ControllerDepthermInspection
+from controllers.MainControllerDepthermInspection import MainControllerDepthermInspection
 
 if __name__ == "__main__":
-    controllerDepthermInspection = ControllerDepthermInspection()
+    mMainControllerDepthermInspection = MainControllerDepthermInspection()

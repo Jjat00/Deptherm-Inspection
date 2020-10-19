@@ -6,17 +6,17 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>462</width>
-    <height>310</height>
+    <width>495</width>
+    <height>354</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="buttonLogin">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>70</x>
      <y>220</y>
      <width>361</width>
      <height>41</height>
@@ -26,27 +26,33 @@
     <string>Login</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="lineEditEmail">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>150</x>
      <y>90</y>
      <width>281</width>
      <height>31</height>
     </rect>
    </property>
    <property name="text">
-    <string/>
+    <string>juan@gmail.com</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QLineEdit" name="lineEditPassword">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>150</x>
      <y>150</y>
      <width>281</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="text">
+    <string>121d41s</string>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
    </property>
   </widget>
   <widget class="QLabel" name="labelHeader">
@@ -54,7 +60,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>461</width>
+     <width>521</width>
      <height>41</height>
     </rect>
    </property>
@@ -68,7 +74,7 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>60</x>
      <y>100</y>
      <width>67</width>
      <height>17</height>
@@ -81,7 +87,7 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>60</x>
      <y>160</y>
      <width>67</width>
      <height>17</height>
@@ -89,6 +95,22 @@
    </property>
    <property name="text">
     <string>password:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelMessage">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>280</y>
+     <width>381</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>

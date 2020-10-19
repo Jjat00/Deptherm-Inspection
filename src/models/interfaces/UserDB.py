@@ -3,7 +3,7 @@ from database.Storage import Storage
 
 class UserDB():
     """
-    CRUD for user table db
+    Services for user table db
     """
     def __init__(self):
         super(UserDB).__init__()
@@ -82,3 +82,22 @@ class UserDB():
         query = "DELETE FROM public.user WHERE ID=%i" % (ID)
         count = self.storage.insert(query)
         return count
+
+    def getUserByEmail(self, email, password):
+        """
+        Get user from database
+        parameters:
+            email, password: data access user
+        return:
+            user: object entity user 
+        """
+        try:
+            query = "SELECT * FROM public.user WHERE (email='%s' AND password='%s')" % (email, password)
+            rows = self.storage.get(query)
+            ID, userType, name, lastname, state, phone, email, password = rows[0]
+            user = User(ID, userType, name, lastname,
+                        state, phone, email, password)
+        except IndexError:
+            user = None
+
+        return user
