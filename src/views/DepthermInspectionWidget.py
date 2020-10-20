@@ -1,9 +1,3 @@
-"""
-File: DepthermInspectionWidget.py
-Author: Jaimen Aza 
-Email: userjjar00@gmail.com
-Date create: 17-Oct-2020
-"""
 
 import sys
 import os
@@ -27,7 +21,7 @@ class DepthermInspectionWidget(QtWidgets.QWidget):
         """
         self.loadForm()
         self.setWindowTitle("Deptherm Inspection")
-        self.setGeometry(200, 50, 850, 635)
+        self.setGeometry(50, 50, 1080, 710)
 
     def loadForm(self):
         formUI = os.path.join(sys.path[0], 'views/DethermInspection.ui')

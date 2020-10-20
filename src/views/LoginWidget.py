@@ -18,7 +18,7 @@ class LoginWidget(QtWidgets.QDialog):
         """
         self.loadForm()
         self.setWindowTitle("User Login")
-        self.setGeometry(200, 50, 401, 503)
+        self.setGeometry(200, 50, 500, 350)
 
     def loadForm(self):
         formUI = os.path.join(sys.path[0], 'views/login.ui')

@@ -1,6 +1,6 @@
 from PySide2 import QtWidgets
 
-from views.DepthermInspectionWidget import DepthermInspectionWidget
+
 from views.managementUser.UserManagement import UserManagementWidget
 from views.LoginWidget import LoginWidget
 from views.configurationInspection.InspectionConfigurationWidget import InspectionConfigurationWidget
@@ -9,19 +9,23 @@ from views.configurationInspection.ClientFormWidget import ClientFormWidget
 from controllers.ControllerUserLogin import ControllerUserLogin
 from controllers.ControllerUserManagement import ControllerUserManagement
 
+from MainControllerIntrisicAcqWidget import MainControllerIntrisicAcqWidget
+from IntrinsicAcquisitionWidget import IntrinsicAcquisitionWidget
+
+
 class MainControllerDepthermInspection():
     """
     Main controller app Deptherm Inspection
     """
-    def __init__(self):
+
+    def __init__(self, depthermIspectionWidget):
         super(MainControllerDepthermInspection).__init__()
-        app = QtWidgets.QApplication([])
-        self.depthermIspectionApp = DepthermInspectionWidget()
-        self.window = self.depthermIspectionApp.window
-        self.depthermIspectionApp.show()
+        self.window = depthermIspectionWidget.window
+        depthermIspectionWidget.show()
         self.connectButtons()
         self.STATELOGIN = False
-        app.exec_()
+        #depthermIspectionWidget.exec()
+        #app.exec_()
 
     def connectButtons(self):
         """
@@ -39,13 +43,15 @@ class MainControllerDepthermInspection():
             self.showIntrinsicCalibrationWidget)
         self.window.buttonClean.clicked.connect(
             self.cleanWorkspace)
+        self.window.buttonAcquisition.clicked.connect(
+            self.showIntrisicAcquisitionWidget)
 
     def showUserManagementWidget(self):
         """
         Handler button user management
         """
-        self.cleanWorkspace()
         if self.STATELOGIN:
+            self.cleanWorkspace()
             userManagementWidget = UserManagementWidget()
             self.window.layoutWorkspace.addWidget(userManagementWidget)
             ControllerUserManagement(userManagementWidget)
@@ -83,6 +89,15 @@ class MainControllerDepthermInspection():
         self.window.layoutWorkspace.addWidget(inspectionConfigurationWidget)
         inspectionConfigurationWidget.exec()
 
+    def showIntrisicAcquisitionWidget(self):
+        """
+        docstring
+        """
+        self.cleanWorkspace()
+        intrinsicAcquisitionWidget = IntrinsicAcquisitionWidget()
+        self.window.layoutWorkspace.addWidget(intrinsicAcquisitionWidget)
+        MainControllerIntrisicAcqWidget(intrinsicAcquisitionWidget)
+
     def cleanWorkspace(self):
         """
         Clean worksspace remove all widget
@@ -106,6 +121,7 @@ class MainControllerDepthermInspection():
         Logout session user
         """
         if self.STATELOGIN:
+            self.cleanWorkspace()
             self.STATELOGIN = False
             self.showMessage("User logout")
         else:

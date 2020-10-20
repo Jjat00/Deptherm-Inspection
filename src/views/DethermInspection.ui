@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>804</width>
-    <height>632</height>
+    <width>609</width>
+    <height>637</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>90</y>
+      <y>120</y>
       <width>101</width>
       <height>431</height>
      </rect>
@@ -33,7 +33,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>20</y>
+       <y>10</y>
        <width>81</width>
        <height>41</height>
       </rect>
@@ -46,7 +46,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>90</y>
+       <y>130</y>
        <width>81</width>
        <height>41</height>
       </rect>
@@ -59,7 +59,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>160</y>
+       <y>190</y>
        <width>81</width>
        <height>41</height>
       </rect>
@@ -72,7 +72,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>230</y>
+       <y>250</y>
        <width>81</width>
        <height>41</height>
       </rect>
@@ -85,7 +85,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>300</y>
+       <y>310</y>
        <width>81</width>
        <height>41</height>
       </rect>
@@ -107,14 +107,27 @@
       <string/>
      </property>
     </widget>
+    <widget class="QPushButton" name="buttonAcquisition">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>81</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </widget>
    <widget class="QFrame" name="frameWorkspace">
     <property name="geometry">
      <rect>
       <x>110</x>
-      <y>70</y>
-      <width>671</width>
-      <height>451</height>
+      <y>50</y>
+      <width>851</width>
+      <height>571</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -126,20 +139,27 @@
     <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>70</x>
-       <y>30</y>
-       <width>521</width>
-       <height>401</height>
+       <x>0</x>
+       <y>0</y>
+       <width>851</width>
+       <height>571</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="layoutWorkspace"/>
+     <layout class="QVBoxLayout" name="layoutWorkspace">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+     </layout>
     </widget>
    </widget>
    <widget class="QPushButton" name="buttonLogin">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>10</y>
+      <x>800</x>
+      <y>0</y>
       <width>71</width>
       <height>41</height>
      </rect>
@@ -151,8 +171,8 @@
    <widget class="QPushButton" name="buttonUserManage">
     <property name="geometry">
      <rect>
-      <x>530</x>
-      <y>10</y>
+      <x>710</x>
+      <y>0</y>
       <width>71</width>
       <height>41</height>
      </rect>
@@ -165,7 +185,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>10</y>
+      <y>0</y>
       <width>511</width>
       <height>41</height>
      </rect>
@@ -177,8 +197,8 @@
    <widget class="QPushButton" name="buttonLogout">
     <property name="geometry">
      <rect>
-      <x>710</x>
-      <y>10</y>
+      <x>890</x>
+      <y>0</y>
       <width>71</width>
       <height>41</height>
      </rect>
@@ -190,8 +210,8 @@
    <widget class="QLabel" name="labelMessage">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>550</y>
+      <x>250</x>
+      <y>630</y>
       <width>511</width>
       <height>41</height>
      </rect>
@@ -206,8 +226,8 @@
    <widget class="QLabel" name="labelLogo">
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>550</y>
+      <x>850</x>
+      <y>630</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -222,7 +242,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>804</width>
+     <width>609</width>
      <height>22</height>
     </rect>
    </property>

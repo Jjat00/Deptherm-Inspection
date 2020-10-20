@@ -64,6 +64,12 @@ class StyleDepthermInspection():
             QtCore.QSize(40, 40))
         self.widget.window.buttonReport.setToolTip('Generate report')
 
+        self.widget.window.buttonAcquisition.setIcon(
+            QtGui.QPixmap(relativePathIcons+'cmaeravideo.png'))
+        self.widget.window.buttonAcquisition.setIconSize(
+            QtCore.QSize(40, 40))
+        self.widget.window.buttonAcquisition.setToolTip('Acquisition')
+
         self.widget.window.buttonClean.setIcon(
             QtGui.QPixmap(relativePathIcons+'clean.png'))
         self.widget.window.buttonClean.setIconSize(
