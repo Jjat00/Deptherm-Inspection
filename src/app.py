@@ -28,14 +28,19 @@ for nameDir in dirs:
     sys.path.append(path)
 
 """ 
-Add intrinsic acquisition module to path
+Add intrinsic acquisition modules to path
 """
 dirs = ['views', 
         'controllers',
         'acquisition']
 for nameDir in dirs:
+    #intrinsic acquisition
     path = os.path.join(sys.path[0], "%s%s" % (
         'modules/AcquisitionIntrinsicCalibration/src/', nameDir))
+    sys.path.append(path)
+    #extrinsic acquisition
+    path = os.path.join(sys.path[0], "%s%s" % (
+        'modules/AcquisitionExtrinsicCalibration/src/', nameDir))
     sys.path.append(path)
 
 
@@ -47,6 +52,6 @@ from views.DepthermInspectionWidget import DepthermInspectionWidget
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
-    depthermIspectionApp = DepthermInspectionWidget()
-    mainControllerDepthermInspection = MainControllerDepthermInspection(depthermIspectionApp)
+    depthermIspectionWidget = DepthermInspectionWidget()
+    mainControllerDepthermInspection = MainControllerDepthermInspection(depthermIspectionWidget)
     app.exec_()

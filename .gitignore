@@ -1,4 +1,7 @@
 dev.py
+*~
+*.pyc
 __pycache__
-queries.sql
-test.py
+src/database/queries.sql
+src/test.py
+src/data

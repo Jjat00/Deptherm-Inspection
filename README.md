@@ -3,8 +3,8 @@
 
 ## Dependecies
 * Ubuntu +18.04
-* Python3.7
-* **[libfreenect](https://github.com/OpenKinect/libfreenect)**
+* [libfreenect](https://github.com/OpenKinect/libfreenect)
+* Python +3.7
 
 ## Project setup
 ```

@@ -9,9 +9,9 @@ from views.configurationInspection.ClientFormWidget import ClientFormWidget
 from controllers.ControllerUserLogin import ControllerUserLogin
 from controllers.ControllerUserManagement import ControllerUserManagement
 
-from MainControllerIntrisicAcqWidget import MainControllerIntrisicAcqWidget
-from IntrinsicAcquisitionWidget import IntrinsicAcquisitionWidget
+from views.AcquisitionManagementWidget import AcquisitionManagementWidget
 
+from controllers.ControllerAcquisition import ControllerAcquisition
 
 class MainControllerDepthermInspection():
     """
@@ -44,7 +44,7 @@ class MainControllerDepthermInspection():
         self.window.buttonClean.clicked.connect(
             self.cleanWorkspace)
         self.window.buttonAcquisition.clicked.connect(
-            self.showIntrisicAcquisitionWidget)
+            self.showAcquisitionWidget)
 
     def showUserManagementWidget(self):
         """
@@ -89,14 +89,14 @@ class MainControllerDepthermInspection():
         self.window.layoutWorkspace.addWidget(inspectionConfigurationWidget)
         inspectionConfigurationWidget.exec()
 
-    def showIntrisicAcquisitionWidget(self):
+    def showAcquisitionWidget(self):
         """
         docstring
         """
         self.cleanWorkspace()
-        intrinsicAcquisitionWidget = IntrinsicAcquisitionWidget()
-        self.window.layoutWorkspace.addWidget(intrinsicAcquisitionWidget)
-        MainControllerIntrisicAcqWidget(intrinsicAcquisitionWidget)
+        acquisitionManagementWidget = AcquisitionManagementWidget()
+        self.window.layoutWorkspace.addWidget(acquisitionManagementWidget)
+        ControllerAcquisition(self, acquisitionManagementWidget)
 
     def cleanWorkspace(self):
         """

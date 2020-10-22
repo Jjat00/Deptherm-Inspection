@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mainWindow</class>
+ <widget class="QWidget" name="mainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>879</width>
+    <height>581</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QTabWidget" name="tabIntrinsicAcq">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>861</width>
+     <height>551</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>1</number>
+   </property>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>Manual</string>
+    </attribute>
+    <widget class="QFrame" name="frameCameraM">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>-10</y>
+       <width>861</width>
+       <height>441</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QWidget" name="horizontalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>861</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="displayManual"/>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="saveButton">
+     <property name="geometry">
+      <rect>
+       <x>630</x>
+       <y>440</y>
+       <width>80</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="offButton">
+     <property name="geometry">
+      <rect>
+       <x>410</x>
+       <y>440</y>
+       <width>80</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBoxManual">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>440</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>NONE</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>RGB-DEPTH</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>RGB-THERMAL</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QPushButton" name="captureButton">
+     <property name="geometry">
+      <rect>
+       <x>520</x>
+       <y>440</y>
+       <width>80</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="onButton">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>440</y>
+       <width>80</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>Automatic</string>
+    </attribute>
+    <widget class="QLineEdit" name="NoImages">
+     <property name="geometry">
+      <rect>
+       <x>730</x>
+       <y>430</y>
+       <width>41</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>10</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="cornerX">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>430</y>
+       <width>41</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>9</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="cornerY">
+     <property name="geometry">
+      <rect>
+       <x>610</x>
+       <y>430</y>
+       <width>41</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>6</string>
+     </property>
+    </widget>
+    <widget class="QFrame" name="frameCameraA">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>-10</y>
+       <width>861</width>
+       <height>421</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QWidget" name="horizontalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>861</width>
+        <height>411</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="displayAuto"/>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="startButton">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>420</y>
+       <width>71</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="stopButton">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>420</y>
+       <width>71</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBoxAuto">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>420</y>
+       <width>131</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>NONE</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>RGB-DEPTH</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>RGB-THERMAL</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>430</y>
+       <width>81</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Dimension:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>670</x>
+       <y>430</y>
+       <width>51</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>amout:</string>
+     </property>
+    </widget>
+    <widget class="QProgressBar" name="progressBarAcq">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>480</y>
+       <width>831</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+     <property name="textVisible">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelNoImage">
+     <property name="geometry">
+      <rect>
+       <x>790</x>
+       <y>430</y>
+       <width>41</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="labelHeader">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>-20</y>
+     <width>861</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <property name="text">
+    <string>Extrinsic Acquisition</string>
+   </property>
+  </widget>
+  <zorder>labelHeader</zorder>
+  <zorder>tabIntrinsicAcq</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

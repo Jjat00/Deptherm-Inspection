@@ -6,18 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>563</width>
-    <height>415</height>
+    <width>826</width>
+    <height>522</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="buttonIntAcq">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>120</y>
+     <x>280</x>
+     <y>190</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -26,11 +26,11 @@
     <string>Intrinsic Acquisition</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="buttonExtAcq">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>204</y>
+     <x>280</x>
+     <y>274</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -42,11 +42,11 @@
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="buttonAllAcq">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>290</y>
+     <x>280</x>
+     <y>360</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -58,14 +58,17 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>20</y>
-     <width>511</width>
+     <x>20</x>
+     <y>10</y>
+     <width>791</width>
      <height>61</height>
     </rect>
    </property>
    <property name="text">
     <string>Data Acquisition</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>
