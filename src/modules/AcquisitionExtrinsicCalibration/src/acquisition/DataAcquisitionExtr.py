@@ -2,13 +2,13 @@ import freenect
 import numpy as np
 import cv2
 
-class DataAcquisition():
+class DataAcquisitionExtr():
         """
         Class for handling cameras: Kinect camera and FLIR thermal camera
         """
 
         def __init__(self):
-                super(DataAcquisition).__init__()
+                super(DataAcquisitionExtr).__init__()
 
         def getDepthData(self):
                 """ 
@@ -111,5 +111,13 @@ class DataAcquisition():
                         cv2.VideoCapture().open(0) -> get webcam computer camera
                         cv2.VideoCapture().open(1) -> get thermal camera
                 """
+                print("init thermal camera...")
                 self.thermalCamera = cv2.VideoCapture()
                 self.thermalCamera.open(0)
+
+        def closeThermalCamera(self):
+                """
+                docstring
+                """
+                print("closing thermal camera...")
+                self.thermalCamera.release()

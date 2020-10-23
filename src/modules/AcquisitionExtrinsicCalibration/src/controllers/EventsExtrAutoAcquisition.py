@@ -3,17 +3,17 @@ import numpy as np
 import cv2
 import time
 import os
-from DataAcquisition import DataAcquisition
+from DataAcquisitionExtr import DataAcquisitionExtr
 
-class EventsAutoAcquisition():
+class EventsExtrAutoAcquisition():
     """
     Events for automatic extrinsic acquisition 
     """
 
     def __init__(self, window):
-        super(EventsAutoAcquisition).__init__()
+        super(EventsExtrAutoAcquisition).__init__()
         self.window = window
-        self.camera = DataAcquisition()
+        self.camera = DataAcquisitionExtr()
         self.countNoImageAutoAcq = 0
         self.scalaImage = 65
         self.clicStart = False
@@ -21,9 +21,10 @@ class EventsAutoAcquisition():
         self.criteria = (cv2.TERM_CRITERIA_EPS +
                     cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001)
 
-    def setConfigAutoAcq(self, NoImages, patternDimension, pathImages):
+    def setConfigAutoAcq(self, NoImages, periodAcq, patternDimension, pathImages):
         self.patternDimension = patternDimension
         self.NoImagesAutoAcq = NoImages
+        self.periodAcq = periodAcq
         self.pathImages = pathImages
 
     def chooseCamera(self, whichCamera):
@@ -48,12 +49,14 @@ class EventsAutoAcquisition():
             self.viewCamera1.deleteLater()
             self.viewCamera2.deleteLater()
         self.timerCameras.stop()
+        if self.whichCamera == 'RGB-THERMAL':
+            self.camera.closeThermalCamera()
         self.countNoImageAutoAcq = 0
         self.clicStart = False
 
     def initCamera(self):
         self.timerCameras = QtCore.QTimer()
-        self.timerCameras.setInterval(30)
+        self.timerCameras.setInterval(self.periodAcq*1000)
         self.timerCameras.timeout.connect(self.getFrameDrawPattern)
         self.timerCameras.start()
         self.widgetCamera1()

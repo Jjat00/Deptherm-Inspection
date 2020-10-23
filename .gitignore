@@ -5,3 +5,4 @@ __pycache__
 src/database/queries.sql
 src/test.py
 src/data
+data

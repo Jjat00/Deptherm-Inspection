@@ -1,24 +1,25 @@
 from PySide2 import QtWidgets
-from EventsAutoAcquisition import EventsAutoAcquisition
+from EventsExtrAutoAcquisition import EventsExtrAutoAcquisition
 
-class ControllerAutoAcqTab():
+class ControllerExtrAutoAcqTab():
     """ 
     Controller for automatic extrinsic acquisition 
     """
 
     def __init__(self, window):
-        super(ControllerAutoAcqTab).__init__()
+        super(ControllerExtrAutoAcqTab).__init__()
         self.window = window
-        self.event = EventsAutoAcquisition(self.window)
+        self.event = EventsExtrAutoAcquisition(self.window)
 
     def configAdqcquisition(self):
         NoImages = int(self.window.NoImages.text())
+        periodAcq = float(self.window.periodAcq.text())
         patternDimension = (int(self.window.cornerX.text()),
                             int(self.window.cornerY.text()))
         self.pathImages = self.saveDialog()
         if self.pathImages != '':
             self.event.setConfigAutoAcq(
-                NoImages, patternDimension, self.pathImages)
+                NoImages, periodAcq, patternDimension, self.pathImages)
 
     def handlerStartRgbAndDepthImageAcq(self):
         self.configAdqcquisition()
@@ -38,6 +39,7 @@ class ControllerAutoAcqTab():
         self.event.turnOffCamera()
 
     def saveDialog(self):
+        relativePath = 'modules/AcquisitionExtrinsicCalibration/data/images'
         pathImages, info = QtWidgets.QFileDialog.getSaveFileName(
-            self.window, 'Save as', '../data/images', selectedFilter='*.png')
+            self.window, 'Save as', relativePath, selectedFilter='*.png')
         return pathImages

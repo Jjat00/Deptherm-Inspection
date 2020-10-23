@@ -1,29 +1,29 @@
 from PySide2 import QtCore, QtUiTools, QtWidgets
-from StylesExtAcqWidget import StylesExtAcqWidget
+from StylesAcquisitionWidgetAllCam import StylesAcquisitionWidgetAllCam
 import cv2
 import sys
 import os
 
-relativePath = 'modules/AcquisitionExtrinsicCalibration/src/'
+relativePath = 'modules/AcquisitionAllCameras/src/'
 
 
-class ExtrinsicAcquisitionWidget(QtWidgets.QDialog):
+class AcquisitionAllCamerasWidget(QtWidgets.QDialog):
     """
-    Main QTWidget for extrinsic acquisition
+    Main QTWidget for acquisition all cameras
     """
     def __init__(self, *args, **kwargs):
-        super(ExtrinsicAcquisitionWidget, self).__init__(*args, **kwargs)
+        super(AcquisitionAllCamerasWidget, self).__init__(*args, **kwargs)
         self.loadForm()
         self.initUI()
-        StylesExtAcqWidget(self)
+        StylesAcquisitionWidgetAllCam(self)
 
     def initUI(self):
         self.setWindowTitle("Data Acquisition")
-        self.setGeometry(300, 100, 900, 540)
+        self.setGeometry(100, 100, 1050, 585)
 
     def loadForm(self):
         formUI = os.path.join(
-            sys.path[0], "%sviews/extrinsicAcquisition.ui" % relativePath)
+            sys.path[0], '%sviews/acquisitionAllCameras.ui' % relativePath)
         file = QtCore.QFile(formUI)
         file.open(QtCore.QFile.ReadOnly)
         loader = QtUiTools.QUiLoader()
@@ -35,6 +35,6 @@ class ExtrinsicAcquisitionWidget(QtWidgets.QDialog):
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
-    acquisitionExtrinsicCalibration = ExtrinsicAcquisitionWidget()
+    acquisitionExtrinsicCalibration = AcquisitionAllCameras()
     acquisitionExtrinsicCalibration.show()
     app.exec_()

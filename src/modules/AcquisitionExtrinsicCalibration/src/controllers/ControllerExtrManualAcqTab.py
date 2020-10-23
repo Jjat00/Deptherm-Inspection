@@ -1,17 +1,17 @@
 from PySide2 import QtWidgets
-from EventsManualAcquisition import EventsManualAcquisition
+from EventsExtrManualAcquisition import EventsExtrManualAcquisition
 
-class ControllerManualAcqTab():
+class ControllerExtrManualAcqTab():
     """ 
     Controller for manual extrinsic acquisition 
     """
 
     def __init__(self, window):
-        super(ControllerManualAcqTab).__init__()
+        super(ControllerExtrManualAcqTab).__init__()
         self.window = window
-        self.eventRgbCamera = EventsManualAcquisition()
-        self.eventDepthCamera = EventsManualAcquisition()
-        self.eventThermalCamera = EventsManualAcquisition()
+        self.eventRgbCamera = EventsExtrManualAcquisition()
+        self.eventDepthCamera = EventsExtrManualAcquisition()
+        self.eventThermalCamera = EventsExtrManualAcquisition()
 
     def handlerTurnOnRGBCamera(self):
         rgbImage = self.eventRgbCamera.turnOnCamera('RGB')
@@ -57,12 +57,9 @@ class ControllerManualAcqTab():
             self.eventRgbCamera.turnOffCamera()
             self.eventThermalCamera.turnOffCamera()
 
-
-    def handlerNone(self):
-        print("NONE")
-
     def saveDialog(self):
+        relativePath = 'modules/AcquisitionExtrinsicCalibration/data/images'
         nameImage = QtWidgets.QFileDialog.getSaveFileName(
-            self.window, 'Save as', '../data/images', selectedFilter='*.png')
+            self.window, 'Save as', relativePath, selectedFilter='*.png')
         nameImage = nameImage[0]
         return nameImage

@@ -28,7 +28,7 @@ for nameDir in dirs:
     sys.path.append(path)
 
 """ 
-Add intrinsic acquisition modules to path
+Add acquisition modules to path
 """
 dirs = ['views', 
         'controllers',
@@ -42,7 +42,10 @@ for nameDir in dirs:
     path = os.path.join(sys.path[0], "%s%s" % (
         'modules/AcquisitionExtrinsicCalibration/src/', nameDir))
     sys.path.append(path)
-
+    #acquisition all cameras
+    path = os.path.join(sys.path[0], "%s%s" % (
+        'modules/AcquisitionAllCameras/src/', nameDir))
+    sys.path.append(path)
 
 """
 Add controller to main widget DepthermInspectionWidget and run QApplication

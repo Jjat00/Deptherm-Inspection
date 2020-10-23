@@ -6,6 +6,9 @@ from IntrinsicAcquisitionWidget import IntrinsicAcquisitionWidget
 from MainControllerExtrinsicAcq import MainControllerExtrinsicAcq
 from ExtrinsicAcquisitionWidget import ExtrinsicAcquisitionWidget
 
+from ControllerAcquisitionAllCam import ControllerAcquisitionAllCam
+from AcquisitionAllCamerasWidget import AcquisitionAllCamerasWidget
+
 class ControllerAcquisition():
     """
     Controller for user management form
@@ -53,7 +56,13 @@ class ControllerAcquisition():
 
     def showAllCamerasAcquisition(self):
         """
-        Handler button consult user
+        Show acquisition all cameras: rgb, depth and thermal
         """
-        pass
+        self.mainWidget.cleanWorkspace()
+        acquisitionAllCamerasWidget = AcquisitionAllCamerasWidget()
+        self.mainWidget.window.layoutWorkspace.addWidget(
+            acquisitionAllCamerasWidget)
+        ControllerAcquisitionAllCam(acquisitionAllCamerasWidget)
+
+
 

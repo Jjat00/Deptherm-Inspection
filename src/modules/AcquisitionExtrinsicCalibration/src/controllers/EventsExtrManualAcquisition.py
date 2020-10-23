@@ -1,16 +1,16 @@
 from PySide2 import QtWidgets, QtGui, QtCore
 import numpy as np
 import cv2
-from DataAcquisition import DataAcquisition
+from DataAcquisitionExtr import DataAcquisitionExtr
 
-class EventsManualAcquisition():
+class EventsExtrManualAcquisition():
     """ 
     Events for manual extrinsic acquisition 
     """
 
     def __init__(self):
-        super(EventsManualAcquisition).__init__()
-        self.camera = DataAcquisition()
+        super(EventsExtrManualAcquisition).__init__()
+        self.camera = DataAcquisitionExtr()
         self.viewCamera = QtWidgets.QGraphicsView()
         self.scalaImage = 65
         self.clicPlay = False
@@ -35,7 +35,13 @@ class EventsManualAcquisition():
         return self.viewCamera
 
     def captureImage(self, whichCamera):
-        self.turnOffCamera()
+
+        if (self.clicPlay or self.clicCapture):
+            self.viewCamera.deleteLater()
+        self.timerCamera.stop()
+        self.clicCapture = False
+        self.clicPlay = False
+
         if (whichCamera == 'RGB'):
             frameImage = self.camera.captureRgbImage()
         if (whichCamera == 'DEPTH'):
@@ -58,6 +64,10 @@ class EventsManualAcquisition():
         if (self.clicPlay or self.clicCapture):
             self.viewCamera.deleteLater()
         self.timerCamera.stop()
+
+        if self.whichCamera == 'THERMAL':
+            self.camera.closeThermalCamera()
+ 
         self.clicCapture = False
         self.clicPlay = False
 

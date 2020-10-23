@@ -1,9 +1,10 @@
 from PySide2 import QtGui, QtCore
-relativePathIcons = 'modules/AcquisitionExtrinsicCalibration/public/icons/'
 
-class Styles():
+relativePathIcons = 'modules/AcquisitionAllCameras/public/icons/'
+
+class StylesAcquisitionWidgetAllCam():
     def __init__(self, widget):
-        super(Styles).__init__()
+        super(StylesAcquisitionWidgetAllCam).__init__()
         self.widgetAcq = widget
         self.setTheme()
         self.setIcons()
@@ -23,29 +24,20 @@ class Styles():
         self.lineEdit = '#263238'
 
     def setIcons(self):
-        self.widgetAcq.window.onButton.setIcon(
+        self.widgetAcq.window.onButtonAuto.setIcon(
             QtGui.QPixmap(relativePathIcons + 'camera.png'))
-        self.widgetAcq.window.onButton.setIconSize(QtCore.QSize(30, 30))
-
-        self.widgetAcq.window.offButton.setIcon(
-            QtGui.QPixmap(relativePathIcons + 'stop.png'))
-        self.widgetAcq.window.offButton.setIconSize(QtCore.QSize(20, 20))
-
-        self.widgetAcq.window.captureButton.setIcon(
-            QtGui.QPixmap(relativePathIcons + 'capture.png'))
-        self.widgetAcq.window.captureButton.setIconSize(QtCore.QSize(25, 25))
-
-        self.widgetAcq.window.saveButton.setIcon(
-            QtGui.QPixmap(relativePathIcons + 'save.png'))
-        self.widgetAcq.window.saveButton.setIconSize(QtCore.QSize(25, 25))
+        self.widgetAcq.window.onButtonAuto.setIconSize(QtCore.QSize(35, 35))
+        self.widgetAcq.window.onButtonAuto.setToolTip('show all cameras')
 
         self.widgetAcq.window.startButton.setIcon(
             QtGui.QPixmap(relativePathIcons + 'play.png'))
-        self.widgetAcq.window.startButton.setIconSize(QtCore.QSize(25, 25))
+        self.widgetAcq.window.startButton.setIconSize(QtCore.QSize(35, 35))
+        self.widgetAcq.window.startButton.setToolTip('start acquisition')
 
         self.widgetAcq.window.stopButton.setIcon(
             QtGui.QPixmap(relativePathIcons + 'stop.png'))
-        self.widgetAcq.window.stopButton.setIconSize(QtCore.QSize(20, 20))
+        self.widgetAcq.window.stopButton.setIconSize(QtCore.QSize(30, 30))
+        self.widgetAcq.window.stopButton.setToolTip('new acquisition')
 
     def formStyle(self):
         styleWindow = """
@@ -96,19 +88,6 @@ class Styles():
                     background-color: """+self.primaryColor+""";
                     border-style: inset;
                 } 
-                QComboBox {
-                    Background: """ + self.primaryText + """;
-                    color: """ + self.lineEdit + """;
-                    min-height: 25px;
-                }   
-                QComboBox:!selected {
-                    Background: """ + self.primaryText + """;
-                    color: """ + self.lineEdit + """;
-                }   
-                QComboBox:!on {
-                    Background: """ + self.primaryText + """;
-                    color: """ + self.lineEdit + """;
-                } 
                 QLineEdit { 
                     Background: """ + self.primaryText + """;    
                     color:  """ + self.lineEdit + """;
@@ -146,7 +125,6 @@ class Styles():
         styleFrameCamera = """
             background: """ + self.frameCamera + """;
         """
-        self.widgetAcq.window.frameCameraM.setStyleSheet(styleFrameCamera)
         self.widgetAcq.window.frameCameraA.setStyleSheet(styleFrameCamera)
 
         styleLabelNoImage = """

@@ -1,5 +1,5 @@
-from ControllerAutoAcqTab import ControllerAutoAcqTab
-from ControllerManualAcqTab import ControllerManualAcqTab
+from ControllerExtrAutoAcqTab import ControllerExtrAutoAcqTab
+from ControllerExtrManualAcqTab import ControllerExtrManualAcqTab
 
 class MainControllerExtrinsicAcq():
     """
@@ -30,7 +30,7 @@ class MainControllerExtrinsicAcq():
         Connect  and disconnect buttons automatica acquisition tab and clean workspace every
         time the camera is changed
         """
-        self.controllerManualAcq = ControllerManualAcqTab(self.window)
+        self.controllerManualAcq = ControllerExtrManualAcqTab(self.window)
         chosenCamera = self.window.comboBoxManual.currentText()
         if chosenCamera == "RGB-DEPTH":
             self.connectButtonsRgbCamera()
@@ -100,7 +100,7 @@ class MainControllerExtrinsicAcq():
         Connect  and disconnect buttons automatic acquisition tab and clean workspace every
         time the camera is changed
         """
-        self.controllerAutoAcq = ControllerAutoAcqTab(self.window)
+        self.controllerAutoAcq = ControllerExtrAutoAcqTab(self.window)
         chosenCamera = self.window.comboBoxAuto.currentText()
         if chosenCamera == "RGB-DEPTH":
             self.connectButtonsRGbAndDepthCamera()
