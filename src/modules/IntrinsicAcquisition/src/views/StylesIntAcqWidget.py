@@ -1,15 +1,19 @@
 from PySide2 import QtGui, QtCore
-relativePathIcons = 'modules/AcquisitionExtrinsicCalibration/public/icons/'
+relativePathIcons = 'modules/IntrinsicAcquisition/public/icons/'
 
-class StylesExtAcqWidget():
+class StylesIntAcqWidget():
+    """
+    Set style and icons to widget
+    """    
+
     def __init__(self, widget):
-        super(StylesExtAcqWidget).__init__()
+        super(StylesIntAcqWidget).__init__()
         self.widgetAcq = widget
-        self.setTheme()
+        self.themeHighContrast()
         self.setIcons()
         self.formStyle()
 
-    def setTheme(self):
+    def themeHighContrast(self):
         """ 
         set color high constrast 
         """
@@ -36,7 +40,7 @@ class StylesExtAcqWidget():
         self.widgetAcq.window.captureButton.setIconSize(QtCore.QSize(25, 25))
 
         self.widgetAcq.window.saveButton.setIcon(
-            QtGui.QPixmap(relativePathIcons + 'save.png'))
+            QtGui.QPixmap(relativePathIcons + 'storage.png'))
         self.widgetAcq.window.saveButton.setIconSize(QtCore.QSize(25, 25))
 
         self.widgetAcq.window.startButton.setIcon(
@@ -148,7 +152,7 @@ class StylesExtAcqWidget():
         """
         self.widgetAcq.window.frameCameraM.setStyleSheet(styleFrameCamera)
         self.widgetAcq.window.frameCameraA.setStyleSheet(styleFrameCamera)
-
+        
         styleLabelNoImage = """
             background: """ + self.secondaryColor + """;
             color: """ + self.frameCamera + """;

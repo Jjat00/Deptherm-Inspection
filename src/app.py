@@ -36,7 +36,7 @@ dirs = ['views',
 for nameDir in dirs:
     #intrinsic acquisition
     path = os.path.join(sys.path[0], "%s%s" % (
-        'modules/AcquisitionIntrinsicCalibration/src/', nameDir))
+        'modules/IntrinsicAcquisition/src/', nameDir))
     sys.path.append(path)
     #extrinsic acquisition
     path = os.path.join(sys.path[0], "%s%s" % (
@@ -45,6 +45,17 @@ for nameDir in dirs:
     #acquisition all cameras
     path = os.path.join(sys.path[0], "%s%s" % (
         'modules/AcquisitionAllCameras/src/', nameDir))
+    sys.path.append(path)
+
+""" 
+Add calibration modules to path
+"""
+dirs = ['views',
+        'controllers']
+for nameDir in dirs:
+    #intrinsic calibration
+    path = os.path.join(sys.path[0], "%s%s" % (
+        'modules/IntrinsicCalibration/src/', nameDir))
     sys.path.append(path)
 
 """

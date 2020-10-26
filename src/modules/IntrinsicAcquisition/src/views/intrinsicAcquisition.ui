@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mainWindow</class>
+ <widget class="QWidget" name="mainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>828</width>
+    <height>581</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QTabWidget" name="tabIntrinsicAcq">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>801</width>
+     <height>561</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>1</number>
+   </property>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>Manual</string>
+    </attribute>
+    <widget class="QFrame" name="frameCameraM">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>-10</y>
+       <width>811</width>
+       <height>451</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QWidget" name="verticalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>811</width>
+        <height>441</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="displayManual"/>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="saveButton">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>460</y>
+       <width>80</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="offButton">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>460</y>
+       <width>80</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBoxManual">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>460</y>
+       <width>98</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>NONE</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>RGB</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>DEPTH</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>THERMAL</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QPushButton" name="captureButton">
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>460</y>
+       <width>80</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="onButton">
+     <property name="geometry">
+      <rect>
+       <x>302</x>
+       <y>460</y>
+       <width>80</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>Automatic</string>
+    </attribute>
+    <widget class="QLineEdit" name="NoImages">
+     <property name="geometry">
+      <rect>
+       <x>690</x>
+       <y>450</y>
+       <width>41</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>10</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="cornerX">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>450</y>
+       <width>41</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>9</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="cornerY">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>450</y>
+       <width>41</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>6</string>
+     </property>
+    </widget>
+    <widget class="QFrame" name="frameCameraA">
+     <property name="geometry">
+      <rect>
+       <x>-10</x>
+       <y>-10</y>
+       <width>811</width>
+       <height>441</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QWidget" name="verticalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>801</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="displayAuto"/>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="startButton">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>440</y>
+       <width>71</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="stopButton">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>440</y>
+       <width>71</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBoxAuto">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>440</y>
+       <width>91</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>NONE</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>RGB</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>DEPTH</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>THERMAL</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>450</y>
+       <width>81</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Dimension:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>630</x>
+       <y>450</y>
+       <width>51</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>amout:</string>
+     </property>
+    </widget>
+    <widget class="QProgressBar" name="progressBarAcq">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>490</y>
+       <width>791</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+     <property name="textVisible">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelNoImage">
+     <property name="geometry">
+      <rect>
+       <x>750</x>
+       <y>450</y>
+       <width>41</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>490</x>
+       <y>450</y>
+       <width>71</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>period(s):</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="periodAcq">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>450</y>
+       <width>41</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>1</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="labelHeader">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>251</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <italic>true</italic>
+    </font>
+   </property>
+   <property name="text">
+    <string>Intrinsic Acquisition</string>
+   </property>
+  </widget>
+  <zorder>labelHeader</zorder>
+  <zorder>tabIntrinsicAcq</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

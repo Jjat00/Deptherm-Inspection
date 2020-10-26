@@ -10,8 +10,11 @@ from controllers.ControllerUserLogin import ControllerUserLogin
 from controllers.ControllerUserManagement import ControllerUserManagement
 
 from views.AcquisitionManagementWidget import AcquisitionManagementWidget
-
 from controllers.ControllerAcquisition import ControllerAcquisition
+
+from MainControllerIntrinsicCalibration import MainControllerIntrinsicCalibration
+from IntrinsicCalibrationWidget import IntrinsicCalibrationWidget
+
 
 class MainControllerDepthermInspection():
     """
@@ -33,16 +36,22 @@ class MainControllerDepthermInspection():
         """
         self.window.buttonUserManage.clicked.connect(
             self.showUserManagementWidget)
+
         self.window.buttonLogin.clicked.connect(
             self.showUserLoginWidget)
+
         self.window.buttonLogout.clicked.connect(
             self.logout)
+
         self.window.buttonInspection.clicked.connect(
             self.showInspectionConfigurationWidget)
+
         self.window.buttonCalibInt.clicked.connect(
             self.showIntrinsicCalibrationWidget)
+
         self.window.buttonClean.clicked.connect(
             self.cleanWorkspace)
+
         self.window.buttonAcquisition.clicked.connect(
             self.showAcquisitionWidget)
 
@@ -84,10 +93,13 @@ class MainControllerDepthermInspection():
         docstring
         """
         self.cleanWorkspace()
+        intrinsicCalibrationWidget = IntrinsicCalibrationWidget()
+        self.window.layoutWorkspace.addWidget(intrinsicCalibrationWidget)
+        MainControllerIntrinsicCalibration(intrinsicCalibrationWidget)
         
-        inspectionConfigurationWidget = InspectionConfigurationWidget()
-        self.window.layoutWorkspace.addWidget(inspectionConfigurationWidget)
-        inspectionConfigurationWidget.exec()
+        #inspectionConfigurationWidget = InspectionConfigurationWidget()
+        #self.window.layoutWorkspace.addWidget(inspectionConfigurationWidget)
+        #inspectionConfigurationWidget.exec()
 
     def showAcquisitionWidget(self):
         """

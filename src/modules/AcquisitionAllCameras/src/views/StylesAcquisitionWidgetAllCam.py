@@ -113,10 +113,10 @@ class StylesAcquisitionWidgetAllCam():
 
         styleHeader = """
             padding-left: 5px;
-            background: """ + self.primaryColor + """;
+            background: """ + self.secondaryColor + """;
             font: bold, Ubuntu sans-serif;
             font-size: 13pt;
-            color: """ + self.secondaryColor + """;
+            color: """ + self.frameCamera + """;
             min-width:200px;
             padding-bottom: 0;
         """

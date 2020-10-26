@@ -35,6 +35,6 @@ class AcquisitionAllCamerasWidget(QtWidgets.QDialog):
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
-    acquisitionExtrinsicCalibration = AcquisitionAllCameras()
-    acquisitionExtrinsicCalibration.show()
+    acquisitionAllCamerasWidget = AcquisitionAllCamerasWidget()
+    acquisitionAllCamerasWidget.show()
     app.exec_()

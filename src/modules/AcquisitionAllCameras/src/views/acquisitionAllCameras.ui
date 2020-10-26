@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>993</width>
+    <width>910</width>
     <height>581</height>
    </rect>
   </property>
@@ -32,7 +32,7 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>320</x>
      <y>460</y>
      <width>51</width>
      <height>17</height>
@@ -45,7 +45,7 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>450</x>
      <y>460</y>
      <width>71</width>
      <height>20</height>
@@ -58,7 +58,7 @@
   <widget class="QPushButton" name="onButtonAuto">
    <property name="geometry">
     <rect>
-     <x>360</x>
+     <x>20</x>
      <y>450</y>
      <width>71</width>
      <height>41</height>
@@ -98,7 +98,7 @@
   <widget class="QLineEdit" name="NoImages">
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>380</x>
      <y>460</y>
      <width>41</width>
      <height>21</height>
@@ -111,7 +111,7 @@
   <widget class="QPushButton" name="startButton">
    <property name="geometry">
     <rect>
-     <x>460</x>
+     <x>120</x>
      <y>450</y>
      <width>71</width>
      <height>41</height>
@@ -126,7 +126,7 @@
     <rect>
      <x>10</x>
      <y>500</y>
-     <width>941</width>
+     <width>891</width>
      <height>20</height>
     </rect>
    </property>
@@ -140,7 +140,7 @@
   <widget class="QLineEdit" name="period">
    <property name="geometry">
     <rect>
-     <x>220</x>
+     <x>530</x>
      <y>460</y>
      <width>41</width>
      <height>21</height>
@@ -153,7 +153,7 @@
   <widget class="QPushButton" name="stopButton">
    <property name="geometry">
     <rect>
-     <x>560</x>
+     <x>220</x>
      <y>450</y>
      <width>71</width>
      <height>41</height>
@@ -166,7 +166,7 @@
   <widget class="QLabel" name="labelNoImage">
    <property name="geometry">
     <rect>
-     <x>870</x>
+     <x>850</x>
      <y>450</y>
      <width>41</width>
      <height>31</height>
