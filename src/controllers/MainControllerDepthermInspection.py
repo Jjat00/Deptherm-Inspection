@@ -15,6 +15,8 @@ from controllers.ControllerAcquisition import ControllerAcquisition
 from MainControllerIntrinsicCalibration import MainControllerIntrinsicCalibration
 from IntrinsicCalibrationWidget import IntrinsicCalibrationWidget
 
+from ExtrinsicCalibrationWidget import ExtrinsicCalibrationWidget
+from MainControllerExtCalibration import MainControllerExtCalibration
 
 class MainControllerDepthermInspection():
     """
@@ -46,14 +48,18 @@ class MainControllerDepthermInspection():
         self.window.buttonInspection.clicked.connect(
             self.showInspectionConfigurationWidget)
 
+        self.window.buttonAcquisition.clicked.connect(
+            self.showAcquisitionWidget)
+            
         self.window.buttonCalibInt.clicked.connect(
             self.showIntrinsicCalibrationWidget)
+
+        self.window.buttonCalibExt.clicked.connect(
+            self.showExtrinsicCalibrationWidget)
 
         self.window.buttonClean.clicked.connect(
             self.cleanWorkspace)
 
-        self.window.buttonAcquisition.clicked.connect(
-            self.showAcquisitionWidget)
 
     def showUserManagementWidget(self):
         """
@@ -100,6 +106,15 @@ class MainControllerDepthermInspection():
         #inspectionConfigurationWidget = InspectionConfigurationWidget()
         #self.window.layoutWorkspace.addWidget(inspectionConfigurationWidget)
         #inspectionConfigurationWidget.exec()
+
+    def showExtrinsicCalibrationWidget(self):
+        """
+        docstring
+        """
+        self.cleanWorkspace()
+        extrinsicCalibrationWidget = ExtrinsicCalibrationWidget()
+        self.window.layoutWorkspace.addWidget(extrinsicCalibrationWidget)
+        MainControllerExtCalibration(extrinsicCalibrationWidget)
 
     def showAcquisitionWidget(self):
         """

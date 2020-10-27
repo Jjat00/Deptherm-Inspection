@@ -43,8 +43,11 @@ class IntrinsicCameraCalibration():
                                 img = cv2.drawChessboardCorners(
                                     img, (self.patternDimensions[1], self.patternDimensions[0]), corners, ret)
                                 self.drawChessBoardImages.append(img)
+                                cv2.imshow('img', img)
+                                cv2.waitKey(20)
                 self.state, self.intrinsicMatrix, self.distortionParameters, self.rvecs, self.tvecs = cv2.calibrateCamera(
                     self.objectPoints, self.imagePoints, gray.shape[::-1], None, None)
+                cv2.destroyAllWindows()
 
         def increaseProgressBar(self):
                 self.countNoImageAutoAcq += 1

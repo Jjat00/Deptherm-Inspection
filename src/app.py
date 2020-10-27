@@ -51,11 +51,16 @@ for nameDir in dirs:
 Add calibration modules to path
 """
 dirs = ['views',
-        'controllers']
+        'controllers', 
+        'resources']
 for nameDir in dirs:
     #intrinsic calibration
     path = os.path.join(sys.path[0], "%s%s" % (
         'modules/IntrinsicCalibration/src/', nameDir))
+    sys.path.append(path)
+    #extrinsic calibration
+    path = os.path.join(sys.path[0], "%s%s" % (
+        'modules/ExtrinsicCalibration/src/', nameDir))
     sys.path.append(path)
 
 """

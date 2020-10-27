@@ -1,6 +1,7 @@
 from models.entities.User import User
 from database.Storage import Storage
-
+import urlfetch
+import json
 class UserDB():
     """
     Services for user table db
@@ -27,6 +28,13 @@ class UserDB():
         except IndexError:
             user = None
 
+        res = urlfetch.get(
+            'https://ancient-thicket-70656.herokuapp.com/basedatos/consultapaciente/1088597617')
+        r = res.content.decode('utf-8')
+        u = json.loads(r)
+        print(u[0]['nombre'])
+
+
         return user
 
     def insertUser(self, user):
@@ -48,6 +56,21 @@ class UserDB():
         query = "INSERT INTO public.user(ID, userType, name, lastname, state, phone, email, password) VALUES(%i, %i, '%s', '%s', %r, %i, '%s', '%s')" % (
             ID, userType, name, lastname, state, phone, email, password)
         count = self.storage.insert(query)
+
+
+        response = urlfetch.post(
+            'https://ancient-thicket-70656.herokuapp.com/basedatos/insertarpaciente',
+            headers = {},
+            data = {
+                'nombre': name,
+                'apellido': lastname,
+                'email': email,
+                'numid': ID
+            },
+        )
+
+        print(response.status)
+        print(response.content)
         return count
 
     def updateUser(self, user):
