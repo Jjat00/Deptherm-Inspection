@@ -51,7 +51,7 @@ class ControllerIntManualAcqTab():
         self.event.turnOffCamera()
 
     def saveDialog(self):
-        relativePath = 'modules/AcquisitionIntrinsicCalibration/data/images'
+        relativePath = 'modules/IntrinsicAcquisition/data/images'
         nameImage = QtWidgets.QFileDialog.getSaveFileName(
             self.window, 'Save as', relativePath, selectedFilter='*.png')
         nameImage = "%s.png" % nameImage[0]

@@ -11,14 +11,15 @@ class StyleLogin():
         super(StyleLogin).__init__()
         self.widget = widget
         self.styles = Styles(self.widget)
-        #self.setIcons()
+        self.setIcons()
         self.setStyle()
 
 
     def setIcons(self):
-        self.widget.window.acqButton.setIcon(
-            QtGui.QPixmap(relativePathIcons+'video.png'))
-        self.widget.window.acqButton.setIconSize(QtCore.QSize(20, 20))
+        thermalCamera = QtGui.QPixmap.fromImage(
+            relativePathIcons+'portada.png')
+        self.widget.window.thermalCamera.setPixmap(thermalCamera)
+        self.widget.window.thermalCamera.setScaledContents(True)
 
     def setStyle(self):
         """
@@ -42,3 +43,9 @@ class StyleLogin():
             padding-bottom: 0;
         """
         self.widget.window.labelMessage.setStyleSheet(styleMessage)
+
+
+        styleButtons = """ 
+                    border: 1px solid """ + self.styles.secondaryText + """;
+                """
+        self.widget.window.buttonLogin.setStyleSheet(styleButtons)

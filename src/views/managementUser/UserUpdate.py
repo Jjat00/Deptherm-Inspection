@@ -1,5 +1,5 @@
 from PySide2 import QtWidgets, QtCore, QtUiTools
-from views.styles.StyleUserManagement import StyleUserManagement
+from Style import Styles
 import sys
 import os
 
@@ -12,7 +12,7 @@ class UserUpdateWidget(QtWidgets.QDialog):
     def __init__(self):
         super().__init__()
         self.initGUI()
-        StyleUserManagement(self)
+        Styles(self)
 
     def initGUI(self):
         """

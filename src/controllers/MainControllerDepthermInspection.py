@@ -18,6 +18,9 @@ from IntrinsicCalibrationWidget import IntrinsicCalibrationWidget
 from ExtrinsicCalibrationWidget import ExtrinsicCalibrationWidget
 from MainControllerExtCalibration import MainControllerExtCalibration
 
+from MainControllerInspection import MainControllerInspection
+from InspectionAnalyzerWidget import InspectionAnalyzerWidget
+
 class MainControllerDepthermInspection():
     """
     Main controller app Deptherm Inspection
@@ -29,6 +32,7 @@ class MainControllerDepthermInspection():
         depthermIspectionWidget.show()
         self.connectButtons()
         self.STATELOGIN = False
+        self.inspectinoAnalyzer = False
         #depthermIspectionWidget.exec()
         #app.exec_()
 
@@ -60,6 +64,20 @@ class MainControllerDepthermInspection():
         self.window.buttonClean.clicked.connect(
             self.cleanWorkspace)
 
+        self.window.buttonInspectionAnalyzer.clicked.connect(
+            self.showInspctionAnalyzer)
+
+    def deleteObjet(self):
+        """
+        docstring
+        """
+        del self.userManagementWidget 
+        del self.loginWidget 
+        del self.clientFormWidgetWidget 
+        del self.intrinsicCalibrationWidget 
+        del self.extrinsicCalibrationWidget 
+        del self.acquisitionManagementWidget 
+        del self.analyzerWidget 
 
     def showUserManagementWidget(self):
         """
@@ -67,9 +85,9 @@ class MainControllerDepthermInspection():
         """
         if self.STATELOGIN:
             self.cleanWorkspace()
-            userManagementWidget = UserManagementWidget()
-            self.window.layoutWorkspace.addWidget(userManagementWidget)
-            ControllerUserManagement(userManagementWidget)
+            self.userManagementWidget = UserManagementWidget()
+            self.window.layoutDepthermInpesction.addWidget(self.userManagementWidget)
+            controller = ControllerUserManagement(self.userManagementWidget)
         else:
             self.showMessage("you need to be logged like admin for this!")
 
@@ -79,19 +97,18 @@ class MainControllerDepthermInspection():
         Handler button login user
         """
         self.cleanWorkspace()
-        loginWidget = LoginWidget()
-        self.window.layoutWorkspace.addWidget(loginWidget)
-        ControllerUserLogin(self, loginWidget)
+        self.loginWidget = LoginWidget()
+        self.window.layoutDepthermInpesction.addWidget(self.loginWidget)
+        controller = ControllerUserLogin(self, self.loginWidget)
 
     def showInspectionConfigurationWidget(self):
         """
         docstring
         """
         self.cleanWorkspace()
-        
-        clientFormWidgetWidget = ClientFormWidget()
-        self.window.layoutWorkspace.addWidget(clientFormWidgetWidget)
-        clientFormWidgetWidget.exec()
+        self.clientFormWidgetWidget = ClientFormWidget()
+        self.window.layoutDepthermInpesction.addWidget(self.clientFormWidgetWidget)
+        self.clientFormWidgetWidget.exec()
 
 
     def showIntrinsicCalibrationWidget(self):
@@ -99,12 +116,13 @@ class MainControllerDepthermInspection():
         docstring
         """
         self.cleanWorkspace()
-        intrinsicCalibrationWidget = IntrinsicCalibrationWidget()
-        self.window.layoutWorkspace.addWidget(intrinsicCalibrationWidget)
-        MainControllerIntrinsicCalibration(intrinsicCalibrationWidget)
+        self.intrinsicCalibrationWidget = IntrinsicCalibrationWidget()
+        self.window.layoutDepthermInpesction.addWidget(self.intrinsicCalibrationWidget)
+        controller = MainControllerIntrinsicCalibration(
+            self.intrinsicCalibrationWidget)
         
         #inspectionConfigurationWidget = InspectionConfigurationWidget()
-        #self.window.layoutWorkspace.addWidget(inspectionConfigurationWidget)
+        #self.window.layoutDepthermInpesction.addWidget(inspectionConfigurationWidget)
         #inspectionConfigurationWidget.exec()
 
     def showExtrinsicCalibrationWidget(self):
@@ -112,30 +130,35 @@ class MainControllerDepthermInspection():
         docstring
         """
         self.cleanWorkspace()
-        extrinsicCalibrationWidget = ExtrinsicCalibrationWidget()
-        self.window.layoutWorkspace.addWidget(extrinsicCalibrationWidget)
-        MainControllerExtCalibration(extrinsicCalibrationWidget)
+        self.extrinsicCalibrationWidget = ExtrinsicCalibrationWidget()
+        self.window.layoutDepthermInpesction.addWidget(self.extrinsicCalibrationWidget)
+        controller = MainControllerExtCalibration(self.extrinsicCalibrationWidget)
 
     def showAcquisitionWidget(self):
         """
         docstring
         """
         self.cleanWorkspace()
-        acquisitionManagementWidget = AcquisitionManagementWidget()
-        self.window.layoutWorkspace.addWidget(acquisitionManagementWidget)
-        ControllerAcquisition(self, acquisitionManagementWidget)
+        self.acquisitionManagementWidget = AcquisitionManagementWidget()
+        self.window.layoutDepthermInpesction.addWidget(self.acquisitionManagementWidget)
+        controller = ControllerAcquisition(self, self.acquisitionManagementWidget)
 
     def cleanWorkspace(self):
         """
         Clean worksspace remove all widget
         """
         self.window.labelMessage.setText("")
-        for index in reversed(range(self.window.layoutWorkspace.count())):
-            layoutItem = self.window.layoutWorkspace.itemAt(index)
+
+        if self.inspectinoAnalyzer:
+            del self.analyzerWidget
+            self.inspectinoAnalyzer = False
+
+        for index in reversed(range(self.window.layoutDepthermInpesction.count())):
+            layoutItem = self.window.layoutDepthermInpesction.itemAt(index)
             widgetToRemove = layoutItem.widget()
             print("found widget: " + str(widgetToRemove))
             widgetToRemove.setParent(None)
-            self.window.layoutWorkspace.removeWidget(widgetToRemove)
+            self.window.layoutDepthermInpesction.removeWidget(widgetToRemove)
 
     def showMessage(self, message):
         """
@@ -153,3 +176,15 @@ class MainControllerDepthermInspection():
             self.showMessage("User logout")
         else:
             self.showMessage("Not logged in")
+
+    def showInspctionAnalyzer(self):
+        """
+        docstring
+        """
+        self.cleanWorkspace()
+        self.inspectinoAnalyzer = True
+        self.analyzerWidget = InspectionAnalyzerWidget()
+        self.window.layoutDepthermInpesction.addWidget(self.analyzerWidget)
+        self.controllerMainInspection = MainControllerInspection(self.analyzerWidget)
+
+

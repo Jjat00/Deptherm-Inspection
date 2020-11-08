@@ -13,7 +13,7 @@ class EventsIntAutoAcquisition():
         self.window = window
         self.camera = DataIntAcquisition()
         self.countNoImageAutoAcq = 0
-        self.scalaImage = 90
+        self.scalaImage = 100
         self.clicStart = False
         self.dimensionsCamera = np.array([640, 480])*(self.scalaImage/100)
         self.criteria = (cv2.TERM_CRITERIA_EPS +

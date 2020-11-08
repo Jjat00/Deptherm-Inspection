@@ -36,3 +36,12 @@ class StyleUserManagement():
             padding-bottom: 0;
         """
         self.widget.window.labelMessage.setStyleSheet(styleMessage)
+
+        styleButtons = """ 
+            border: 1px solid """ + self.styles.secondaryText + """;
+        """
+        self.widget.window.buttonRegisterUser.setStyleSheet(styleButtons)
+        self.widget.window.buttonUpdateUser.setStyleSheet(styleButtons)
+        self.widget.window.buttonConsultUser.setStyleSheet(styleButtons)
+        self.widget.window.buttonDeleteUser.setStyleSheet(styleButtons)
+        

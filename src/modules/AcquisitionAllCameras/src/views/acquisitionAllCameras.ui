@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>910</width>
+    <width>1163</width>
     <height>581</height>
    </rect>
   </property>
@@ -18,8 +18,8 @@
     <rect>
      <x>10</x>
      <y>-20</y>
-     <width>901</width>
-     <height>71</height>
+     <width>1151</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="frameShadow">
@@ -32,8 +32,8 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>320</x>
-     <y>460</y>
+     <x>610</x>
+     <y>520</y>
      <width>51</width>
      <height>17</height>
     </rect>
@@ -45,8 +45,8 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>450</x>
-     <y>460</y>
+     <x>740</x>
+     <y>520</y>
      <width>71</width>
      <height>20</height>
     </rect>
@@ -58,8 +58,8 @@
   <widget class="QPushButton" name="onButtonAuto">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>450</y>
+     <x>310</x>
+     <y>510</y>
      <width>71</width>
      <height>41</height>
     </rect>
@@ -71,10 +71,10 @@
   <widget class="QFrame" name="frameCameraA">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>-10</x>
      <y>40</y>
-     <width>891</width>
-     <height>401</height>
+     <width>1171</width>
+     <height>461</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -88,8 +88,8 @@
      <rect>
       <x>0</x>
       <y>10</y>
-      <width>891</width>
-      <height>381</height>
+      <width>1171</width>
+      <height>451</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="displayAuto"/>
@@ -98,8 +98,8 @@
   <widget class="QLineEdit" name="NoImages">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>460</y>
+     <x>670</x>
+     <y>520</y>
      <width>41</width>
      <height>21</height>
     </rect>
@@ -111,8 +111,8 @@
   <widget class="QPushButton" name="startButton">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>450</y>
+     <x>410</x>
+     <y>510</y>
      <width>71</width>
      <height>41</height>
     </rect>
@@ -125,8 +125,8 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>500</y>
-     <width>891</width>
+     <y>560</y>
+     <width>1141</width>
      <height>20</height>
     </rect>
    </property>
@@ -140,8 +140,8 @@
   <widget class="QLineEdit" name="period">
    <property name="geometry">
     <rect>
-     <x>530</x>
-     <y>460</y>
+     <x>820</x>
+     <y>520</y>
      <width>41</width>
      <height>21</height>
     </rect>
@@ -153,8 +153,8 @@
   <widget class="QPushButton" name="stopButton">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>450</y>
+     <x>510</x>
+     <y>510</y>
      <width>71</width>
      <height>41</height>
     </rect>
@@ -166,14 +166,27 @@
   <widget class="QLabel" name="labelNoImage">
    <property name="geometry">
     <rect>
-     <x>850</x>
-     <y>450</y>
+     <x>990</x>
+     <y>520</y>
      <width>41</width>
-     <height>31</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string/>
+    <string>0</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>910</x>
+     <y>520</y>
+     <width>67</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Captured:</string>
    </property>
   </widget>
  </widget>

@@ -46,11 +46,11 @@ class StyleDepthermInspection():
             QtCore.QSize(40, 40))
         self.widget.window.buttonCalibExt.setToolTip('Extrinsic calibration')
 
-        self.widget.window.buttonCameraFusion.setIcon(
+        self.widget.window.buttonInspectionAnalyzer.setIcon(
             QtGui.QPixmap(relativePathIcons+'3dsensor.png'))
-        self.widget.window.buttonCameraFusion.setIconSize(
+        self.widget.window.buttonInspectionAnalyzer.setIconSize(
             QtCore.QSize(40, 40))
-        self.widget.window.buttonCameraFusion.setToolTip('Camera Fusion')
+        self.widget.window.buttonInspectionAnalyzer.setToolTip('Camera Fusion')
 
         self.widget.window.buttonLogout.setIcon(
             QtGui.QPixmap(relativePathIcons+'logout.png'))

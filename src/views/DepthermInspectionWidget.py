@@ -21,7 +21,7 @@ class DepthermInspectionWidget(QtWidgets.QWidget):
         """
         self.loadForm()
         self.setWindowTitle("Deptherm Inspection")
-        self.setGeometry(100, 5, 1080, 710)
+        self.setGeometry(100, 5, 1200, 710)
 
     def loadForm(self):
         formUI = os.path.join(sys.path[0], 'views/DethermInspection.ui')

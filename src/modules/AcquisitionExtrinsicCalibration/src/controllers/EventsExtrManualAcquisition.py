@@ -12,7 +12,7 @@ class EventsExtrManualAcquisition():
         super(EventsExtrManualAcquisition).__init__()
         self.camera = DataAcquisitionExtr()
         self.viewCamera = QtWidgets.QGraphicsView()
-        self.scalaImage = 65
+        self.scalaImage = 90
         self.clicPlay = False
         self.clicCapture = False
         self.dimensionsCamera = np.array([640, 480])*(self.scalaImage/100)

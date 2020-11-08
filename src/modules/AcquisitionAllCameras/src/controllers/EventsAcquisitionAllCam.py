@@ -15,7 +15,7 @@ class EventsAcquisitionAllCam():
         self.window = window
         self.camera = DataAcquisitionAllCam()
         self.countNoImageAutoAcq = 0
-        self.scalaImage = 45
+        self.scalaImage = 60
         self.clicStart = False
         self.save = False
         self.dimensionsCamera = np.array([640, 480])*(self.scalaImage/100)
@@ -99,7 +99,12 @@ class EventsAcquisitionAllCam():
     def getFrameCameras(self):
         frameRgbCamera = self.camera.getRgbImage()
         frameDepthCamera = self.camera.getDepthImage()
-        frameThermalCamera = self.camera.getThermalImage()
+        #frameThermalCamera = self.camera.getThermalImage()
+        frame = self.camera.getThermalImage()
+        frame = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
+        frame = abs(255 - frame)
+        frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2RGB)
+        frameThermalCamera = frame
         depthData = self.camera.getDepthData()
         self.pixMapRgbCamera(frameRgbCamera)
         self.pixMapDepthCamera(frameDepthCamera)

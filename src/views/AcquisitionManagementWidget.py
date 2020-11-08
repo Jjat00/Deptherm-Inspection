@@ -1,7 +1,7 @@
 from PySide2 import QtCore, QtUiTools, QtWidgets
 import sys
 import os
-from Style import Styles
+from StyleAcquisitionManagement import StyleAcquisitionManagement
 
 
 class AcquisitionManagementWidget(QtWidgets.QDialog):
@@ -12,7 +12,7 @@ class AcquisitionManagementWidget(QtWidgets.QDialog):
     def __init__(self, *args, **kwargs):
         super(AcquisitionManagementWidget, self).__init__(*args, **kwargs)
         self.initUI()
-        Styles(self)
+        StyleAcquisitionManagement(self)
 
     def initUI(self):
         """

@@ -6,128 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1031</width>
-    <height>687</height>
+    <width>1338</width>
+    <height>764</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QFrame" name="frame">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>120</y>
-      <width>101</width>
-      <height>431</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QPushButton" name="buttonInspection">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>81</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="buttonCalibInt">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>130</y>
-       <width>81</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="buttonCalibExt">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>190</y>
-       <width>81</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="buttonCameraFusion">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>250</y>
-       <width>81</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="buttonReport">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>310</y>
-       <width>81</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="buttonClean">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>370</y>
-       <width>81</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="buttonAcquisition">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>70</y>
-       <width>81</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-   </widget>
    <widget class="QFrame" name="frameWorkspace">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>90</x>
       <y>50</y>
-      <width>911</width>
-      <height>571</height>
+      <width>1191</width>
+      <height>631</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -141,11 +34,11 @@
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>891</width>
-       <height>551</height>
+       <width>1171</width>
+       <height>611</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="layoutWorkspace">
+     <layout class="QVBoxLayout" name="layoutDepthermInpesction">
       <property name="leftMargin">
        <number>0</number>
       </property>
@@ -158,7 +51,7 @@
    <widget class="QPushButton" name="buttonLogin">
     <property name="geometry">
      <rect>
-      <x>860</x>
+      <x>1130</x>
       <y>0</y>
       <width>71</width>
       <height>41</height>
@@ -171,7 +64,7 @@
    <widget class="QPushButton" name="buttonUserManage">
     <property name="geometry">
      <rect>
-      <x>770</x>
+      <x>1050</x>
       <y>0</y>
       <width>71</width>
       <height>41</height>
@@ -186,8 +79,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>511</width>
-      <height>41</height>
+      <width>401</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
@@ -197,7 +90,7 @@
    <widget class="QPushButton" name="buttonLogout">
     <property name="geometry">
      <rect>
-      <x>950</x>
+      <x>1210</x>
       <y>0</y>
       <width>71</width>
       <height>41</height>
@@ -210,8 +103,8 @@
    <widget class="QLabel" name="labelMessage">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>630</y>
+      <x>530</x>
+      <y>0</y>
       <width>511</width>
       <height>41</height>
      </rect>
@@ -226,8 +119,8 @@
    <widget class="QLabel" name="labelLogo">
     <property name="geometry">
      <rect>
-      <x>910</x>
-      <y>630</y>
+      <x>420</x>
+      <y>10</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -236,13 +129,118 @@
      <string/>
     </property>
    </widget>
+   <widget class="QPushButton" name="buttonReport">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>480</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonAcquisition">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>240</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonInspectionAnalyzer">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>420</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonClean">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>540</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonCalibInt">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>300</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonInspection">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>180</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonCalibExt">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>360</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>labelLogo</zorder>
+   <zorder>frameWorkspace</zorder>
+   <zorder>buttonLogin</zorder>
+   <zorder>buttonUserManage</zorder>
+   <zorder>labelHeader</zorder>
+   <zorder>buttonLogout</zorder>
+   <zorder>labelMessage</zorder>
+   <zorder>buttonReport</zorder>
+   <zorder>buttonAcquisition</zorder>
+   <zorder>buttonInspectionAnalyzer</zorder>
+   <zorder>buttonClean</zorder>
+   <zorder>buttonCalibInt</zorder>
+   <zorder>buttonInspection</zorder>
+   <zorder>buttonCalibExt</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1031</width>
+     <width>1338</width>
      <height>22</height>
     </rect>
    </property>

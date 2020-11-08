@@ -10,7 +10,7 @@ class EventsExtrinsicCalibration():
     def __init__(self, window):
         super(EventsExtrinsicCalibration).__init__()
         self.window = window
-        self.scalaImage = 60
+        self.scalaImage = 80
         self.extrinsicCalibrationData = {}
 
     def selectDirectoryImages(self):

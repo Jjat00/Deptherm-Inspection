@@ -4,7 +4,6 @@
 Author: Jaimen Aza 
 Email: userjjar00@gmail.com
 Date create: 17-Oct-2020
-
 """
 
 from PySide2 import QtWidgets
@@ -62,6 +61,21 @@ for nameDir in dirs:
     path = os.path.join(sys.path[0], "%s%s" % (
         'modules/ExtrinsicCalibration/src/', nameDir))
     sys.path.append(path)
+
+
+""" 
+Add inspection analyzer to path
+"""
+dirs = ['views',
+        'controllers',
+        'controllers/services',
+        'controllers/interfaces']
+for nameDir in dirs:
+    #intrinsic calibration
+    path = os.path.join(sys.path[0], "%s%s" % (
+        'modules/InspectionAnalyzer/src/', nameDir))
+    sys.path.append(path)
+
 
 """
 Add controller to main widget DepthermInspectionWidget and run QApplication

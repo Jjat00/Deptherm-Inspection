@@ -41,7 +41,7 @@ class ControllerAcquisition():
         """
         self.mainWidget.cleanWorkspace()
         intrinsicAcquisitionWidget = IntrinsicAcquisitionWidget()
-        self.mainWidget.window.layoutWorkspace.addWidget(intrinsicAcquisitionWidget)
+        self.mainWidget.window.layoutDepthermInpesction.addWidget(intrinsicAcquisitionWidget)
         MainControllerIntrinsicAcq(intrinsicAcquisitionWidget)
 
     def showExtrinsicAcquisition(self):
@@ -50,7 +50,7 @@ class ControllerAcquisition():
         """
         self.mainWidget.cleanWorkspace()
         extrinsicAcquisitionWidget = ExtrinsicAcquisitionWidget()
-        self.mainWidget.window.layoutWorkspace.addWidget(
+        self.mainWidget.window.layoutDepthermInpesction.addWidget(
             extrinsicAcquisitionWidget)
         MainControllerExtrinsicAcq(extrinsicAcquisitionWidget)
 
@@ -60,7 +60,7 @@ class ControllerAcquisition():
         """
         self.mainWidget.cleanWorkspace()
         acquisitionAllCamerasWidget = AcquisitionAllCamerasWidget()
-        self.mainWidget.window.layoutWorkspace.addWidget(
+        self.mainWidget.window.layoutDepthermInpesction.addWidget(
             acquisitionAllCamerasWidget)
         ControllerAcquisitionAllCam(acquisitionAllCamerasWidget)
 

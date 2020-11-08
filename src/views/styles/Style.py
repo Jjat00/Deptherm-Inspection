@@ -60,7 +60,6 @@ class Styles():
             QWidget {
                     background: """+self.secondaryColor+""";
                     color:  """+self.primaryText+""";
-                    border: none;
                     font: Ubuntu;
                     font-size: 12pt;
                 }

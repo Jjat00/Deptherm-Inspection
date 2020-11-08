@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>818</width>
-    <height>523</height>
+    <width>1176</width>
+    <height>594</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QPushButton" name="buttonRegisterUser">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>140</y>
+     <x>440</x>
+     <y>150</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -29,8 +29,8 @@
   <widget class="QPushButton" name="buttonUpdateUser">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>210</y>
+     <x>440</x>
+     <y>220</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -42,8 +42,8 @@
   <widget class="QPushButton" name="buttonDeleteUser">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>350</y>
+     <x>440</x>
+     <y>360</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -55,8 +55,8 @@
   <widget class="QPushButton" name="buttonConsultUser">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>280</y>
+     <x>440</x>
+     <y>290</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -68,9 +68,9 @@
   <widget class="QLabel" name="labelHeader">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>-10</x>
      <y>0</y>
-     <width>821</width>
+     <width>1191</width>
      <height>41</height>
     </rect>
    </property>
@@ -84,10 +84,10 @@
   <widget class="QLabel" name="labelMessage">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>440</y>
-     <width>371</width>
-     <height>31</height>
+     <x>380</x>
+     <y>480</y>
+     <width>401</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">

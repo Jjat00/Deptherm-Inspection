@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>826</width>
-    <height>522</height>
+    <width>1168</width>
+    <height>584</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QPushButton" name="buttonIntAcq">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>190</y>
+     <x>440</x>
+     <y>200</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -29,8 +29,8 @@
   <widget class="QPushButton" name="buttonExtAcq">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>274</y>
+     <x>440</x>
+     <y>284</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -45,8 +45,8 @@
   <widget class="QPushButton" name="buttonAllAcq">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>360</y>
+     <x>440</x>
+     <y>370</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -55,17 +55,17 @@
     <string>All cameras Acquisition</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="labelHeader">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>10</y>
-     <width>791</width>
-     <height>61</height>
+     <x>-10</x>
+     <y>0</y>
+     <width>1181</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="text">
-    <string>Data Acquisition</string>
+    <string>DATA ACQUISITION</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

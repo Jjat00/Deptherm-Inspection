@@ -8,7 +8,7 @@ class EventsIntrinsicCalibration():
     def __init__(self, window):
         super(EventsIntrinsicCalibration).__init__()
         self.window = window
-        self.scalaImage = 70
+        self.scalaImage = 100
         self.intrinsicCalibrationData = {}
 
     def selectDirectoryImages(self):

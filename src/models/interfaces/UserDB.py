@@ -28,11 +28,11 @@ class UserDB():
         except IndexError:
             user = None
 
-        res = urlfetch.get(
-            'https://ancient-thicket-70656.herokuapp.com/basedatos/consultapaciente/1088597617')
-        r = res.content.decode('utf-8')
-        u = json.loads(r)
-        print(u[0]['nombre'])
+        #res = urlfetch.get(
+        #    'https://ancient-thicket-70656.herokuapp.com/basedatos/consultapaciente/1088597617')
+        #r = res.content.decode('utf-8')
+        #u = json.loads(r)
+        #print(u[0]['nombre'])
 
 
         return user
@@ -58,19 +58,19 @@ class UserDB():
         count = self.storage.insert(query)
 
 
-        response = urlfetch.post(
-            'https://ancient-thicket-70656.herokuapp.com/basedatos/insertarpaciente',
-            headers = {},
-            data = {
-                'nombre': name,
-                'apellido': lastname,
-                'email': email,
-                'numid': ID
-            },
-        )
+        #response = urlfetch.post(
+        #    'https://ancient-thicket-70656.herokuapp.com/basedatos/insertarpaciente',
+        #    headers = {},
+        #    data = {
+        #        'nombre': name,
+        #        'apellido': lastname,
+        #        'email': email,
+        #        'numid': ID
+        #    },
+        #)
 
-        print(response.status)
-        print(response.content)
+        #print(response.status)
+        #print(response.content)
         return count
 
     def updateUser(self, user):
