@@ -36,7 +36,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>juan@gmail.com</string>
+    <string>Alguien01@gmail.com</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEditPassword">
@@ -49,7 +49,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>121d41s</string>
+    <string>password1</string>
    </property>
    <property name="echoMode">
     <enum>QLineEdit::Password</enum>

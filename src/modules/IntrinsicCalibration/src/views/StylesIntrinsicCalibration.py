@@ -45,29 +45,31 @@ class StylesIntrinsicCalibration():
             QtGui.QPixmap(relativePathIcons+'refresh.png'))
         self.widgetAcq.window.clearButton.setIconSize(QtCore.QSize(30, 30))
 
+        self.widgetAcq.window.buttonUploadCloud.setIcon(
+            QtGui.QPixmap(relativePathIcons+'cloud.png'))
+        self.widgetAcq.window.buttonUploadCloud.setIconSize(QtCore.QSize(35, 35))
+        self.widgetAcq.window.buttonUploadCloud.setToolTip(
+            'upload date to database')
+
     def formStyle(self):
         styleWindow = """
             QWidget{
                 background: """ + self.secondaryColor + """;
                 color:  """ + self.primaryText + """;
-                border: none;
                 font: Ubuntu;
                 font-size: 12pt;
             }
             QPushButton{
                 Background: """ + self.buttons + """;
-                Background: """ + self.buttons + """;
                 color: """ + self.secondaryColor + """;
                 min-height: 40px;
-                border-radius: 2px;
+                min-width: 40px;   
             }       
             QPushButton:pressed {
                 background-color: rgb(224, 0, 0);
-                border-style: inset;
             } 
             QPushButton:hover {
                 background-color: """+self.primaryColor+""";
-                border-style: inset;
             } 
             QLineEdit { 
                 Background: """ + self.primaryText + """;    

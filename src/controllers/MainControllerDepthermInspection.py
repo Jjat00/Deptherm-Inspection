@@ -33,6 +33,8 @@ class MainControllerDepthermInspection():
         self.connectButtons()
         self.STATELOGIN = False
         self.inspectinoAnalyzer = False
+        self.disabledButtuns()
+        self.user = None
         #depthermIspectionWidget.exec()
         #app.exec_()
 
@@ -115,11 +117,12 @@ class MainControllerDepthermInspection():
         """
         docstring
         """
+        print(self.user.toString())
         self.cleanWorkspace()
         self.intrinsicCalibrationWidget = IntrinsicCalibrationWidget()
         self.window.layoutDepthermInpesction.addWidget(self.intrinsicCalibrationWidget)
         controller = MainControllerIntrinsicCalibration(
-            self.intrinsicCalibrationWidget)
+            self, self.intrinsicCalibrationWidget)
         
         #inspectionConfigurationWidget = InspectionConfigurationWidget()
         #self.window.layoutDepthermInpesction.addWidget(inspectionConfigurationWidget)
@@ -174,6 +177,7 @@ class MainControllerDepthermInspection():
             self.cleanWorkspace()
             self.STATELOGIN = False
             self.showMessage("User logout")
+            self.disabledButtuns()
         else:
             self.showMessage("Not logged in")
 
@@ -187,4 +191,21 @@ class MainControllerDepthermInspection():
         self.window.layoutDepthermInpesction.addWidget(self.analyzerWidget)
         self.controllerMainInspection = MainControllerInspection(self.analyzerWidget)
 
+    def disabledButtuns(self):
+        self.window.buttonInspection.setEnabled(False)
+        self.window.buttonAcquisition.setEnabled(False)
+        self.window.buttonCalibInt.setEnabled(False)
+        self.window.buttonCalibInt.setEnabled(False)
+        self.window.buttonCalibExt.setEnabled(False)
+        self.window.buttonInspectionAnalyzer.setEnabled(False)
+        self.window.buttonReport.setEnabled(False)
+
+    def enabledButtuns(self):
+        self.window.buttonInspection.setEnabled(True)
+        self.window.buttonAcquisition.setEnabled(True)
+        self.window.buttonCalibInt.setEnabled(True)
+        self.window.buttonCalibInt.setEnabled(True)
+        self.window.buttonCalibExt.setEnabled(True)
+        self.window.buttonInspectionAnalyzer.setEnabled(True)
+        self.window.buttonReport.setEnabled(True)
 

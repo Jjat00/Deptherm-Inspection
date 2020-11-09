@@ -10,6 +10,7 @@ class IntrinsicCameraCalibration():
                 self.criteria = (cv2.TERM_CRITERIA_EPS +
                                  cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001)
                 self.drawChessBoardImages = []
+                self.imagesCalibration = []
                 self.intrinsicMatrix = []
                 self.distortionParameters = []
                 self.countNoImageAutoAcq = 0
@@ -29,8 +30,9 @@ class IntrinsicCameraCalibration():
                 self.objectPoints = []
                 self.imagePoints = []
                 for fname in pathImages:
-                        img = cv2.imread(fname)
-                        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+                        imgColor = cv2.imread(fname)
+                        imgCopy = imgColor.copy()
+                        gray = cv2.cvtColor(imgColor, cv2.COLOR_BGR2GRAY)
                         ret, corners = cv2.findChessboardCorners(
                             gray, (self.patternDimensions[1], self.patternDimensions[0]), flags=cv2.CALIB_CB_NORMALIZE_IMAGE)
                         if ret == True:
@@ -40,14 +42,18 @@ class IntrinsicCameraCalibration():
                                 corners = cv2.cornerSubPix(
                                     gray, corners, (11, 11), (-1, -1), self.criteria)
                                 self.imagePoints.append(corners)
+                                self.imagesCalibration.append(imgColor)
                                 img = cv2.drawChessboardCorners(
-                                    img, (self.patternDimensions[1], self.patternDimensions[0]), corners, ret)
+                                    imgCopy, (self.patternDimensions[1], self.patternDimensions[0]), corners, ret)
                                 self.drawChessBoardImages.append(img)
                                 cv2.imshow('img', img)
                                 cv2.waitKey(20)
                 self.state, self.intrinsicMatrix, self.distortionParameters, self.rvecs, self.tvecs = cv2.calibrateCamera(
                     self.objectPoints, self.imagePoints, gray.shape[::-1], None, None)
                 cv2.destroyAllWindows()
+
+        def getImagesCalibration(self):
+                return self.imagesCalibration
 
         def increaseProgressBar(self):
                 self.countNoImageAutoAcq += 1

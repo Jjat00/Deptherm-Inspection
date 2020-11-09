@@ -47,16 +47,20 @@ class ControllerUserLogin():
             if self.email != None and self.consult:
                 userDB = UserDB()
                 user = userDB.getUserByEmail(self.email, self.password)
+                self.mainWidget.user = user
                 if user != None:                    
                     print(user.toString())
                     self.showMesagge("Welcome %s" % user.getName())
                     self.mainWidget.STATELOGIN = True
                     self.cleanLineEdit()
+                    self.mainWidget.enabledButtuns()
                 else:
                     self.showMesagge("User does not exists")
                     self.mainWidget.STATELOGIN = False
         except AttributeError:
             print("Fail consult user")
+
+
 
     def showMesagge(self, message):
         """

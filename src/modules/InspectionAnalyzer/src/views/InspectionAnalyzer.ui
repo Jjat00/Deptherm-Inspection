@@ -32,7 +32,7 @@
     <widget class="QPushButton" name="buttonClean">
      <property name="geometry">
       <rect>
-       <x>760</x>
+       <x>670</x>
        <y>510</y>
        <width>51</width>
        <height>41</height>
@@ -125,7 +125,7 @@
     <widget class="QPushButton" name="buttonShowPointCamera">
      <property name="geometry">
       <rect>
-       <x>620</x>
+       <x>530</x>
        <y>510</y>
        <width>51</width>
        <height>41</height>
@@ -164,9 +164,9 @@
     <widget class="QComboBox" name="boxChosenCloudCamera">
      <property name="geometry">
       <rect>
-       <x>420</x>
+       <x>380</x>
        <y>510</y>
-       <width>181</width>
+       <width>141</width>
        <height>41</height>
       </rect>
      </property>
@@ -184,7 +184,7 @@
     <widget class="QPushButton" name="buttonSavePointCloud">
      <property name="geometry">
       <rect>
-       <x>690</x>
+       <x>600</x>
        <y>510</y>
        <width>51</width>
        <height>41</height>
@@ -211,8 +211,8 @@
      <property name="geometry">
       <rect>
        <x>340</x>
-       <y>520</y>
-       <width>71</width>
+       <y>510</y>
+       <width>31</width>
        <height>21</height>
       </rect>
      </property>
@@ -250,6 +250,19 @@
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="buttonUpload">
+     <property name="geometry">
+      <rect>
+       <x>780</x>
+       <y>510</y>
+       <width>51</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </widget>

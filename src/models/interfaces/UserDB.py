@@ -20,20 +20,13 @@ class UserDB():
             user: object entity user 
         """
         try:
-            query = "SELECT * FROM public.user WHERE ID=%i" % (ID)
+            query = "SELECT * FROM public.usuario WHERE ID=%i" % (ID)
             rows = self.storage.get(query)
             ID, userType, name, lastname, state, phone, email, password = rows[0]
             user = User(ID, userType, name, lastname,
                         state, phone, email, password)
         except IndexError:
             user = None
-
-        #res = urlfetch.get(
-        #    'https://ancient-thicket-70656.herokuapp.com/basedatos/consultapaciente/1088597617')
-        #r = res.content.decode('utf-8')
-        #u = json.loads(r)
-        #print(u[0]['nombre'])
-
 
         return user
 
@@ -53,24 +46,10 @@ class UserDB():
         phone = user.getCellphone()
         email = user.getEmail()
         password = user.getPassword()
-        query = "INSERT INTO public.user(ID, userType, name, lastname, state, phone, email, password) VALUES(%i, %i, '%s', '%s', %r, %i, '%s', '%s')" % (
+        query = "INSERT INTO public.usuario(ID, userType, name, lastname, state, phone, email, password) VALUES(%i, %i, '%s', '%s', %r, %i, '%s', '%s')" % (
             ID, userType, name, lastname, state, phone, email, password)
         count = self.storage.insert(query)
 
-
-        #response = urlfetch.post(
-        #    'https://ancient-thicket-70656.herokuapp.com/basedatos/insertarpaciente',
-        #    headers = {},
-        #    data = {
-        #        'nombre': name,
-        #        'apellido': lastname,
-        #        'email': email,
-        #        'numid': ID
-        #    },
-        #)
-
-        #print(response.status)
-        #print(response.content)
         return count
 
     def updateUser(self, user):
@@ -89,7 +68,7 @@ class UserDB():
         phone = user.getCellphone()
         email = user.getEmail()
         password = user.getPassword()
-        query = "UPDATE public.user SET id=%i, usertype=%i, name='%s', lastname='%s', state=%r, phone=%i, email='%s', password='%s' WHERE ID='%i'" % (
+        query = "UPDATE public.usuario SET id=%i, usertype=%i, name='%s', lastname='%s', state=%r, phone=%i, email='%s', password='%s' WHERE ID='%i'" % (
             ID, userType, name, lastname, state, phone, email, password, ID)
         count = self.storage.insert(query)
         return count
@@ -102,7 +81,7 @@ class UserDB():
         return:
             count: number insert tuples
         """
-        query = "DELETE FROM public.user WHERE ID=%i" % (ID)
+        query = "DELETE FROM public.usuario WHERE ID=%i" % (ID)
         count = self.storage.insert(query)
         return count
 
@@ -115,7 +94,8 @@ class UserDB():
             user: object entity user 
         """
         try:
-            query = "SELECT * FROM public.user WHERE (email='%s' AND password='%s')" % (email, password)
+            query = "SELECT * FROM public.usuario WHERE (email='%s' AND password='%s')" % (
+                email, password)
             rows = self.storage.get(query)
             ID, userType, name, lastname, state, phone, email, password = rows[0]
             user = User(ID, userType, name, lastname,

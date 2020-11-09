@@ -1,6 +1,7 @@
 from PySide2 import QtGui, QtWidgets
 import json
 import numpy as np
+import base64
 import cv2
 from IntrinsicCameraCalibration import IntrinsicCameraCalibration
 
@@ -87,6 +88,18 @@ class EventsIntrinsicCalibration():
         if pathFile != '':
             with open(pathFile+'.json', 'w') as outFile:
                 json.dump(self.intrinsicCalibrationData, outFile)
+
+    def getParameters(self):
+        return self.intrinsicCalibrationData
+
+    def getImagesCalibration(self):
+        imagesCalibration = []
+        images = self.intrinsicCalibration.getImagesCalibration()
+        for img in images:
+            imgBytes = cv2.imencode('.png', img)[1]
+            pngStr = base64.b64encode(imgBytes)
+            imagesCalibration.append(pngStr)
+        return imagesCalibration
 
     def resetParameters(self):
         self.intrinsicMatrix = np.zeros((3,3))

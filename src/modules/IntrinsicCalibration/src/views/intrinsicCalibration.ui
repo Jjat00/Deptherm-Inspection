@@ -30,7 +30,7 @@
    <property name="geometry">
     <rect>
      <x>420</x>
-     <y>510</y>
+     <y>520</y>
      <width>51</width>
      <height>41</height>
     </rect>
@@ -43,7 +43,7 @@
    <property name="geometry">
     <rect>
      <x>950</x>
-     <y>70</y>
+     <y>50</y>
      <width>181</width>
      <height>161</height>
     </rect>
@@ -163,7 +163,7 @@
    <property name="geometry">
     <rect>
      <x>950</x>
-     <y>300</y>
+     <y>260</y>
      <width>181</width>
      <height>161</height>
     </rect>
@@ -309,7 +309,7 @@
    <property name="geometry">
     <rect>
      <x>330</x>
-     <y>510</y>
+     <y>520</y>
      <width>51</width>
      <height>41</height>
     </rect>
@@ -322,7 +322,7 @@
    <property name="geometry">
     <rect>
      <x>590</x>
-     <y>510</y>
+     <y>520</y>
      <width>51</width>
      <height>41</height>
     </rect>
@@ -337,7 +337,7 @@
      <x>10</x>
      <y>20</y>
      <width>911</width>
-     <height>481</height>
+     <height>491</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -352,7 +352,7 @@
       <x>20</x>
       <y>0</y>
       <width>871</width>
-      <height>481</height>
+      <height>491</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="imageLayout"/>
@@ -388,7 +388,7 @@
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>520</y>
+     <y>530</y>
      <width>31</width>
      <height>25</height>
     </rect>
@@ -401,7 +401,7 @@
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>520</y>
+     <y>530</y>
      <width>31</width>
      <height>25</height>
     </rect>
@@ -414,7 +414,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>560</y>
+     <y>570</y>
      <width>1161</width>
      <height>16</height>
     </rect>
@@ -427,7 +427,7 @@
    <property name="geometry">
     <rect>
      <x>510</x>
-     <y>510</y>
+     <y>520</y>
      <width>51</width>
      <height>41</height>
     </rect>
@@ -440,7 +440,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>520</y>
+     <y>530</y>
      <width>141</width>
      <height>21</height>
     </rect>
@@ -453,7 +453,7 @@
    <property name="geometry">
     <rect>
      <x>940</x>
-     <y>40</y>
+     <y>20</y>
      <width>181</width>
      <height>20</height>
     </rect>
@@ -466,7 +466,7 @@
    <property name="geometry">
     <rect>
      <x>940</x>
-     <y>270</y>
+     <y>230</y>
      <width>181</width>
      <height>20</height>
     </rect>
@@ -479,7 +479,7 @@
    <property name="geometry">
     <rect>
      <x>790</x>
-     <y>520</y>
+     <y>530</y>
      <width>67</width>
      <height>21</height>
     </rect>
@@ -492,13 +492,78 @@
    <property name="geometry">
     <rect>
      <x>730</x>
-     <y>520</y>
-     <width>67</width>
+     <y>530</y>
+     <width>51</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
     <string>Image:</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="buttonUploadCloud">
+   <property name="geometry">
+    <rect>
+     <x>950</x>
+     <y>510</y>
+     <width>201</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditIDcalib">
+   <property name="geometry">
+    <rect>
+     <x>1060</x>
+     <y>450</y>
+     <width>91</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_14">
+   <property name="geometry">
+    <rect>
+     <x>950</x>
+     <y>450</y>
+     <width>101</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ID calibration:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_15">
+   <property name="geometry">
+    <rect>
+     <x>950</x>
+     <y>480</y>
+     <width>81</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>name calib:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditNameCalib">
+   <property name="geometry">
+    <rect>
+     <x>1060</x>
+     <y>480</y>
+     <width>91</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>
