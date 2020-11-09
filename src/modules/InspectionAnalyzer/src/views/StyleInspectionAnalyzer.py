@@ -171,6 +171,13 @@ class StyleInspectionAnalyzer():
         self.cameraFusionWidget.window.buttonLoadH2.setToolTip(
             'load homography matrix 2')
 
+        self.cameraFusionWidget.window.buttonUpload.setIcon(
+            QtGui.QPixmap(relativePathIcons+'cloud.png'))
+        self.cameraFusionWidget.window.buttonUpload.setIconSize(
+            QtCore.QSize(25, 25))
+        self.cameraFusionWidget.window.buttonUpload.setToolTip(
+            'upload data to database')
+
     def formStyle(self):
         styleWindow = """
             QWidget{

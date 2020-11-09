@@ -61,6 +61,7 @@ class PointCloud2():
                 self.N = vertex.N()
 
                 self.pointCloud['vertex'] = vertex.points()
+                self.pointCloud['color'] = np.array([[0,0,0]])
                 self.pointCloudVedo = vertex
                 widgetPointCloud = self.getRenderPointCloud(vertex)
                 return widgetPointCloud
@@ -84,7 +85,8 @@ class PointCloud2():
 
                 print('adding color...')
                 vertex = Points(newXYZ, r = self.radioPoint, c = rgb)
-                #show(vertex)
+                #plt = Plotter()
+                #plt.show(vertex, viewup="z", interactive=True )
                 self.N = vertex.N()
                 self.pointCloud['vertex'] = vertex.points()
                 self.pointCloud['color'] = rgb
@@ -99,15 +101,9 @@ class PointCloud2():
                 renderer.SetBackground(33 / 255, 33 / 255, 33 / 255)
                 renderer.ResetCamera()
 
-                class app():
-                        def quit():
-                                self.widgetPointCloud.Finalize()
-
                 self.widgetPointCloud = QVTKRenderWindowInteractor()
                 self.widgetPointCloud.Initialize()
                 self.widgetPointCloud.Start()
-                self.widgetPointCloud.AddObserver(
-                    "ExitEvent", lambda o, e, a=app: a.quit())
 
                 self.widgetPointCloud.GetRenderWindow().AddRenderer(renderer)
 
@@ -117,8 +113,8 @@ class PointCloud2():
         def closeWindow(self):
                 render_window = self.widgetPointCloud.GetRenderWindow()
                 render_window.Finalize()
-                self.widgetPointCloud.TerminateApp()
-                del render_window, self.widgetPointCloud
+                #self.widgetPointCloud.TerminateApp()
+                #del render_window, self.widgetPointCloud
 
         def getPointCloud(self):
                 """

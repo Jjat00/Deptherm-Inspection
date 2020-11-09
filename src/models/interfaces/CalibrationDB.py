@@ -26,6 +26,7 @@ def getCalibration(id):
     u = json.loads(r)
     print(u[0]['matrizhomografia']['matriz'])
 
+
 def insertImage(name, idCalibration, image):
     response = urlfetch.post(
         'http://localhost:3000/calibracion/addImageCalib',

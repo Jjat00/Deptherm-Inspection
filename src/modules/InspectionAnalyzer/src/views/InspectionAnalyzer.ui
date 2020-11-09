@@ -32,7 +32,7 @@
     <widget class="QPushButton" name="buttonClean">
      <property name="geometry">
       <rect>
-       <x>670</x>
+       <x>650</x>
        <y>510</y>
        <width>51</width>
        <height>41</height>
@@ -184,7 +184,7 @@
     <widget class="QPushButton" name="buttonSavePointCloud">
      <property name="geometry">
       <rect>
-       <x>600</x>
+       <x>590</x>
        <y>510</y>
        <width>51</width>
        <height>41</height>
@@ -197,7 +197,7 @@
     <widget class="QLabel" name="label_13">
      <property name="geometry">
       <rect>
-       <x>260</x>
+       <x>240</x>
        <y>510</y>
        <width>71</width>
        <height>20</height>
@@ -210,9 +210,9 @@
     <widget class="QLabel" name="labelNpoints">
      <property name="geometry">
       <rect>
-       <x>340</x>
+       <x>320</x>
        <y>510</y>
-       <width>31</width>
+       <width>51</width>
        <height>21</height>
       </rect>
      </property>
@@ -255,7 +255,7 @@
     <widget class="QPushButton" name="buttonUpload">
      <property name="geometry">
       <rect>
-       <x>780</x>
+       <x>790</x>
        <y>510</y>
        <width>51</width>
        <height>41</height>
@@ -263,6 +263,16 @@
      </property>
      <property name="text">
       <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEditIDCloud">
+     <property name="geometry">
+      <rect>
+       <x>712</x>
+       <y>510</y>
+       <width>71</width>
+       <height>41</height>
+      </rect>
      </property>
     </widget>
    </widget>
@@ -1197,6 +1207,70 @@
      </property>
      <property name="text">
       <string>Filter point cloud</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_5">
+    <attribute name="title">
+     <string>Report</string>
+    </attribute>
+    <widget class="QTextEdit" name="textEdit">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>261</width>
+       <height>111</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_23">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>40</y>
+       <width>131</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Comentario</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEdit_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>250</y>
+       <width>261</width>
+       <height>111</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_24">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>220</y>
+       <width>131</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>conclusión</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>400</y>
+       <width>101</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </widget>

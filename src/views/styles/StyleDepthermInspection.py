@@ -58,12 +58,6 @@ class StyleDepthermInspection():
             QtCore.QSize(40, 40))
         self.widget.window.buttonLogout.setToolTip('Logout')
 
-        self.widget.window.buttonReport.setIcon(
-            QtGui.QPixmap(relativePathIcons+'report.png'))
-        self.widget.window.buttonReport.setIconSize(
-            QtCore.QSize(40, 40))
-        self.widget.window.buttonReport.setToolTip('Generate report')
-
         self.widget.window.buttonAcquisition.setIcon(
             QtGui.QPixmap(relativePathIcons+'cmaeravideo.png'))
         self.widget.window.buttonAcquisition.setIconSize(

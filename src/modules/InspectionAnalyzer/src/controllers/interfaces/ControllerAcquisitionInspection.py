@@ -1,3 +1,4 @@
+import base64
 from DataAcquisitionInpAnalyzer import DataAcquisitionInpAnalyzer
 from PointCloud2 import PointCloud2
 from Transformation import Transformation
@@ -408,7 +409,7 @@ class ControllerAcquisitionInspection():
         }
         return pointCloudData
 
-    def getColorPointCloud(self):
+    def getColorPointCloudWidget(self):
         """
         docstring
         """
@@ -443,7 +444,7 @@ class ControllerAcquisitionInspection():
         self.pointCloudVedo = pointCloud.getPointCloudVedo()
         return widgetPointCloud
 
-    def getPointCloud(self):
+    def getPointCloudWidget(self):
         """
         docstring
         """
@@ -620,9 +621,6 @@ class ControllerAcquisitionInspection():
         return viewCamera
 
     def saveAllData(self):
-        """
-        docstring
-        """
         saveData = SaveData(self.window)
         saveData.saveDialog()
         saveData.saveRgbImage(self.captureRgbImage)
@@ -631,7 +629,23 @@ class ControllerAcquisitionInspection():
         saveData.saveDepthData(self.captureDepthData)
         saveData.saveRgbThermalImage(self.colorImagePointCloud)
         saveData.savePointCloud(self.pointCloud, self.pointCloudVedo)
-        
+
+    def getPointCloud(self):
+        return self.pointCloud
+
+    def getImagesInspection(self):
+        imagesInspection = []
+        imagesInspection.append(self.captureRgbImage)
+        imagesInspection.append(self.captureDepthImage)
+        imagesInspection.append(self.captureThermal)
+        imagesInspection.append(self.colorImagePointCloud)
+        return imagesInspection
+
+    def imageToString(self, img):
+        imgBytes = cv2.imencode('.png', img)[1]
+        pngStr = base64.b64encode(imgBytes)
+        return pngStr
+
     def cleanAcquisition(self):
         self.clearWorkspace()
 
@@ -646,8 +660,8 @@ class ControllerAcquisitionInspection():
         #self.captureDepthImage = []
         #self.captureRgbImage = []
         #self.captureThermal = []
-        self.pointCloud = {}
-        self.pointCloudVedo = None
+        #self.pointCloud = {}
+        #self.pointCloudVedo = None
         self.window.labelCloudCaptured.setText('0')
         self.window.labelNpoints.setText('0')
 

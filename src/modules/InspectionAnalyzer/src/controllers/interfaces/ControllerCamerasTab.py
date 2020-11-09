@@ -1,4 +1,7 @@
 from ControllerAcquisitionInspection import ControllerAcquisitionInspection
+from PointCloudDB import insertPointCloud, insertImagesCloud
+from PySide2 import QtWidgets
+import json
 import sys
 
 class ControllerCamerasTab():
@@ -10,10 +13,10 @@ class ControllerCamerasTab():
 
     def __del__(self):
         print('delete ControllerCamerasTab')
-        self.clearWorkspace()
 
     def handlerTurnOnCameras(self):
         self.controllerAcquisition.cleanAcquisition()
+        self.window.buttonUpload.setEnabled(False)
         frameRgb, frameDepth, frameThermal = self.controllerAcquisition.turnOnCameras()
         self.window.layoutCameras.addWidget(frameDepth)
         self.window.layoutCameras.addWidget(frameRgb)
@@ -86,29 +89,55 @@ class ControllerCamerasTab():
         docstring
         """
         self.clearWorkspace()
+        self.window.buttonUpload.setEnabled(True)
         widgetPointCloud = self.controllerAcquisition.getPointCloudRegister()
         self.window.layoutPointCloudCamera.addWidget(widgetPointCloud)
 
     def handlerShowPointCloud(self):
         self.clearWorkspace()
-        widgetPointCloud = self.controllerAcquisition.getPointCloud()
+        self.window.buttonUpload.setEnabled(True)
+        widgetPointCloud = self.controllerAcquisition.getPointCloudWidget()
         self.window.layoutPointCloudCamera.addWidget(widgetPointCloud)
 
     def handlerShowColorPointCloud(self):
         self.clearWorkspace()
-        #self.controllerAcquisition.getColorPointCloud()
-        widgetPointCloud = self.controllerAcquisition.getColorPointCloud()
+        self.window.buttonUpload.setEnabled(True)
+        widgetPointCloud = self.controllerAcquisition.getColorPointCloudWidget()
         self.window.layoutPointCloudCamera.addWidget(widgetPointCloud)
-        #depthImage = self.controllerAcquisition.getDepthImageWidget()
+
+    def handlerUploadData(self):
+        message = QtWidgets.QMessageBox.question(
+            self.window, "Choice message", "You are sequre?", QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
+        if message == QtWidgets.QMessageBox.Yes:
+            idCloud = int(self.window.lineEditIDCloud.text())
+            pointCloud = self.controllerAcquisition.getPointCloud()
+            vertex = {
+                'vertex': pointCloud['vertex']
+            }
+            colorPointCloud = {
+                'color': pointCloud['color']
+            }
+            res = insertPointCloud(idCloud, json.dumps(vertex), json.dumps(colorPointCloud))
+            print(res)
+            imagesPointCloud = self.controllerAcquisition.getImagesInspection()
+            rgbImage = self.controllerAcquisition.imageToString(imagesPointCloud[0])
+            depthImage = self.controllerAcquisition.imageToString(imagesPointCloud[1])
+            thermalImage = self.controllerAcquisition.imageToString(imagesPointCloud[2])
+            colorImage = self.controllerAcquisition.imageToString(imagesPointCloud[3])
+            res = insertImagesCloud(idCloud, rgbImage, depthImage, thermalImage, colorImage)
+            print(res)
+            if res == 200:
+                message = QtWidgets.QMessageBox.about(
+                    self.window, "About aplication", "calibration upload successful")
+            else:
+                message = QtWidgets.QMessageBox.about(
+                    self.window, "About aplication", "calibration upload failed,\n id calibrarion alredy exist")
 
     def handlerCleanWorkspace(self):
         self.controllerAcquisition.cleanAcquisition()
         self.clearWorkspace()
 
     def handlerSaveData(self):
-        """
-        docstring
-        """
         self.controllerAcquisition.saveAllData()
 
     def clearWorkspace(self):

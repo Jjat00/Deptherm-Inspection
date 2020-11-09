@@ -18,9 +18,6 @@ class MainControllerInspection():
         inspectionAnalyzerWidget.exec()
 
     def connectButtons(self):
-        """
-        docstring
-        """
         self.connectButtonsCameraInspectionTab()
         self.window.boxChosenCloudCamera.currentIndexChanged.connect(
             self.connectButtonsCameraInspectionTab)
@@ -31,9 +28,6 @@ class MainControllerInspection():
         self.connectButtonCameraTab()
 
     def connectButtonCameraTab(self):
-        """
-        docstring
-        """
         self.HandlerCamerasTab.connectOnButton()
         self.HandlerCamerasTab.connectCaptureButton()
         self.HandlerCamerasTab.connectbuttonSaveData()
@@ -48,6 +42,8 @@ class MainControllerInspection():
 
         self.HandlerCamerasTab.connectShowRegisterCloud()
         self.HandlerCamerasTab.connectStartICPButton()
+
+        self.HandlerCamerasTab.connectUploadData()
 
         self.HandlerCamerasTab.ConnectButtonLoadIntrinsic()
         self.HandlerCamerasTab.ConnectButtonLoadHomography1()

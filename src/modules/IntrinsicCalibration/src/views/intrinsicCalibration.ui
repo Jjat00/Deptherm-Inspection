@@ -360,7 +360,7 @@
    <widget class="QPushButton" name="previusButton">
     <property name="geometry">
      <rect>
-      <x>-20</x>
+      <x>10</x>
       <y>210</y>
       <width>41</width>
       <height>25</height>
@@ -373,7 +373,7 @@
    <widget class="QPushButton" name="nextButton">
     <property name="geometry">
      <rect>
-      <x>850</x>
+      <x>860</x>
       <y>210</y>
       <width>41</width>
       <height>25</height>

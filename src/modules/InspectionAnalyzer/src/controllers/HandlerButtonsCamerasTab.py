@@ -141,6 +141,11 @@ class HandlerButtonsCamerasTab():
         self.window.buttonHistogram.setEnabled(False)
         self.window.buttonStartICP.setEnabled(False)
         self.window.buttonShowPointRegister.setEnabled(False)
+        self.window.buttonUpload.setEnabled(False)
+
+    def connectUploadData(self):
+        self.window.buttonUpload.clicked.connect(
+            self.controller.handlerUploadData)
 
     def ConnectButtonLoadIntrinsic(self):
         """

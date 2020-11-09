@@ -198,7 +198,6 @@ class MainControllerDepthermInspection():
         self.window.buttonCalibInt.setEnabled(False)
         self.window.buttonCalibExt.setEnabled(False)
         self.window.buttonInspectionAnalyzer.setEnabled(False)
-        self.window.buttonReport.setEnabled(False)
 
     def enabledButtuns(self):
         self.window.buttonInspection.setEnabled(True)
@@ -207,5 +206,4 @@ class MainControllerDepthermInspection():
         self.window.buttonCalibInt.setEnabled(True)
         self.window.buttonCalibExt.setEnabled(True)
         self.window.buttonInspectionAnalyzer.setEnabled(True)
-        self.window.buttonReport.setEnabled(True)
 
