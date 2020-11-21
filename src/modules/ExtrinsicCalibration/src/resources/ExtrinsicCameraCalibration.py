@@ -107,9 +107,10 @@ class ExtrinsicCameraCalibration():
         self.imageSrc = cv2.resize(
             self.imageSrc, (640, 480), interpolation=cv2.INTER_AREA)
         if self.whichCamera == 1:
-            self.imageSrc = self.filters.filterRed(self.imageSrc)
-            self.imageSrc = self.filters.filterLog(self.imageSrc)
-            self.imageSrc = 255 - self.imageSrc
+            #self.imageSrc = self.filters.filterRed(self.imageSrc)
+            #self.imageSrc = self.filters.filterLog(self.imageSrc)
+            #self.imageSrc = 255 - self.imageSrc
+            pass
 
     def filterImagesDst(self):
         self.imageDst = cv2.resize(
@@ -117,9 +118,10 @@ class ExtrinsicCameraCalibration():
         if self.whichCamera == 0:
             self.imageDst = self.filters.bilateralFilter(self.imageDst)
         if self.whichCamera == 1:
-            self.imageDst = self.filters.filterRed(self.imageDst)
-            self.imageDst = self.filters.filterLog(self.imageDst)
-            self.imageDst = 255 - self.imageDst
+            #self.imageDst = self.filters.filterRed(self.imageDst)
+            #self.imageDst = self.filters.filterLog(self.imageDst)
+            #self.imageDst = 255 - self.imageDst
+            pass
 
     def increaseProgressBar(self):
             self.countNoImageAutoAcq += 1
