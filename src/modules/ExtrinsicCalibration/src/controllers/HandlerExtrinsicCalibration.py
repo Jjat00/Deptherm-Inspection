@@ -1,10 +1,13 @@
-from PySide2 import *
-import glob
 from EventsExtrinsicCalibration import EventsExtrinsicCalibration
+from CalibrationDB import *
+from PySide2 import QtWidgets
+import glob
+import json
 
 class HandlerExtrinsicCalibration():
-    def __init__(self, window):
+    def __init__(self, mainWindow, window):
         super(HandlerExtrinsicCalibration).__init__()
+        self.mainWindow = mainWindow
         self.window = window
         self.action = EventsExtrinsicCalibration(self.window)
         self.whichImage = 0
@@ -73,3 +76,50 @@ class HandlerExtrinsicCalibration():
         self.currentImage = str(self.whichImage) + \
             ' / ' + str(self.totalImagesCalibration-1)
         self.window.currentImageLabel.setText(self.currentImage)
+
+    def uploadData(self):
+        print('helloooo')
+        homographyMatrix = self.action.getHomographyMatrix()
+        paramFocales = json.dumps({'matriz': []})
+        paramDistortion = json.dumps({'matriz': []})
+        matrizHomografia = json.dumps(homographyMatrix)
+        print("matrizHomografia")
+        print(matrizHomografia)
+        camera = str(self.window.comboBox.currentText())
+        print('camera')
+        print(camera)
+        idUsuario = self.mainWindow.user.getUserID()
+        print(idUsuario)
+
+        message = QtWidgets.QMessageBox.question(
+            self.window, "Choice message", "You are sequre?", QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
+
+        if message == QtWidgets.QMessageBox.Yes:
+            res = insertCalibration(camera, idUsuario, 2,
+                        paramFocales, paramDistortion, matrizHomografia)
+            self.uploadImages()
+            if res == 200:
+                message = QtWidgets.QMessageBox.about(
+                    self.window, "About aplication", "calibration upload successful")
+            else:
+                message = QtWidgets.QMessageBox.about(
+                    self.window, "About aplication", "calibration upload failed,\n id calibrarion alredy exist")
+
+    def uploadImages(self):
+        import cv2
+        import base64
+        imagesSrc, imagesDst = self.action.getImagesCalibration()
+        idCalibration = int(getLastCalib())
+        self.window.progressBarExtsc.setValue(0)
+        NoImages = len(imagesSrc)
+        for index in range(NoImages):
+            imgSrcBytes = cv2.imencode('.png', imagesSrc[index])[1]
+            pngSrcStr = base64.b64encode(imgSrcBytes)
+
+            imgDstBytes = cv2.imencode('.png', imagesDst[index])[1]
+            pngDstStr = base64.b64encode(imgDstBytes)
+
+            res = insertImages(idCalibration, pngSrcStr, pngDstStr)
+            value = (index / NoImages) * 100
+            self.window.progressBarExtsc.setValue(value)
+            print(res)

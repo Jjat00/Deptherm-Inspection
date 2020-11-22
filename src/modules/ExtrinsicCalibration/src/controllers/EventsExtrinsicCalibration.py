@@ -45,13 +45,16 @@ class EventsExtrinsicCalibration():
         self.showImage(patternImagesDst[0])
         return patternImagesSrc, patternImagesDst
 
+    def getImagesCalibration(self):
+        return self.extrinsicCalibration.getImages()
+
     def showHomography(self):
         newHomographyMatrix = np.zeros((3, 3))
         for i in range(3) :
             for j in range(3) :
                 newHomographyMatrix[i][j] = str(
                     np.around(self.homographyMatrix[i][j], 5))
-        text = """
+        txtHomography = """
         {
             homography: [
                 \t"""+str(self.homographyMatrix[0])+"""\n
@@ -60,13 +63,14 @@ class EventsExtrinsicCalibration():
             ]
         }
         """
-        self.window.textBrowser.setText(text)
+        self.window.textBrowser.setText(txtHomography)
         self.window.textBrowser.setReadOnly(True)
 
         self.extrinsicCalibrationData['homographyMatrix'] = self.homographyMatrix.tolist()
-        print(self.extrinsicCalibrationData['homographyMatrix'])
+        #print(self.extrinsicCalibrationData['homographyMatrix'])
 
-
+    def getHomographyMatrix(self):
+        return self.extrinsicCalibrationData
         
     def saveDialog(self):
         print(self.extrinsicCalibrationData)

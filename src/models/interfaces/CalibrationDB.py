@@ -2,13 +2,13 @@ import urlfetch
 import json
 
 
-def insertCalibration(id, idUsuario, idTipoCalib, paramFocales, paramDistortion, matrizHomografia):
+def insertCalibration(camera, idUsuario, idTipoCalib, paramFocales, paramDistortion, matrizHomografia):
     response = urlfetch.post(
         'http://localhost:3000/calibracion/addCalibration',
         headers={},
         data={
-            'id': id,
             'idUsuario': idUsuario,
+            'camara': camera,
             'idTipoCalib': idTipoCalib,
             'paramFocales': paramFocales,
             'paramDistortion': paramDistortion,
@@ -27,15 +27,38 @@ def getCalibration(id):
     print(u[0]['matrizhomografia']['matriz'])
 
 
-def insertImage(name, idCalibration, image):
+def insertImage( idCalibration, image):
     response = urlfetch.post(
-        'http://localhost:3000/calibracion/addImageCalib',
+        'http://localhost:3000/calibracion/addImageIntrCalib',
         headers={},
         data={
-            'name': name,
             'idCalibracion': idCalibration,
             'imagen': image
         },
     )
     res = json.load(response)
     return res['status']
+
+def insertImages( idCalibration, imageSrc, imageDst):
+    response = urlfetch.post(
+        'http://localhost:3000/calibracion/addImageExtrCalib',
+        headers={},
+        data={
+            'idCalibracion': idCalibration,
+            'imagen_src': imageSrc,
+            'imagen_dst': imageDst
+        },
+    )
+    res = json.load(response)
+    return res['status']
+
+
+def getLastCalib():
+    res = urlfetch.get(
+        'http://localhost:3000/calibracion/getLastCalib')
+    r = res.content.decode('utf-8')
+    u = json.loads(r)
+    print(u)
+    print(u[0]['id'])
+    id = u[0]['id']
+    return id

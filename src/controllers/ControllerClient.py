@@ -1,19 +1,40 @@
 from PySide2 import QtWidgets
-from models.entities.User import User
-from models.interfaces.UserDB import UserDB
 
+from models.interfaces.ClientDB import insertClient
+from controllers.ControllerConfigInspec import ControllerConfigInspec
+from views.configurationInspection.InspectionConfigurationWidget import InspectionConfigurationWidget
 
-class ControllerInspectionConfiguration():
+class ControllerClientInspection():
     """
     Controller for inspection configuration 
     """
 
-    def __init__(self, userRegisterWidget):
+    def __init__(self, mainWidget, clienWidget):
         super().__init__()
-        self.window = userRegisterWidget.window
+        self.mainWindow = mainWidget.window
+        self.mainWidget = mainWidget
+        self.window = clienWidget.window
         self.connectButtons()
-        userRegisterWidget.exec()
+        clienWidget.exec()
         self.register = False
+
+    def connectButtons(self):
+        """
+        Connect the buttons with their events
+        """
+        self.window.buttonCancel.clicked.connect(
+            self.cleanLineEdit)
+        self.window.buttonSave.clicked.connect(
+            self.registerClient)
+        self.window.buttonNext.clicked.connect(
+            self.next)
+
+    def next(self):
+        self.mainWidget.cleanWorkspace()
+        self.widgetConfig = InspectionConfigurationWidget()
+        self.mainWindow.layoutDepthermInpesction.addWidget(
+            self.widgetConfig)
+        ControllerConfigInspec(self.mainWidget, self.widgetConfig)
 
     def getVulesLineEdit(self):
         """
@@ -24,49 +45,30 @@ class ControllerInspectionConfiguration():
             self.ID = int(self.window.lineEditID.text())
             self.name = self.window.lineEditName.text()
             self.lastname = self.window.lineEditLastname.text()
-            self.email = self.window.lineEditEmail.text()
+            self.company = self.window.lineEditCompany.text()
             self.phone = int(self.window.lineEditPhone.text())
-            self.password = self.window.lineEditPassword.text()
+            self.email = self.window.lineEditEmail.text()
             self.register = True
         except ValueError:
             self.showMesagge("incorrect data")
             self.register = False
 
-    def getUserType(self):
-        """
-        Get user type from comoboBox
-        """
-        userType = self.window.comboBoxUserType.currentText()
-        if userType == 'Admin':
-            self.userType = 1
-        if userType == 'Operator':
-            self.userType = 2
-
-    def connectButtons(self):
-        """
-        Connect the buttons with their events
-        """
-        self.window.buttonRegister.clicked.connect(self.registerUser)
-
-    def registerUser(self):
+    def registerClient(self):
         """
         Handler button register user
         """
         try:
             self.getVulesLineEdit()
-            self.getUserType()
             if self.ID != None and self.register:
-                userDB = UserDB()
-                user = User(self.ID, self.userType, self.name, self.lastname,
-                            True, self.phone, self.email, self.password)
-                print(user.toString())
-                count = userDB.insertUser(user)
-                print(count)
-                if count != 0:
-                    self.showMesagge("User registered successfully")
+                print(self.ID, self.name, self.lastname,
+                            self.company, self.phone, self.email)
+                res = insertClient(self.ID, self.name, self.lastname,
+                             self.company, self.phone, self.email)
+                if res == 200:
+                    self.showMesagge("cient registered successfully")
                 else:
-                    self.showMesagge("User is already registered")
-                self.cleanLineEdit()
+                    self.showMesagge("cient is already registered")
+                #self.cleanLineEdit()
         except AttributeError:
             print("Fail register user")
 
@@ -85,5 +87,5 @@ class ControllerInspectionConfiguration():
         self.window.lineEditLastname.setText("")
         self.window.lineEditEmail.setText("")
         self.window.lineEditPhone.setText("")
-        self.window.lineEditPassword.setText("")
+        self.window.lineEditCompany.setText("")
         self.ID = None

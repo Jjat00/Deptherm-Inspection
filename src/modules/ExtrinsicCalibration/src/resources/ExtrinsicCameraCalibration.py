@@ -38,13 +38,21 @@ class ExtrinsicCameraCalibration():
         self.pointsDst = [[[0, 0]]]
         self.auxPointsSrc = [[[0, 0]]]
         self.auxPointsDst = [[[0, 0]]]
+        self.imagesSrc = []
+        self.imagesDst = []
         for which in range(len(imagesDst)):
             self.imageSrc = cv2.imread(imagesSrc[which])
+            
             self.imageDst = cv2.imread(imagesDst[which])
+            
             self.filterImagesSrc()
             self.filterImagesDst()
             self.findCorners()
             if (self.retImageSrc and self.retImageDst):
+                #images calibration
+                self.imagesSrc.append(self.imageSrc.copy())
+                self.imagesDst.append(self.imageDst.copy())
+                #
                 threading.Thread(target=self.increaseProgressBar).start()
                 self.subPixelCorners()
                 imageDraw1, imageDraw2 = self.drawPatternBoardImages()
@@ -133,3 +141,10 @@ class ExtrinsicCameraCalibration():
 
     def getHomographyMatrix(self):
             return self.homographyMatrix
+
+    def getImages(self):
+        """
+        docstring
+        """
+        return (self.imagesSrc, self.imagesDst)
+        

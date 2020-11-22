@@ -3,11 +3,12 @@ from PySide2 import QtWidgets
 
 from views.managementUser.UserManagement import UserManagementWidget
 from views.LoginWidget import LoginWidget
-from views.configurationInspection.InspectionConfigurationWidget import InspectionConfigurationWidget
+
 from views.configurationInspection.ClientFormWidget import ClientFormWidget
 
 from controllers.ControllerUserLogin import ControllerUserLogin
 from controllers.ControllerUserManagement import ControllerUserManagement
+from controllers.ControllerClient import ControllerClientInspection
 
 from views.AcquisitionManagementWidget import AcquisitionManagementWidget
 from controllers.ControllerAcquisition import ControllerAcquisition
@@ -110,7 +111,7 @@ class MainControllerDepthermInspection():
         self.cleanWorkspace()
         self.clientFormWidgetWidget = ClientFormWidget()
         self.window.layoutDepthermInpesction.addWidget(self.clientFormWidgetWidget)
-        self.clientFormWidgetWidget.exec()
+        ControllerClientInspection(self, self.clientFormWidgetWidget)
 
 
     def showIntrinsicCalibrationWidget(self):
@@ -135,7 +136,7 @@ class MainControllerDepthermInspection():
         self.cleanWorkspace()
         self.extrinsicCalibrationWidget = ExtrinsicCalibrationWidget()
         self.window.layoutDepthermInpesction.addWidget(self.extrinsicCalibrationWidget)
-        controller = MainControllerExtCalibration(self.extrinsicCalibrationWidget)
+        controller = MainControllerExtCalibration(self, self.extrinsicCalibrationWidget)
 
     def showAcquisitionWidget(self):
         """

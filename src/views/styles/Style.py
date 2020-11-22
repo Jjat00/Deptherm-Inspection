@@ -105,5 +105,8 @@ class Styles():
                 QTextBrowser {
                     color: """ + self.lineEdit + """
                 }
+                QTextEdit {
+                    color: """ + self.lineEdit + """
+                }
             """
         self.widget.setStyleSheet(styleWindow)

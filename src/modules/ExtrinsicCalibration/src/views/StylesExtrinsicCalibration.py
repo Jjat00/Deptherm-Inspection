@@ -27,27 +27,31 @@ class StylesExtrinsicCalibration():
         relativePathIcons = 'modules/ExtrinsicCalibration/public/icons/'
         self.widgetAcq.window.loadButton.setIcon(
             QtGui.QPixmap(relativePathIcons+'load.png'))
-        self.widgetAcq.window.loadButton.setIconSize(QtCore.QSize(20, 20))
+        self.widgetAcq.window.loadButton.setIconSize(QtCore.QSize(25, 25))
 
         self.widgetAcq.window.startButton.setIcon(
             QtGui.QPixmap(relativePathIcons+'play.png'))
-        self.widgetAcq.window.startButton.setIconSize(QtCore.QSize(22, 22))
+        self.widgetAcq.window.startButton.setIconSize(QtCore.QSize(25, 25))
 
         self.widgetAcq.window.saveButton.setIcon(
             QtGui.QPixmap(relativePathIcons+'save.png'))
-        self.widgetAcq.window.saveButton.setIconSize(QtCore.QSize(17, 17))
+        self.widgetAcq.window.saveButton.setIconSize(QtCore.QSize(23, 23))
 
         self.widgetAcq.window.previusButton.setIcon(
             QtGui.QPixmap(relativePathIcons+'previous.png'))
-        self.widgetAcq.window.previusButton.setIconSize(QtCore.QSize(20, 20))
+        self.widgetAcq.window.previusButton.setIconSize(QtCore.QSize(25, 25))
 
         self.widgetAcq.window.nextButton.setIcon(
             QtGui.QPixmap(relativePathIcons+'skip.png'))
-        self.widgetAcq.window.nextButton.setIconSize(QtCore.QSize(20, 20))
+        self.widgetAcq.window.nextButton.setIconSize(QtCore.QSize(25, 25))
 
         self.widgetAcq.window.clearButton.setIcon(
             QtGui.QPixmap(relativePathIcons+'refresh.png'))
-        self.widgetAcq.window.clearButton.setIconSize(QtCore.QSize(20, 20))
+        self.widgetAcq.window.clearButton.setIconSize(QtCore.QSize(25, 25))
+
+        self.widgetAcq.window.uploadButton.setIcon(
+            QtGui.QPixmap(relativePathIcons+'cloud.png'))
+        self.widgetAcq.window.uploadButton.setIconSize(QtCore.QSize(25, 25))
 
     def formStyle(self):
         styleWindow = """

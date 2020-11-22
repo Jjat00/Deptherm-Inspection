@@ -23,11 +23,11 @@ class StylesIntrinsicCalibration():
     def setIcons(self):
         self.widgetAcq.window.loadButton.setIcon(
             QtGui.QPixmap(relativePathIcons+'load.png'))
-        self.widgetAcq.window.loadButton.setIconSize(QtCore.QSize(30, 30))
+        self.widgetAcq.window.loadButton.setIconSize(QtCore.QSize(25, 25))
 
         self.widgetAcq.window.startButton.setIcon(
             QtGui.QPixmap(relativePathIcons+'play.png'))
-        self.widgetAcq.window.startButton.setIconSize(QtCore.QSize(33, 33))
+        self.widgetAcq.window.startButton.setIconSize(QtCore.QSize(25, 25))
 
         self.widgetAcq.window.saveButton.setIcon(
             QtGui.QPixmap(relativePathIcons+'save.png'))
@@ -43,11 +43,11 @@ class StylesIntrinsicCalibration():
 
         self.widgetAcq.window.clearButton.setIcon(
             QtGui.QPixmap(relativePathIcons+'refresh.png'))
-        self.widgetAcq.window.clearButton.setIconSize(QtCore.QSize(30, 30))
+        self.widgetAcq.window.clearButton.setIconSize(QtCore.QSize(25, 25))
 
         self.widgetAcq.window.buttonUploadCloud.setIcon(
             QtGui.QPixmap(relativePathIcons+'cloud.png'))
-        self.widgetAcq.window.buttonUploadCloud.setIconSize(QtCore.QSize(35, 35))
+        self.widgetAcq.window.buttonUploadCloud.setIconSize(QtCore.QSize(32, 32))
         self.widgetAcq.window.buttonUploadCloud.setToolTip(
             'upload date to database')
 

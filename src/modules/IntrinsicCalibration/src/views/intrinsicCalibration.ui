@@ -29,7 +29,7 @@
   <widget class="QPushButton" name="startButton">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>390</x>
      <y>520</y>
      <width>51</width>
      <height>41</height>
@@ -43,7 +43,7 @@
    <property name="geometry">
     <rect>
      <x>950</x>
-     <y>50</y>
+     <y>90</y>
      <width>181</width>
      <height>161</height>
     </rect>
@@ -163,7 +163,7 @@
    <property name="geometry">
     <rect>
      <x>950</x>
-     <y>260</y>
+     <y>300</y>
      <width>181</width>
      <height>161</height>
     </rect>
@@ -308,7 +308,7 @@
   <widget class="QPushButton" name="loadButton">
    <property name="geometry">
     <rect>
-     <x>330</x>
+     <x>310</x>
      <y>520</y>
      <width>51</width>
      <height>41</height>
@@ -321,7 +321,7 @@
   <widget class="QPushButton" name="saveButton">
    <property name="geometry">
     <rect>
-     <x>590</x>
+     <x>550</x>
      <y>520</y>
      <width>51</width>
      <height>41</height>
@@ -387,7 +387,7 @@
   <widget class="QLineEdit" name="cornersX">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>190</x>
      <y>530</y>
      <width>31</width>
      <height>25</height>
@@ -400,7 +400,7 @@
   <widget class="QLineEdit" name="cornersY">
    <property name="geometry">
     <rect>
-     <x>210</x>
+     <x>230</x>
      <y>530</y>
      <width>31</width>
      <height>25</height>
@@ -426,7 +426,7 @@
   <widget class="QPushButton" name="clearButton">
    <property name="geometry">
     <rect>
-     <x>510</x>
+     <x>470</x>
      <y>520</y>
      <width>51</width>
      <height>41</height>
@@ -439,7 +439,7 @@
   <widget class="QLabel" name="label_10">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>30</x>
      <y>530</y>
      <width>141</width>
      <height>21</height>
@@ -453,7 +453,7 @@
    <property name="geometry">
     <rect>
      <x>940</x>
-     <y>20</y>
+     <y>60</y>
      <width>181</width>
      <height>20</height>
     </rect>
@@ -466,7 +466,7 @@
    <property name="geometry">
     <rect>
      <x>940</x>
-     <y>230</y>
+     <y>270</y>
      <width>181</width>
      <height>20</height>
     </rect>
@@ -478,7 +478,7 @@
   <widget class="QLabel" name="currentImageLabel">
    <property name="geometry">
     <rect>
-     <x>790</x>
+     <x>830</x>
      <y>530</y>
      <width>67</width>
      <height>21</height>
@@ -491,7 +491,7 @@
   <widget class="QLabel" name="label_13">
    <property name="geometry">
     <rect>
-     <x>730</x>
+     <x>770</x>
      <y>530</y>
      <width>51</width>
      <height>21</height>
@@ -504,62 +504,10 @@
   <widget class="QPushButton" name="buttonUploadCloud">
    <property name="geometry">
     <rect>
-     <x>950</x>
-     <y>510</y>
-     <width>201</width>
+     <x>630</x>
+     <y>520</y>
+     <width>51</width>
      <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEditIDcalib">
-   <property name="geometry">
-    <rect>
-     <x>1060</x>
-     <y>450</y>
-     <width>91</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_14">
-   <property name="geometry">
-    <rect>
-     <x>950</x>
-     <y>450</y>
-     <width>101</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>ID calibration:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_15">
-   <property name="geometry">
-    <rect>
-     <x>950</x>
-     <y>480</y>
-     <width>81</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>name calib:</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEditNameCalib">
-   <property name="geometry">
-    <rect>
-     <x>1060</x>
-     <y>480</y>
-     <width>91</width>
-     <height>21</height>
     </rect>
    </property>
    <property name="text">

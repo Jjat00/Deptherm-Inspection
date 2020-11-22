@@ -5,8 +5,9 @@ class MainControllerExtCalibration():
     Controller for extrinsic camera calibration
     """
 
-    def __init__(self, extrinsicCalibWidget):
+    def __init__(self, mainWidget, extrinsicCalibWidget):
         super(MainControllerExtCalibration).__init__()
+        self.mainWidget = mainWidget
         self.window = extrinsicCalibWidget.window
         self.connectButtons()
         extrinsicCalibWidget.exec()
@@ -15,7 +16,7 @@ class MainControllerExtCalibration():
         """
         connect all buttons
         """
-        self.handler = HandlerExtrinsicCalibration(self.window)
+        self.handler = HandlerExtrinsicCalibration(self.mainWidget, self.window)
 
         self.window.loadButton.clicked.connect(
             self.handler.handlerLoadPatternImages)
@@ -34,3 +35,6 @@ class MainControllerExtCalibration():
 
         self.window.clearButton.clicked.connect(
             self.handler.handlerClearWorkspace)
+
+        self.window.uploadButton.clicked.connect(
+            self.handler.uploadData)

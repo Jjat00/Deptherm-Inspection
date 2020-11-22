@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="labelHeader_2">
+  <widget class="QLabel" name="labelHeader">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -42,7 +42,7 @@
     <string>name:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
+  <widget class="QLineEdit" name="lineEditPhone">
    <property name="geometry">
     <rect>
      <x>450</x>
@@ -52,7 +52,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="lineEditName">
    <property name="geometry">
     <rect>
      <x>450</x>
@@ -75,7 +75,7 @@
     <string>phone:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="lineEditID">
    <property name="geometry">
     <rect>
      <x>450</x>
@@ -98,7 +98,7 @@
     <string>ID:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QLineEdit" name="lineEditCompany">
    <property name="geometry">
     <rect>
      <x>450</x>
@@ -118,10 +118,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>address:</string>
+    <string>company:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_5">
+  <widget class="QLineEdit" name="lineEditLastname">
    <property name="geometry">
     <rect>
      <x>450</x>
@@ -144,7 +144,7 @@
     <string>lastname:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_6">
+  <widget class="QLineEdit" name="lineEditEmail">
    <property name="geometry">
     <rect>
      <x>450</x>
@@ -167,7 +167,7 @@
     <string>email:</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="buttonNext">
    <property name="geometry">
     <rect>
      <x>820</x>
@@ -180,7 +180,7 @@
     <string>NEXT</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="buttonSave">
    <property name="geometry">
     <rect>
      <x>340</x>
@@ -193,7 +193,7 @@
     <string>SAVE</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="buttonCancel">
    <property name="geometry">
     <rect>
      <x>230</x>
@@ -204,6 +204,22 @@
    </property>
    <property name="text">
     <string>CANCEL</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelMessage">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>530</y>
+     <width>321</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>

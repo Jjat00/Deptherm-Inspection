@@ -3,7 +3,7 @@ from PySide2 import QtWidgets
 import urlfetch
 import json
 import glob
-from CalibrationDB import insertCalibration, insertImage
+from CalibrationDB import *
 
 class HandlerIntrinsicCalibration():
     def __init__(self, mainWindow, window):
@@ -71,13 +71,13 @@ class HandlerIntrinsicCalibration():
         matrizHomografia = json.dumps({'matriz': []})
 
         idUsuario = self.mainWindow.user.getUserID()
-        id = int(self.window.lineEditIDcalib.text())
+        camera = 'Null'
 
         message = QtWidgets.QMessageBox.question(
             self.window, "Choice message", "You are sequre?", QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
 
         if message == QtWidgets.QMessageBox.Yes:
-            res = insertCalibration(id, idUsuario, 1,
+            res = insertCalibration(camera, idUsuario, 1,
                           paramFocales, paramDistortion, matrizHomografia)
             self.uploadImages()
             if res == 200:
@@ -89,13 +89,11 @@ class HandlerIntrinsicCalibration():
 
     def uploadImages(self):
         imagesStr = self.event.getImagesCalibration()
-        name = self.window.lineEditNameCalib.text()
-        idCalibration = int(self.window.lineEditIDcalib.text())
+        idCalibration = int(getLastCalib())
         self.window.progressBarIntrsc.setValue(0)
-        NoImages = len(imagesStr)
+        NoImages = len(imagesStr)-1
         for index in range(NoImages):
-            res = insertImage("%s%i" % (name, index),
-                              idCalibration, imagesStr[index])
+            res = insertImage(idCalibration, imagesStr[index])
             value = (index / NoImages) * 100
             self.window.progressBarIntrsc.setValue(value)                              
             print(res)
