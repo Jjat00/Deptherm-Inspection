@@ -18,8 +18,12 @@ class LoginWidget(QtWidgets.QDialog):
         """
         self.loadForm()
         self.setWindowTitle("User Login")
-        self.setGeometry(200, 50, 500, 350)
+        self.setGeometry(450, 100, 512, 572)
 
+    def closeEvent(self, event):
+        print('User has pressed the close button')
+        sys.exit(0)
+        
     def loadForm(self):
         formUI = os.path.join(sys.path[0], 'views/login.ui')
         file = QtCore.QFile(formUI)

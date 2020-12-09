@@ -7,9 +7,22 @@ class UserDB():
     Services for user table db
     """
     def __init__(self):
-        super(UserDB).__init__()
         self.storage = Storage()
         self.storage.connect()
+
+    def getAllUser(self):
+        users = []
+        try:
+            query = "SELECT * FROM usuario"
+            rows = self.storage.get(query)
+            for row in rows:
+                ID, userType, name, lastname, state, phone, email, password = row
+                user = User(ID, userType, name, lastname,
+                            state, phone, email, password)
+                users.append(user)
+        except:
+            user = None
+        return users
 
     def getUserByID(self, ID):
         """

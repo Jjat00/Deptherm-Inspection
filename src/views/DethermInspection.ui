@@ -48,32 +48,6 @@
      </layout>
     </widget>
    </widget>
-   <widget class="QPushButton" name="buttonLogin">
-    <property name="geometry">
-     <rect>
-      <x>1130</x>
-      <y>0</y>
-      <width>71</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="buttonUserManage">
-    <property name="geometry">
-     <rect>
-      <x>1050</x>
-      <y>0</y>
-      <width>71</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QLabel" name="labelHeader">
     <property name="geometry">
      <rect>
@@ -84,7 +58,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Deptherm Inspection</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="buttonLogout">
@@ -209,8 +183,6 @@
    </widget>
    <zorder>labelLogo</zorder>
    <zorder>frameWorkspace</zorder>
-   <zorder>buttonLogin</zorder>
-   <zorder>buttonUserManage</zorder>
    <zorder>labelHeader</zorder>
    <zorder>buttonLogout</zorder>
    <zorder>labelMessage</zorder>

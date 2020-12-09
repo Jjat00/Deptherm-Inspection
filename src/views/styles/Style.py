@@ -108,5 +108,26 @@ class Styles():
                 QTextEdit {
                     color: """ + self.lineEdit + """
                 }
+                QTableWidget {
+                    color: """ + self.frameCamera + """;
+                }
+                QHeaderView::section {
+                    background-color: #646464;
+                    padding: 4px;
+                    font-size: 14pt;
+                    border-style: none;
+                    border-bottom: 1px solid #fffff8;
+                    border-right: 1px solid #fffff8;
+                }
+
+                QHeaderView::section:horizontal
+                {
+                    border-top: 1px solid #fffff8;
+                }
+
+                QHeaderView::section:vertical
+                {
+                    border-left: 1px solid #fffff8;
+                }                
             """
         self.widget.setStyleSheet(styleWindow)

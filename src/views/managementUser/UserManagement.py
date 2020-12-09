@@ -20,7 +20,12 @@ class UserManagementWidget(QtWidgets.QDialog):
         """
         self.loadForm()
         self.setWindowTitle("User Register")
-        self.setGeometry(300, 100, 753, 460)
+        self.setGeometry(200, 100, 924, 560)
+
+
+    def closeEvent(self, event):
+        print('User UserManagementWidget has pressed the close button')
+        sys.exit(0)
 
     def loadForm(self):
         """

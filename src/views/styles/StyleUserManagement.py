@@ -14,10 +14,15 @@ class StyleUserManagement():
         self.setStyle()
 
     def setStyle(self):
+        self.widget.window.pushButtonLogout.setIcon(
+            QtGui.QPixmap(relativePathIcons+'logout.png'))
+        self.widget.window.pushButtonLogout.setIconSize(
+            QtCore.QSize(40, 40))
+        self.widget.window.pushButtonLogout.setToolTip('Logout')
+
         """
         Set stylesheet componenets GUI
         """
-
         styleHeader = """
             padding-left: 5px;
             background: """ + self.styles.primaryColor + """;
@@ -37,6 +42,7 @@ class StyleUserManagement():
         """
         self.widget.window.labelMessage.setStyleSheet(styleMessage)
 
+
         styleButtons = """ 
             border: 1px solid """ + self.styles.secondaryText + """;
         """
@@ -44,4 +50,6 @@ class StyleUserManagement():
         self.widget.window.buttonUpdateUser.setStyleSheet(styleButtons)
         self.widget.window.buttonConsultUser.setStyleSheet(styleButtons)
         self.widget.window.buttonDeleteUser.setStyleSheet(styleButtons)
+        self.widget.window.buttonConsultAll.setStyleSheet(styleButtons)
         
+

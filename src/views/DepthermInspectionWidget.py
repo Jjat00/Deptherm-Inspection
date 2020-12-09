@@ -5,7 +5,7 @@ from PySide2 import QtCore, QtUiTools, QtWidgets
 from views.styles.StyleDepthermInspection import StyleDepthermInspection
 from views.LoginWidget import LoginWidget
 
-class DepthermInspectionWidget(QtWidgets.QWidget):
+class DepthermInspectionWidget(QtWidgets.QDialog):
     """
     Main Widget for Deptherm Inspection 
     """
@@ -14,6 +14,10 @@ class DepthermInspectionWidget(QtWidgets.QWidget):
         #self.loginWidget = LoginWidget()
         self.initUI()
         StyleDepthermInspection(self)
+    
+    def closeEvent(self, event):
+        print('User has pressed DepthermInspectionWidget the close button')
+        sys.exit(0)
 
     def initUI(self):
         """ 
@@ -21,7 +25,7 @@ class DepthermInspectionWidget(QtWidgets.QWidget):
         """
         self.loadForm()
         self.setWindowTitle("Deptherm Inspection")
-        self.setGeometry(100, 5, 1200, 710)
+        self.setGeometry(0, 0, 1366, 750)
 
     def loadForm(self):
         formUI = os.path.join(sys.path[0], 'views/DethermInspection.ui')

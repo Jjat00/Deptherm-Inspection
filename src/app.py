@@ -80,11 +80,16 @@ for nameDir in dirs:
 """
 Add controller to main widget DepthermInspectionWidget and run QApplication
 """
-from controllers.MainControllerDepthermInspection import MainControllerDepthermInspection
-from views.DepthermInspectionWidget import DepthermInspectionWidget
+#from controllers.MainControllerDepthermInspection import MainControllerDepthermInspection
+#from views.DepthermInspectionWidget import DepthermInspectionWidget
+
+from views.LoginWidget import LoginWidget
+from controllers.ControllerUserLogin import ControllerUserLogin
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
-    depthermIspectionWidget = DepthermInspectionWidget()
-    mainControllerDepthermInspection = MainControllerDepthermInspection(depthermIspectionWidget)
+    #depthermIspectionWidget = DepthermInspectionWidget()
+    #mainControllerDepthermInspection = MainControllerDepthermInspection(depthermIspectionWidget)
+    loginWidget = LoginWidget()
+    ControllerUserLogin = ControllerUserLogin(loginWidget)
     app.exec_()

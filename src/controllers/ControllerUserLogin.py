@@ -1,19 +1,23 @@
-from PySide2 import QtWidgets
 from models.interfaces.UserDB import UserDB
 
+from MainControllerDepthermInspection import MainControllerDepthermInspection
+from DepthermInspectionWidget import DepthermInspectionWidget
 
+from views.managementUser.UserManagement import UserManagementWidget
+from controllers.ControllerUserManagement import ControllerUserManagement
 
 class ControllerUserLogin():
     """
     Controller for login user form
     """
 
-    def __init__(self, mainWidget, loginWidget):
+    def __init__(self, loginWidget):
         super().__init__()
-        self.mainWidget = mainWidget
+        #self.mainWidget = mainWidget
         self.window = loginWidget.window
         self.connectButtons()
-        loginWidget.exec()
+        self.loginWidget = loginWidget
+        self.loginWidget.exec()
         self.consult = False
         
 
@@ -43,22 +47,23 @@ class ControllerUserLogin():
         Handler button consult user
         """
         self.getVulesLineEdit()
-        try:
-            if self.email != None and self.consult:
-                userDB = UserDB()
-                user = userDB.getUserByEmail(self.email, self.password)
-                self.mainWidget.user = user
-                if user != None:                    
-                    print(user.toString())
-                    self.showMesagge("Welcome %s" % user.getName())
-                    self.mainWidget.STATELOGIN = True
-                    self.cleanLineEdit()
-                    self.mainWidget.enabledButtuns()
-                else:
-                    self.showMesagge("User does not exists")
-                    self.mainWidget.STATELOGIN = False
-        except AttributeError:
-            print("Fail consult user")
+
+        if self.email != None and self.consult:
+            userDB = UserDB()
+            user = userDB.getUserByEmail(self.email, self.password)
+            if user != None:                    
+                print(user.toString())
+                self.showMesagge("Welcome %s" % user.getName())
+                self.cleanLineEdit()
+                self.loginWidget.hide()
+                if user.userType == 2:
+                    self.depthermIspectionWidget = DepthermInspectionWidget()
+                    MainControllerDepthermInspection(user, self.depthermIspectionWidget)
+                if user.userType == 1:
+                    self.userManagementWidget = UserManagementWidget()
+                    ControllerUserManagement(self.userManagementWidget)
+            else:
+                self.showMesagge("User does not exists")
 
 
 

@@ -1,13 +1,9 @@
 from PySide2 import QtWidgets
 
 
-from views.managementUser.UserManagement import UserManagementWidget
-from views.LoginWidget import LoginWidget
 
 from views.configurationInspection.ClientFormWidget import ClientFormWidget
 
-from controllers.ControllerUserLogin import ControllerUserLogin
-from controllers.ControllerUserManagement import ControllerUserManagement
 from controllers.ControllerClient import ControllerClientInspection
 
 from views.AcquisitionManagementWidget import AcquisitionManagementWidget
@@ -27,27 +23,29 @@ class MainControllerDepthermInspection():
     Main controller app Deptherm Inspection
     """
 
-    def __init__(self, depthermIspectionWidget):
+    def __init__(self, user, depthermIspectionWidget):
         super(MainControllerDepthermInspection).__init__()
         self.window = depthermIspectionWidget.window
-        depthermIspectionWidget.show()
+        #depthermIspectionWidget.show()
         self.connectButtons()
         self.STATELOGIN = False
         self.inspectinoAnalyzer = False
-        self.disabledButtuns()
-        self.user = None
-        #depthermIspectionWidget.exec()
+        #self.disabledButtuns()
+        self.user = user
+        self.window.labelHeader.setText("Deptherm operator: " + user.getName() + " " + user.getLastname())
+        self.depthermIspectionWidget = depthermIspectionWidget
+        self.depthermIspectionWidget.exec()
         #app.exec_()
 
     def connectButtons(self):
         """
         Connect the buttons with their events
         """
-        self.window.buttonUserManage.clicked.connect(
-            self.showUserManagementWidget)
+        #self.window.buttonUserManage.clicked.connect(
+        #    self.showUserManagementWidget)
 
-        self.window.buttonLogin.clicked.connect(
-            self.showUserLoginWidget)
+        #self.window.buttonLogin.clicked.connect(
+        #    self.showUserLoginWidget)
 
         self.window.buttonLogout.clicked.connect(
             self.logout)
@@ -82,27 +80,6 @@ class MainControllerDepthermInspection():
         del self.acquisitionManagementWidget 
         del self.analyzerWidget 
 
-    def showUserManagementWidget(self):
-        """
-        Handler button user management
-        """
-        if self.STATELOGIN:
-            self.cleanWorkspace()
-            self.userManagementWidget = UserManagementWidget()
-            self.window.layoutDepthermInpesction.addWidget(self.userManagementWidget)
-            controller = ControllerUserManagement(self.userManagementWidget)
-        else:
-            self.showMessage("you need to be logged like admin for this!")
-
-
-    def showUserLoginWidget(self):
-        """
-        Handler button login user
-        """
-        self.cleanWorkspace()
-        self.loginWidget = LoginWidget()
-        self.window.layoutDepthermInpesction.addWidget(self.loginWidget)
-        controller = ControllerUserLogin(self, self.loginWidget)
 
     def showInspectionConfigurationWidget(self):
         """
@@ -174,13 +151,11 @@ class MainControllerDepthermInspection():
         """
         Logout session user
         """
-        if self.STATELOGIN:
-            self.cleanWorkspace()
-            self.STATELOGIN = False
-            self.showMessage("User logout")
-            self.disabledButtuns()
-        else:
-            self.showMessage("Not logged in")
+        self.depthermIspectionWidget.hide()
+        from views.LoginWidget import LoginWidget
+        from controllers.ControllerUserLogin import ControllerUserLogin
+        loginWidget = LoginWidget()
+        ControllerUserLogin = ControllerUserLogin(loginWidget)
 
     def showInspctionAnalyzer(self):
         """
