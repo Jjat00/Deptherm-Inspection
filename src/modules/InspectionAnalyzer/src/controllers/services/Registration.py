@@ -1,4 +1,5 @@
-from vedo import Points
+from numpy.core.fromnumeric import size
+from vedo import *
 import numpy as np
 
 class Registration():
@@ -18,6 +19,29 @@ class Registration():
         """
         self.groupPointCloud = groupPointCloud['vertex']
         self.groupColorPoint = groupPointCloud['color']
+
+        """         nuevoGrupo = []
+        for point in self.groupPointCloud:
+            points = self.planeSegmentation(point)
+            nuevoGrupo.append(points)
+
+        LengthPointCloud = []
+        for grupo in nuevoGrupo:
+            LengthPointCloud.append(len(grupo))
+
+        minLengthPoint = np.amin(LengthPointCloud)
+        coordinates = []
+        color = []
+
+        for index in range(len(nuevoGrupo)):
+            coordinatesAux = np.array(nuevoGrupo[index])
+            colorAux = np.array(self.groupColorPoint[index])
+            coordinates.append(coordinatesAux[0:minLengthPoint, :])
+            color.append(colorAux[0:minLengthPoint, :])
+
+        self.groupPointCloud = coordinates
+        self.groupColorPoint = color """
+        
 
 
     def initICP(self):
@@ -41,9 +65,23 @@ class Registration():
         #print('groupTotalDifferencePoint:')
         #print(len(groupTotalDifferencePoint))
         
+        plt = Plotter(shape=(1, 2))
+        newgroupTotalPoint = Points(groupTotalPoint, r=2)#.clean(0.001)
+        #newgroupTotalPoint = Points(newgroupTotalPoint, r=3)
+        scalars = newgroupTotalPoint.points()[:, 2]
+        newgroupTotalPoint.pointColors(scalars, cmap="coolwarm")
+        #vp.show(newgroupTotalPoint, viewup='z')
+        plt.show(newgroupTotalPoint, at=0)
+        newgroupTotalPoint = Points(
+            self.totalAlinedPoints[0], r=2)#.clean(0.001)
+        #newgroupTotalPoint = Points(
+        #    newgroupTotalPoint, r=3)
+        scalars = newgroupTotalPoint.points()[:, 2]
+        newgroupTotalPoint.pointColors(scalars, cmap="coolwarm")
+        plt.show(newgroupTotalPoint, at=1, interactive=True)
         pointCloudAligend = {
             'pointCloud': groupTotalPoint,
-            'color': self.groupColorPoint[0],
+            'color': self.groupColorPoint[1],
         }
         return pointCloudAligend
 
@@ -87,6 +125,7 @@ class Registration():
             alignedPoint = self.aligned(groupPointCloud[1], groupPointCloud[0])
             alignedPoint, differencePoint = self.aligned(groupPointCloud[1], groupPointCloud[0])
             self.totalAlinedPoints.append(alignedPoint)
+            self.totalAlinedDifferencePoints.append(differencePoint)
             print('aligned:')
             for index in range(len(groupPointCloud)-2):
                 print(index)
@@ -94,6 +133,7 @@ class Registration():
                 verticesDst = self.totalAlinedPoints[index]
                 alignedPoint, differencePoint = self.aligned(verticesSorce, verticesDst)
                 self.totalAlinedPoints.append(alignedPoint)
+                self.totalAlinedDifferencePoints.append(differencePoint)
         else:
             self.totalAlinedPoints.append(groupPointCloud[0])
 
@@ -125,3 +165,32 @@ class Registration():
         maskValidPoints = np.absolute(differenceTotal) > 0.15
         destinationPointsAux = destinationPoints[maskValidPoints]
         return destinationPointsAux
+
+    def planeSegmentation(self, xyzPoints):
+        auxPoints = Points(xyzPoints).clean(0.005)
+        points = Points(xyzPoints[::2, :]).clean(0.005)
+        print(points.N())
+        plane = fitPlane(points)
+        print('plane')
+        print(plane.points())
+        print('normal')
+        print(plane.normal)
+        print('dir normal')
+        print(np.average(plane.normal))
+        pts = plane.points()[0]
+        d = - plane.normal[0]*pts[0] - \
+            plane.normal[1]*pts[1] - plane.normal[2]*pts[2]
+        arrows = Arrow(plane.center, plane.center+plane.normal/5)
+        newPoints = []
+        for pts in auxPoints.points():
+                distancePoint = plane.normal[0]*pts[0] + \
+                    plane.normal[1]*pts[1]+plane.normal[2]*pts[2] + d
+                if np.average(plane.normal) > 0:
+                        if distancePoint > 0.01:
+                                newPoints.append(pts)
+                else:
+                        if distancePoint < -0.01:
+                                newPoints.append(pts)
+        points = Points(newPoints)
+        show(points, plane, arrows, viewup='z')
+        return newPoints

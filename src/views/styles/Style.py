@@ -128,6 +128,11 @@ class Styles():
                 QHeaderView::section:vertical
                 {
                     border-left: 1px solid #fffff8;
-                }                
+                }         
+                QToolTip { 
+                    background-color: black; 
+                    color: white; 
+                    border: black solid 1px
+                    }                       
             """
         self.widget.setStyleSheet(styleWindow)

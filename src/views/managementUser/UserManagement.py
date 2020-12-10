@@ -20,7 +20,7 @@ class UserManagementWidget(QtWidgets.QDialog):
         """
         self.loadForm()
         self.setWindowTitle("User Register")
-        self.setGeometry(200, 100, 924, 560)
+        self.setGeometry(200, 100, 930, 560)
 
 
     def closeEvent(self, event):

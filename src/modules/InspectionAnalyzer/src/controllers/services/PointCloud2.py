@@ -83,6 +83,7 @@ class PointCloud2():
                         rgb, newXYZ = self.transformation.getColorFromXYZ(
                             vertex.points(), self.colorImage)
 
+                #self.planeSegmentation(vertex.points())
                 print('adding color...')
                 vertex = Points(newXYZ, r = self.radioPoint, c = rgb)
                 #plt = Plotter()
@@ -197,11 +198,43 @@ class PointCloud2():
                         return points
 
         def clusterPointCloud(self, xyzPoints):
-                """
-                docstring
-                """
-                pointFilterd = cluster(xyzPoints, radius=0.01)
-                pointFilterd = Points(pointFilterd, r=1.8)
-                scalars = vertex.points()[:, 2]
-                pointFilterd.pointColors(scalars, cmap="coolwarm")
-                return pointFilterd
+                points = Points(xyzPoints)
+                clusterPoint = cluster(xyzPoints, radius=0.055)
+                print(clusterPoint)
+                print(clusterPoint.info.keys())
+                print(len(clusterPoint.info['clusters']))
+                newPoints = clusterPoint.info['clusters'][0]
+                newPoints = Points(newPoints)
+
+                show(newPoints,   __doc__, viewup='z')
+                return clusterPoint
+
+        def planeSegmentation(self, xyzPoints):
+                auxPoints = Points(xyzPoints)
+                points = Points(xyzPoints[::2,:]).clean(0.005)
+                print(points.N())
+                plane = fitPlane(points)
+                print('plane')
+                print(plane.points())
+                print('normal')
+                print(plane.normal)
+                print('dir normal')
+                print(np.average(plane.normal))
+                pts = plane.points()[0]
+                d = - plane.normal[0]*pts[0] - \
+                    plane.normal[1]*pts[1] - plane.normal[2]*pts[2]
+
+                arrows = Arrow(plane.center, plane.center+plane.normal/5)
+                
+                newPoints = []
+                for pts in auxPoints.points():
+                        distancePoint = plane.normal[0]*pts[0] + \
+                            plane.normal[1]*pts[1]+plane.normal[2]*pts[2] + d
+                        if np.average(plane.normal) > 0:
+                                if distancePoint > 0.01:
+                                        newPoints.append(pts)
+                        else:
+                                if distancePoint < -0.01:
+                                        newPoints.append(pts)
+                points = Points(newPoints)
+                show(points, plane, arrows, __doc__, viewup='z')

@@ -16,8 +16,8 @@
   <widget class="QPushButton" name="buttonIntAcq">
    <property name="geometry">
     <rect>
-     <x>440</x>
-     <y>200</y>
+     <x>110</x>
+     <y>390</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -29,8 +29,8 @@
   <widget class="QPushButton" name="buttonExtAcq">
    <property name="geometry">
     <rect>
-     <x>440</x>
-     <y>284</y>
+     <x>430</x>
+     <y>390</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -45,8 +45,8 @@
   <widget class="QPushButton" name="buttonAllAcq">
    <property name="geometry">
     <rect>
-     <x>440</x>
-     <y>370</y>
+     <x>750</x>
+     <y>390</y>
      <width>281</width>
      <height>51</height>
     </rect>
@@ -69,6 +69,45 @@
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelIntrinsic">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>170</y>
+     <width>191</width>
+     <height>191</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelExtrinsic">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>170</y>
+     <width>221</width>
+     <height>191</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelAllcameras">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>220</y>
+     <width>181</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>

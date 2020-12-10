@@ -17,17 +17,6 @@ class StyleDepthermInspection():
         """
         Set icons GUI
         """
-        #self.widget.window.buttonUserManage.setIcon(
-        #    QtGui.QPixmap(relativePathIcons+'management.png'))
-        #self.widget.window.buttonUserManage.setIconSize(
-        #    QtCore.QSize(30, 30))
-        #self.widget.window.buttonUserManage.setToolTip('Management user')
-
-        #self.widget.window.buttonLogin.setIcon(
-        #    QtGui.QPixmap(relativePathIcons+'login1.png'))
-        #self.widget.window.buttonLogin.setIconSize(QtCore.QSize(30, 30))
-        #self.widget.window.buttonLogin.setToolTip('User login')
-
         self.widget.window.buttonInspection.setIcon(
             QtGui.QPixmap(relativePathIcons+'add.png'))
         self.widget.window.buttonInspection.setIconSize(

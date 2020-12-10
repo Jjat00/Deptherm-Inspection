@@ -41,10 +41,14 @@ class StyleInspectionAnalyzer():
         self.cameraFusionWidget.window.buttonTurnOn.setIconSize(
             QtCore.QSize(20, 20))
 
+        self.cameraFusionWidget.window.buttonTurnOn.setToolTip('turn on cameras')
+
         self.cameraFusionWidget.window.buttonCapture.setIcon(
             QtGui.QPixmap(relativePathIcons+'capture.png'))
         self.cameraFusionWidget.window.buttonCapture.setIconSize(
             QtCore.QSize(20, 20))
+        self.cameraFusionWidget.window.buttonCapture.setToolTip(
+            'capture images')
 
         """ self.cameraFusionWidget.window.buttonSaveImages.setIcon(
             QtGui.QPixmap(relativePathIcons+'storage.png'))
@@ -55,16 +59,22 @@ class StyleInspectionAnalyzer():
             QtGui.QPixmap(relativePathIcons+'ojo.png'))
         self.cameraFusionWidget.window.buttonShowPointCamera.setIconSize(
             QtCore.QSize(20, 20))
+        self.cameraFusionWidget.window.buttonShowPointCamera.setToolTip(
+            'show point cloud')
 
         self.cameraFusionWidget.window.buttonSavePointCloud.setIcon(
             QtGui.QPixmap(relativePathIcons+'storage.png'))
         self.cameraFusionWidget.window.buttonSavePointCloud.setIconSize(
             QtCore.QSize(20, 20))
+        self.cameraFusionWidget.window.buttonSavePointCloud.setToolTip(
+            'save data')
 
         self.cameraFusionWidget.window.buttonClean.setIcon(
             QtGui.QPixmap(relativePathIcons+'escoba.png'))
         self.cameraFusionWidget.window.buttonClean.setIconSize(
             QtCore.QSize(20, 20))
+        self.cameraFusionWidget.window.buttonClean.setToolTip(
+            'clean workspace')
 
         #################################################################
         self.cameraFusionWidget.window.buttonLoadDepth.setIcon(
@@ -147,7 +157,7 @@ class StyleInspectionAnalyzer():
         self.cameraFusionWidget.window.buttonShowPointRegister.setIconSize(
             QtCore.QSize(20, 20))
         self.cameraFusionWidget.window.buttonShowPointRegister.setToolTip(
-            'start icp')
+            'show point cloud register')
 
         ##############################################
         self.cameraFusionWidget.window.buttonLoadIntrinsic.setIcon(

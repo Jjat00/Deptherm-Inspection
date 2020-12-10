@@ -24,32 +24,38 @@ class StylesIntrinsicCalibration():
         self.widgetAcq.window.loadButton.setIcon(
             QtGui.QPixmap(relativePathIcons+'load.png'))
         self.widgetAcq.window.loadButton.setIconSize(QtCore.QSize(25, 25))
+        self.widgetAcq.window.loadButton.setToolTip('Load images')
 
         self.widgetAcq.window.startButton.setIcon(
             QtGui.QPixmap(relativePathIcons+'play.png'))
         self.widgetAcq.window.startButton.setIconSize(QtCore.QSize(25, 25))
+        self.widgetAcq.window.startButton.setToolTip('start intrinsic calibration')
 
         self.widgetAcq.window.saveButton.setIcon(
             QtGui.QPixmap(relativePathIcons+'save.png'))
         self.widgetAcq.window.saveButton.setIconSize(QtCore.QSize(25, 25))
+        self.widgetAcq.window.saveButton.setToolTip('save intrinsic parameters')
 
         self.widgetAcq.window.previusButton.setIcon(
             QtGui.QPixmap(relativePathIcons+'previous.png'))
         self.widgetAcq.window.previusButton.setIconSize(QtCore.QSize(20, 20))
+        self.widgetAcq.window.previusButton.setToolTip('previus')
 
         self.widgetAcq.window.nextButton.setIcon(
             QtGui.QPixmap(relativePathIcons+'skip.png'))
         self.widgetAcq.window.nextButton.setIconSize(QtCore.QSize(20, 20))
+        self.widgetAcq.window.nextButton.setToolTip('next')
 
         self.widgetAcq.window.clearButton.setIcon(
             QtGui.QPixmap(relativePathIcons+'refresh.png'))
         self.widgetAcq.window.clearButton.setIconSize(QtCore.QSize(25, 25))
+        self.widgetAcq.window.clearButton.setToolTip('clear wokspace')
 
         self.widgetAcq.window.buttonUploadCloud.setIcon(
             QtGui.QPixmap(relativePathIcons+'cloud.png'))
         self.widgetAcq.window.buttonUploadCloud.setIconSize(QtCore.QSize(32, 32))
         self.widgetAcq.window.buttonUploadCloud.setToolTip(
-            'upload date to database')
+            'upload to database')
 
     def formStyle(self):
         styleWindow = """

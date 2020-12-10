@@ -362,7 +362,7 @@ class ControllerAcquisitionInspection():
 
         depthPoint = self.window.horizontalSliderDepth.value()
         xyzPoints = transformation.depth2xyz(depthPoint / 10)
-
+        colorImage = []
         if self.colorRegister == 'rgb':
             colorImage = transformation.getColorRgb()
         if self.colorRegister == 'thermal':

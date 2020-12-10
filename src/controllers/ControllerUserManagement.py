@@ -1,12 +1,8 @@
-from PySide2 import QtWidgets, QtGui
+from PySide2 import QtWidgets
 from views.managementUser.UserRegister import UserRegisterWidget
-from views.managementUser.UserConsult import UserConsultWidget
 from views.managementUser.UserUpdate import UserUpdateWidget
-from views.managementUser.UserDelete import UserDeleteWidget
 from controllers.ControllerRegisterUser import ControllerRegisterUser
 from controllers.ControllerUpdateUser import ControllerUpdateUser
-from controllers.ControllerDeleteUser import ControllerDeleteUser
-from controllers.ControllerConsultUser import ControllerConsultUser
 
 from models.interfaces.UserDB import UserDB
 
@@ -100,19 +96,6 @@ class ControllerUserManagement():
 
     def showConsultUserForm(self):
         """
-        Handler button consult user
-        """
-        self.showUsers(self.getUser())
-
-    def showDeleteUserForm(self):
-        """
-        Handler button delete user
-        """
-        self.deleteUser()
-        self.showAll()
-
-    def getUser(self):
-        """
         Handler button delete user
         """
         users = []
@@ -123,14 +106,14 @@ class ControllerUserManagement():
                 user = userDB.getUserByID(self.ID)
                 if user != None:
                     users.append(user)
+                    self.showUsers(users)
                     self.showMesagge("")
                 else:
                     self.showMesagge("User does not exists")
         except AttributeError:
             print("Fail update user")
-        return users
 
-    def deleteUser(self):
+    def showDeleteUserForm(self):
         """
         Handler button delete user
         """
@@ -139,6 +122,7 @@ class ControllerUserManagement():
             if self.ID != None and self.delete:
                 userDB = UserDB()
                 count = userDB.deleteUserByID(self.ID)
+                self.showAll()
                 if count == 0:
                     self.showMesagge("User does not exist")
         except AttributeError:

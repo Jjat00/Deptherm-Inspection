@@ -1,6 +1,8 @@
 from views.styles.Style import Styles
 from PySide2 import QtGui, QtCore
 
+relativePathIcons = '../public/icons/'
+
 class StyleAcquisitionManagement():
     """
     User management widget style
@@ -11,6 +13,22 @@ class StyleAcquisitionManagement():
         self.widget = widget
         self.styles = Styles(self.widget)
         self.setStyle()
+        self.setIcons()
+
+    def setIcons(self):
+        patron1 = QtGui.QPixmap.fromImage(
+            relativePathIcons+'patron.png')
+        self.widget.window.labelIntrinsic.setPixmap(patron1)
+        self.widget.window.labelIntrinsic.setScaledContents(True)
+        patron2 = QtGui.QPixmap.fromImage(
+            relativePathIcons+'patron2.png')
+        self.widget.window.labelExtrinsic.setPixmap(patron2)
+        self.widget.window.labelExtrinsic.setScaledContents(True)
+        allCameras = QtGui.QPixmap.fromImage(
+            relativePathIcons+'3dsensor.png')
+        self.widget.window.labelAllcameras.setPixmap(allCameras)
+        self.widget.window.labelAllcameras.setScaledContents(True)
+
 
     def setStyle(self):
         """
