@@ -7,12 +7,11 @@ class ControllerConfigInspec():
     Controller for inspection configuration 
     """
 
-    def __init__(self, mainWidget, configWidget):
+    def __init__(self,  configWidget):
         super().__init__()
-        self.mainWidget = mainWidget
-        self.mainWindow = mainWidget.window
         self.window = configWidget.window
         self.connectButtons()
+        self.configWidget = configWidget
         configWidget.exec()
         self.register = False
 
@@ -24,8 +23,6 @@ class ControllerConfigInspec():
             self.cleanLineEdit)
         self.window.buttonSave.clicked.connect(
             self.registerConfig)
-        self.window.pushButtonFinish.clicked.connect(
-            self.getVulesLineEdit)
 
     def getVulesLineEdit(self):
         """
@@ -71,3 +68,4 @@ class ControllerConfigInspec():
         self.window.lineEditEmissivity.setText("")
         self.window.lineEditTemp.setText("")
         self.window.textEditOrder.setText("")
+        self.configWidget.close()

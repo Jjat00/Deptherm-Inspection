@@ -2,6 +2,7 @@ import numpy as np
 import cv2
 import os
 import threading
+import matplotlib.pyplot as plt
 
 class IntrinsicCameraCalibration():
         def __init__(self, window):
@@ -29,14 +30,16 @@ class IntrinsicCameraCalibration():
                 self.NoImages = len(pathImages)
                 self.objectPoints = []
                 self.imagePoints = []
-                for fname in pathImages:
-                        imgColor = cv2.imread(fname)
+                gray = []
+                for frame in pathImages:
+                        imgColor = cv2.imread(frame)
+                        imgColor = cv2.bilateralFilter(imgColor, 15, 75, 75)
                         imgCopy = imgColor.copy()
                         gray = cv2.cvtColor(imgColor, cv2.COLOR_BGR2GRAY)
                         ret, corners = cv2.findChessboardCorners(
                             gray, (self.patternDimensions[1], self.patternDimensions[0]), flags=cv2.CALIB_CB_NORMALIZE_IMAGE)
                         if ret == True:
-                                self.nameImages.append(fname)
+                                self.nameImages.append(frame)
                                 threading.Thread(target=self.increaseProgressBar).start()
                                 self.objectPoints.append(self.objp)
                                 corners = cv2.cornerSubPix(
@@ -51,6 +54,24 @@ class IntrinsicCameraCalibration():
                 self.state, self.intrinsicMatrix, self.distortionParameters, self.rvecs, self.tvecs = cv2.calibrateCamera(
                     self.objectPoints, self.imagePoints, gray.shape[::-1], None, None)
                 cv2.destroyAllWindows()
+                self.getResult(self.imagesCalibration[0])
+
+        def getResult(self, image):
+                totalError, errors = self.getError()
+                print('total error: ', totalError)
+                print(errors)
+                nImages = np.linspace(0, len(errors)-1,  len(errors))
+                print(nImages)
+                plt.plot(nImages, errors)
+                plt.title('error')
+                plt.xlabel('frame')
+                plt.ylabel('error (pixeles)')
+                plt.grid()
+                plt.show()
+                relativePath = 'modules/IntrinsicCalibration/data'
+                cv2.imwrite(relativePath + '/original.png', image)
+                self.undistortImage1(image)
+                self.undistortImage2(image)
 
         def getImagesCalibration(self):
                 return self.imagesCalibration
@@ -69,7 +90,8 @@ class IntrinsicCameraCalibration():
                 # crop the image
                 x, y, w, h = roi
                 undistImage = undistImage[y:y+h, x:x+w]
-                cv2.imwrite('calibresult1.png', undistImage)
+                relativePath = 'modules/IntrinsicCalibration/data'
+                cv2.imwrite(relativePath + '/calibresult1.png', undistImage)
                 return undistImage
 
         def undistortImage2(self, image):
@@ -82,7 +104,8 @@ class IntrinsicCameraCalibration():
                 # crop the image
                 x,y,w,h = roi
                 undistImage = undistImage[y:y+h, x:x+w]
-                cv2.imwrite('calibresult2.png', undistImage)
+                relativePath = 'modules/IntrinsicCalibration/data'
+                cv2.imwrite(relativePath + '/calibresult2.png', undistImage)
                 return undistImage
 
         def getError(self):
@@ -91,8 +114,10 @@ class IntrinsicCameraCalibration():
                 for i in range(len(self.objectPoints)):
                         imgpoints2, _ = cv2.projectPoints(
                             self.objectPoints[i], self.rvecs[i], self.tvecs[i], self.intrinsicMatrix, self.distortionParameters)
+                        print('puntos detectados: ', self.imagePoints[i])
+                        print('proyección: ', imgpoints2)
                         error = cv2.norm(
-                            self.imagePoints[i], imgpoints2, cv2.NORM_L2)/len(imgpoints2)
+                            self.imagePoints[i], imgpoints2, cv2.NORM_L2)#/len(imgpoints2)
                         errors.append(error)
                         totalError += error
                 error = totalError/len(self.objectPoints)
@@ -102,7 +127,7 @@ class IntrinsicCameraCalibration():
                         if errors[index] > error:
                                 #os.remove(self.nameImages[index])
                                 pass
-                return error
+                return error, errors
 
         def getDrawChessBoardImages(self):
                 return self.drawChessBoardImages

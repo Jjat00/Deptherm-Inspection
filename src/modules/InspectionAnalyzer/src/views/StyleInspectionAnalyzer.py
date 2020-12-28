@@ -304,3 +304,14 @@ class StyleInspectionAnalyzer():
         self.cameraFusionWidget.window.frameImages.setStyleSheet(styleFrameCamera)
         self.cameraFusionWidget.window.framePCloudM.setStyleSheet(
             styleFrameCamera)
+
+        styleButtonReport = """
+            color: """+self.frameCamera+""";
+            border: 1px solid """ + self.secondaryText + """;
+        """
+        self.cameraFusionWidget.window.buttonAddConfig.setStyleSheet(
+            styleButtonReport)
+        self.cameraFusionWidget.window.buttonAddClient.setStyleSheet(
+            styleButtonReport)
+        self.cameraFusionWidget.window.buttonAddReport.setStyleSheet(
+            styleButtonReport)

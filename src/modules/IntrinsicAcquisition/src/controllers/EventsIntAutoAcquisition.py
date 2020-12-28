@@ -75,6 +75,7 @@ class EventsIntAutoAcquisition():
         self.window.labelNoImage.setText(str(self.countNoImageAutoAcq))
 
     def getFrameDrawPattern(self):
+        frame = []
         if self.countNoImageAutoAcq < self.NoImagesAutoAcq:
             if (self.whichCamera == 'RGB'):
                 print("get rgb image")

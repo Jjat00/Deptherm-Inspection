@@ -89,6 +89,8 @@ class EventsExtrAutoAcquisition():
         self.viewCamera2.setScene(scene2)
 
     def getFrameDrawPattern(self):
+        frameCamera1 = []
+        frameCamera2 = []
         if self.countNoImageAutoAcq < self.NoImagesAutoAcq:
             if (self.whichCamera == 'RGB-DEPTH'):
                 frameCamera1, frameCamera2 = self.detectPattern(

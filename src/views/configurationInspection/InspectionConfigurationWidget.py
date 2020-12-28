@@ -20,7 +20,7 @@ class InspectionConfigurationWidget(QtWidgets.QDialog):
         """
         self.loadForm()
         self.setWindowTitle("Inspection Configuration")
-        self.setGeometry(200, 50, 489, 444)
+        self.setGeometry(450, 130, 478, 491)
 
     def loadForm(self):
         formUI = os.path.join(

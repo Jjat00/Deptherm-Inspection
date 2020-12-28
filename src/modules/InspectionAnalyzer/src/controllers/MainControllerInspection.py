@@ -1,6 +1,11 @@
 from HandlerButtonsCamerasTab import HandlerButtonsCamerasTab
 from HandlerButtonsImagesTab import HandlerButtonsImagesTab
 
+from configurationInspection.ClientFormWidget import ClientFormWidget
+from ControllerClient import ControllerClientInspection
+
+from configurationInspection.InspectionConfigurationWidget import InspectionConfigurationWidget
+from ControllerConfigInspec import ControllerConfigInspec
 
 class MainControllerInspection():
     """
@@ -26,6 +31,8 @@ class MainControllerInspection():
             self.connectButtonsImagesInspectionTab)
 
         self.connectButtonCameraTab()
+        self.connectButtonAddClient()
+        self.connectButtonAddConfig()
 
     def connectButtonCameraTab(self):
         self.HandlerCamerasTab.connectOnButton()
@@ -49,8 +56,23 @@ class MainControllerInspection():
         self.HandlerCamerasTab.ConnectButtonLoadHomography1()
         self.HandlerCamerasTab.ConnectButtonLoadHomography2()
 
-    def connectButtonsCameraInspectionTab(self):
+    def connectButtonAddClient(self):
+        self.window.buttonAddClient.clicked.connect(
+            self.showFormClient)
 
+    def connectButtonAddConfig(self):
+        self.window.buttonAddConfig.clicked.connect(
+            self.showFormConfig)
+
+    def showFormClient(self):
+        self.clientFormWidgetWidget = ClientFormWidget()
+        ControllerClientInspection(self.clientFormWidgetWidget)
+
+    def showFormConfig(self):
+        self.inspectionConfigurationWidget = InspectionConfigurationWidget()
+        ControllerConfigInspec(self.inspectionConfigurationWidget)
+
+    def connectButtonsCameraInspectionTab(self):
         chosenCamera = self.window.boxChosenCloudCamera.currentText()
         if chosenCamera == 'point cloud':
             print('point cloud camera')

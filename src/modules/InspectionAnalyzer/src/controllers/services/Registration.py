@@ -40,7 +40,7 @@ class Registration():
             color.append(colorAux[0:minLengthPoint, :])
 
         self.groupPointCloud = coordinates
-        self.groupColorPoint = color """
+        self.groupColorPoint = color  """
         
 
 
@@ -167,8 +167,8 @@ class Registration():
         return destinationPointsAux
 
     def planeSegmentation(self, xyzPoints):
-        auxPoints = Points(xyzPoints).clean(0.005)
-        points = Points(xyzPoints[::2, :]).clean(0.005)
+        auxPoints = Points(xyzPoints).clean(0.004)
+        points = Points(xyzPoints[::2, :]).clean(0.004)
         print(points.N())
         plane = fitPlane(points)
         print('plane')

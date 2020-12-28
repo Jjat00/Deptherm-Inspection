@@ -49,7 +49,9 @@ class DataIntAcquisition():
                         thermalImage: thermal image
                 """
                 
-                ret, self.thermalImage = self.thermalCamera.read()
+                #ret, self.thermalImage = self.thermalCamera.read()
+                self.getRgbImage()
+                self.thermalImage = self.zoom(self.rgbImage)
                 return self.thermalImage
 
         def captureRgbImage(self):
@@ -112,12 +114,22 @@ class DataIntAcquisition():
                         cv2.VideoCapture().open(0) -> get webcam computer camera
                         cv2.VideoCapture().open(1) -> get thermal camera
                 """
-                self.thermalCamera = cv2.VideoCapture()
-                self.thermalCamera.open(0)
+                print("init thermal camera...")
+                #self.thermalCamera = cv2.VideoCapture()
+                #self.thermalCamera.open(0)
 
         def closeThermalCamera(self):
                 """
                 docstring
                 """
                 print("closing thermal camera...")
-                self.thermalCamera.release()
+                #self.thermalCamera.release()
+
+        def zoom(self, image):
+                height, width = image.shape[:2]
+                crop_img = image[100:height-100, 100:width-100]
+
+                newImage = cv2.resize(
+                    crop_img, (int(width), int(height)), cv2.INTER_CUBIC)
+
+                return newImage

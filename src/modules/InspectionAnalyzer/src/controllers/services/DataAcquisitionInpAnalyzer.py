@@ -119,7 +119,6 @@ class DataAcquisitionInpAnalyzer():
                 ##self.thermalCamera.open(0)                
                 #self.thermalCamera.open(
                 #    'http://192.168.1.4:4747/videostream.cgi?.mjpg')
-                pass
 
         def closeThermalCamera(self):
                 """
@@ -127,7 +126,6 @@ class DataAcquisitionInpAnalyzer():
                 """
                 print("closing thermal camera...")
                 #self.thermalCamera.release()
-                pass
 
         def zoom(self, image):
                 height, width = image.shape[:2]

@@ -51,8 +51,6 @@ class DataAcquisitionExtr():
                 #ret, self.thermalImage = self.thermalCamera.read()
                 rgbImage = self.getRgbImage()
                 self.thermalImage = self.zoom(rgbImage)
-        
-                print('get thermal image')
                 return self.thermalImage
 
         def captureRgbImage(self):
@@ -120,7 +118,6 @@ class DataAcquisitionExtr():
                 ##self.thermalCamera.open(0)
                 #self.thermalCamera.open(
                 #    'http://192.168.1.4:4747/videostream.cgi?.mjpg')
-                pass
 
         def closeThermalCamera(self):
                 """
@@ -128,7 +125,6 @@ class DataAcquisitionExtr():
                 """
                 print("closing thermal camera...")
                 #self.thermalCamera.release()
-                pass
 
 
         def zoom(self, image):

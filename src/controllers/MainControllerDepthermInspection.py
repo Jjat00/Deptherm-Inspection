@@ -1,11 +1,6 @@
 from PySide2 import QtWidgets
 
 
-
-from views.configurationInspection.ClientFormWidget import ClientFormWidget
-
-from controllers.ControllerClient import ControllerClientInspection
-
 from views.AcquisitionManagementWidget import AcquisitionManagementWidget
 from controllers.ControllerAcquisition import ControllerAcquisition
 
@@ -41,17 +36,10 @@ class MainControllerDepthermInspection():
         """
         Connect the buttons with their events
         """
-        #self.window.buttonUserManage.clicked.connect(
-        #    self.showUserManagementWidget)
-
-        #self.window.buttonLogin.clicked.connect(
-        #    self.showUserLoginWidget)
 
         self.window.buttonLogout.clicked.connect(
             self.logout)
 
-        self.window.buttonInspection.clicked.connect(
-            self.showInspectionConfigurationWidget)
 
         self.window.buttonAcquisition.clicked.connect(
             self.showAcquisitionWidget)
@@ -81,16 +69,6 @@ class MainControllerDepthermInspection():
         del self.analyzerWidget 
 
 
-    def showInspectionConfigurationWidget(self):
-        """
-        docstring
-        """
-        self.cleanWorkspace()
-        self.clientFormWidgetWidget = ClientFormWidget()
-        self.window.layoutDepthermInpesction.addWidget(self.clientFormWidgetWidget)
-        ControllerClientInspection(self, self.clientFormWidgetWidget)
-
-
     def showIntrinsicCalibrationWidget(self):
         """
         docstring
@@ -101,10 +79,6 @@ class MainControllerDepthermInspection():
         self.window.layoutDepthermInpesction.addWidget(self.intrinsicCalibrationWidget)
         controller = MainControllerIntrinsicCalibration(
             self, self.intrinsicCalibrationWidget)
-        
-        #inspectionConfigurationWidget = InspectionConfigurationWidget()
-        #self.window.layoutDepthermInpesction.addWidget(inspectionConfigurationWidget)
-        #inspectionConfigurationWidget.exec()
 
     def showExtrinsicCalibrationWidget(self):
         """

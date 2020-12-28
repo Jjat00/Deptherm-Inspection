@@ -35,7 +35,7 @@ class EventsExtrManualAcquisition():
         return self.viewCamera
 
     def captureImage(self, whichCamera):
-
+        frameImage = []
         if (self.clicPlay or self.clicCapture):
             self.viewCamera.deleteLater()
         self.timerCamera.stop()
@@ -83,12 +83,17 @@ class EventsExtrManualAcquisition():
         self.viewCamera.setScene(scene)
         
     def getFrame(self):
+        frame = []
         if (self.whichCamera == 'RGB'):
             frame = self.camera.getRgbImage()
         if (self.whichCamera == 'DEPTH'):
             frame = self.camera.getDepthImage()
         if (self.whichCamera == 'THERMAL'):
             frame = self.camera.getThermalImage()
+            frame = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
+            frame = abs(255 - frame)
+            frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2RGB)
+            #frame = self.camera.getThermalImage()
         frame = self.imageResize(frame, self.scalaImage)
         image = QtGui.QImage(frame, *self.dimensionsCamera,QtGui.QImage.Format_RGB888).rgbSwapped()
         self.imagePixmap = QtGui.QPixmap.fromImage(image)

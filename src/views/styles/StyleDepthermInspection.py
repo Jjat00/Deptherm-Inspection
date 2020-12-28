@@ -17,11 +17,6 @@ class StyleDepthermInspection():
         """
         Set icons GUI
         """
-        self.widget.window.buttonInspection.setIcon(
-            QtGui.QPixmap(relativePathIcons+'add.png'))
-        self.widget.window.buttonInspection.setIconSize(
-            QtCore.QSize(30, 30))
-        self.widget.window.buttonInspection.setToolTip('New inspection')
 
         self.widget.window.buttonCalibInt.setIcon(
             QtGui.QPixmap(relativePathIcons+'intrinsicCalib.png'))

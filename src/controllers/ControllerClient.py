@@ -9,12 +9,11 @@ class ControllerClientInspection():
     Controller for inspection configuration 
     """
 
-    def __init__(self, mainWidget, clienWidget):
+    def __init__(self, clienWidget):
         super().__init__()
-        self.mainWindow = mainWidget.window
-        self.mainWidget = mainWidget
         self.window = clienWidget.window
         self.connectButtons()
+        self.clienWidget = clienWidget
         clienWidget.exec()
         self.register = False
 
@@ -26,15 +25,6 @@ class ControllerClientInspection():
             self.cleanLineEdit)
         self.window.buttonSave.clicked.connect(
             self.registerClient)
-        self.window.buttonNext.clicked.connect(
-            self.next)
-
-    def next(self):
-        self.mainWidget.cleanWorkspace()
-        self.widgetConfig = InspectionConfigurationWidget()
-        self.mainWindow.layoutDepthermInpesction.addWidget(
-            self.widgetConfig)
-        ControllerConfigInspec(self.mainWidget, self.widgetConfig)
 
     def getVulesLineEdit(self):
         """
@@ -89,3 +79,4 @@ class ControllerClientInspection():
         self.window.lineEditPhone.setText("")
         self.window.lineEditCompany.setText("")
         self.ID = None
+        self.clienWidget.close()

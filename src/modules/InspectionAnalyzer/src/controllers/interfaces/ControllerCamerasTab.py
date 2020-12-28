@@ -1,5 +1,5 @@
 from ControllerAcquisitionInspection import ControllerAcquisitionInspection
-from PointCloudDB import insertPointCloud, insertImagesCloud
+from PointCloudDB import insertPointCloud, insertImagesCloud, getLastPointCloud
 from PySide2 import QtWidgets
 import json
 import sys
@@ -109,7 +109,6 @@ class ControllerCamerasTab():
         message = QtWidgets.QMessageBox.question(
             self.window, "Choice message", "You are sequre?", QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
         if message == QtWidgets.QMessageBox.Yes:
-            idCloud = int(self.window.lineEditIDCloud.text())
             pointCloud = self.controllerAcquisition.getPointCloud()
             vertex = {
                 'vertex': pointCloud['vertex']
@@ -117,13 +116,14 @@ class ControllerCamerasTab():
             colorPointCloud = {
                 'color': pointCloud['color']
             }
-            res = insertPointCloud(idCloud, json.dumps(vertex), json.dumps(colorPointCloud))
+            res = insertPointCloud(json.dumps(vertex), json.dumps(colorPointCloud))
             print(res)
             imagesPointCloud = self.controllerAcquisition.getImagesInspection()
             rgbImage = self.controllerAcquisition.imageToString(imagesPointCloud[0])
             depthImage = self.controllerAcquisition.imageToString(imagesPointCloud[1])
             thermalImage = self.controllerAcquisition.imageToString(imagesPointCloud[2])
             colorImage = self.controllerAcquisition.imageToString(imagesPointCloud[3])
+            idCloud = getLastPointCloud()
             res = insertImagesCloud(idCloud, rgbImage, depthImage, thermalImage, colorImage)
             print(res)
             if res == 200:

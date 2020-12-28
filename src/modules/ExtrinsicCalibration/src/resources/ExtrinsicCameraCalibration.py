@@ -66,7 +66,8 @@ class ExtrinsicCameraCalibration():
             self.pointsSrc[:len(self.pointsSrc)-1], self.pointsDst[:len(self.pointsDst)-1], cv2.RANSAC, 5.0)
         print("homographyMatrix")
         print(self.homographyMatrix)
-
+        #self.getError(self.pointsSrc, self.pointsDst)
+    
     def findCorners(self):
         self.toGray()
         self.findChessCorners()
@@ -148,3 +149,19 @@ class ExtrinsicCameraCalibration():
         """
         return (self.imagesSrc, self.imagesDst)
         
+    def getError(self, imgSrc, imgDst):
+        totalError = 0
+        errors = []
+        for i in range(len(imgDst)):
+                error = cv2.norm(
+                    imgSrc[i], imgDst[i], cv2.NORM_L2)/len(imgDst)
+                errors.append(error)
+                totalError += error
+        error = totalError/len(self.objectPoints)
+
+        for index in range(len(self.nameImages)):
+                print(errors[index])
+                if errors[index] > error:
+                        #os.remove(self.nameImages[index])
+                        pass
+        return error

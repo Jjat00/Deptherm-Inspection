@@ -2,12 +2,11 @@ import urlfetch
 import json
 
 
-def insertPointCloud(idnube, vertex, color):
+def insertPointCloud(vertex, color):
     response = urlfetch.post(
         'http://localhost:3000/nubepuntos/addnubepuntos',
         headers={},
         data={
-            'idnube': idnube,
             'vertices': vertex,
             'color': color
         },
@@ -15,6 +14,14 @@ def insertPointCloud(idnube, vertex, color):
     res = json.load(response)
     return res['status']
 
+
+def getLastPointCloud():
+    res = urlfetch.get(
+        'http://localhost:3000/nubepuntos/last')
+    r = res.content.decode('utf-8')
+    u = json.loads(r)
+    id = u[0]['idnube']
+    return id
 
 def insertImagesCloud(idnube, rgbImage, depthImage, thermalImage, colorImage):
     response = urlfetch.post(

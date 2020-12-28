@@ -364,14 +364,20 @@ class ControllerAcquisitionInspection():
         xyzPoints = transformation.depth2xyz(depthPoint / 10)
         colorImage = []
         if self.colorRegister == 'rgb':
+            print('[1 rgb]')
             colorImage = transformation.getColorRgb()
         if self.colorRegister == 'thermal':
+            print('[2 thermal]')
             colorImage = transformation.getTemperature()
+            analyzerImage = Analyzer()
+            analyzerImage.setImageToAnalyzer(colorImage)
+            analyzerImage.setFalseColor(self.nameFalseColor)
+            colorImage = analyzerImage.getFalseColor()
         if self.colorRegister == 'rgb-thermal':
+            print('[3 rgb-thermal]')
             rgbImage = transformation.getTemperature()
             thermalImage = transformation.getTemperature()
-        else:
-            colorImage = transformation.getColorRgb()
+
 
         self.groupPointCloud.append(xyzPoints)
         self.groupColorPointCloud.append(colorImage)
@@ -483,9 +489,6 @@ class ControllerAcquisitionInspection():
         analyzer.histograma()
 
     def startRegister(self):
-        """
-        docstring
-        """
         registration = Registration()
         groupPointCloud = self.getGroupPointCloud()
         registration.setPointCloud(groupPointCloud)

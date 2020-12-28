@@ -155,19 +155,6 @@
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="buttonInspection">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>700</y>
-      <width>81</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QPushButton" name="buttonCalibExt">
     <property name="geometry">
      <rect>
@@ -190,7 +177,6 @@
    <zorder>buttonInspectionAnalyzer</zorder>
    <zorder>buttonClean</zorder>
    <zorder>buttonCalibInt</zorder>
-   <zorder>buttonInspection</zorder>
    <zorder>buttonCalibExt</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
