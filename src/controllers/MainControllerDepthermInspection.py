@@ -40,7 +40,6 @@ class MainControllerDepthermInspection():
         self.window.buttonLogout.clicked.connect(
             self.logout)
 
-
         self.window.buttonAcquisition.clicked.connect(
             self.showAcquisitionWidget)
             

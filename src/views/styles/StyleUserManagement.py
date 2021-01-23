@@ -14,12 +14,6 @@ class StyleUserManagement():
         self.setStyle()
 
     def setStyle(self):
-        self.widget.window.pushButtonLogout.setIcon(
-            QtGui.QPixmap(relativePathIcons+'logout.png'))
-        self.widget.window.pushButtonLogout.setIconSize(
-            QtCore.QSize(40, 40))
-        self.widget.window.pushButtonLogout.setToolTip('Logout')
-
         """
         Set stylesheet componenets GUI
         """

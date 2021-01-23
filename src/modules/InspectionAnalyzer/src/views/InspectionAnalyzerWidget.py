@@ -19,7 +19,7 @@ class InspectionAnalyzerWidget(QtWidgets.QDialog):
 
     def initUI(self):
         self.setWindowTitle("Camera Fusion")
-        self.setGeometry(100, 50, 1150, 635)
+        self.setGeometry(100, 50, 1170, 623)
 
 
     def loadForm(self):

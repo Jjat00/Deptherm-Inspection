@@ -3,8 +3,11 @@ from models.interfaces.UserDB import UserDB
 from MainControllerDepthermInspection import MainControllerDepthermInspection
 from DepthermInspectionWidget import DepthermInspectionWidget
 
-from views.managementUser.UserManagement import UserManagementWidget
-from controllers.ControllerUserManagement import ControllerUserManagement
+#from views.managementUser.UserManagement import UserManagementWidget
+#from controllers.ControllerUserManagement import ControllerUserManagement
+
+from views.DepthermAdminWidget import DepthermAdminWidget
+from controllers.ControllerAdminWidget import ControllerAdminWidget
 
 class ControllerUserLogin():
     """
@@ -60,8 +63,10 @@ class ControllerUserLogin():
                     self.depthermIspectionWidget = DepthermInspectionWidget()
                     MainControllerDepthermInspection(user, self.depthermIspectionWidget)
                 if user.userType == 1:
-                    self.userManagementWidget = UserManagementWidget()
-                    ControllerUserManagement(self.userManagementWidget)
+                    #self.userManagementWidget = UserManagementWidget()
+                    #ControllerUserManagement(self.userManagementWidget)
+                    self.depthermAdminWidget = DepthermAdminWidget()
+                    ControllerAdminWidget(user, self.depthermAdminWidget)
             else:
                 self.showMesagge("User does not exists")
 

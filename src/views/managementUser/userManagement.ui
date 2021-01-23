@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>924</width>
-    <height>550</height>
+    <width>1279</width>
+    <height>612</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>470</y>
+     <y>540</y>
      <width>171</width>
      <height>51</height>
     </rect>
@@ -30,7 +30,7 @@
    <property name="geometry">
     <rect>
      <x>220</x>
-     <y>470</y>
+     <y>540</y>
      <width>181</width>
      <height>51</height>
     </rect>
@@ -42,8 +42,8 @@
   <widget class="QPushButton" name="buttonDeleteUser">
    <property name="geometry">
     <rect>
-     <x>660</x>
-     <y>50</y>
+     <x>1020</x>
+     <y>40</y>
      <width>111</width>
      <height>51</height>
     </rect>
@@ -55,8 +55,8 @@
   <widget class="QPushButton" name="buttonConsultUser">
    <property name="geometry">
     <rect>
-     <x>540</x>
-     <y>50</y>
+     <x>900</x>
+     <y>40</y>
      <width>111</width>
      <height>51</height>
     </rect>
@@ -70,7 +70,7 @@
     <rect>
      <x>-10</x>
      <y>0</y>
-     <width>941</width>
+     <width>291</width>
      <height>41</height>
     </rect>
    </property>
@@ -101,17 +101,17 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>120</y>
-     <width>861</width>
-     <height>331</height>
+     <y>110</y>
+     <width>1221</width>
+     <height>411</height>
     </rect>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEditID">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>50</y>
+     <x>710</x>
+     <y>40</y>
      <width>171</width>
      <height>51</height>
     </rect>
@@ -120,27 +120,14 @@
   <widget class="QPushButton" name="buttonConsultAll">
    <property name="geometry">
     <rect>
-     <x>780</x>
-     <y>50</y>
+     <x>1140</x>
+     <y>40</y>
      <width>111</width>
      <height>51</height>
     </rect>
    </property>
    <property name="text">
     <string>Consult all</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButtonLogout">
-   <property name="geometry">
-    <rect>
-     <x>830</x>
-     <y>470</y>
-     <width>61</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
    </property>
   </widget>
  </widget>

@@ -12,13 +12,12 @@ class ControllerUserManagement():
     """
 
     def __init__(self, managemetWidget):
-        super(ControllerUserManagement).__init__()
+        super().__init__()
         self.window = managemetWidget.window
-        self.connectButtons()
         userDB = UserDB()
         self.showUsers(userDB.getAllUser())
-        self.managemetWidget = managemetWidget
-        self.managemetWidget.exec()
+        self.connectButtons()
+        managemetWidget.exec()
             
 
     def connectButtons(self):
@@ -36,8 +35,6 @@ class ControllerUserManagement():
                 self.showUpdateUserForm)
             self.window.buttonDeleteUser.clicked.connect(
                 self.showDeleteUserForm)
-            self.window.pushButtonLogout.clicked.connect(
-                self.logout)
         except:
             pass
     
@@ -54,6 +51,7 @@ class ControllerUserManagement():
         self.tableWidget.setColumnCount(8)
         horHeaders = ['ID', 'name', 'lastname', 'type', 'state', 'cellphone', 'email', 'password']
         self.tableWidget.setHorizontalHeaderLabels(horHeaders)
+        self.tableWidget.horizontalHeader().setMinimumSectionSize(147)
 
         for i in range(8):
             for j in range(10):
@@ -81,6 +79,7 @@ class ControllerUserManagement():
         """
         Handler button register user
         """
+        print('registeeeeeeeeeeeeer')
         userRegisterWidget = UserRegisterWidget()
         ControllerRegisterUser(userRegisterWidget)
         self.showAll()
@@ -145,13 +144,3 @@ class ControllerUserManagement():
         Show response request
         """
         self.window.labelMessage.setText(message)
-
-    def logout(self):
-        """
-        Logout session user
-        """
-        self.managemetWidget.hide()
-        from views.LoginWidget import LoginWidget
-        from controllers.ControllerUserLogin import ControllerUserLogin
-        loginWidget = LoginWidget()
-        ControllerUserLogin = ControllerUserLogin(loginWidget)

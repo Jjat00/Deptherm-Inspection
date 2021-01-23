@@ -1,5 +1,5 @@
 from views.styles.Style import Styles
-from PySide2 import QtGui, QtCore
+from PySide2 import QtGui
 
 relativePathIcons = '../public/icons/'
 

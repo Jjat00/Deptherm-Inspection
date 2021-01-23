@@ -1,18 +1,18 @@
 import sys
 import os
 from PySide2 import QtWidgets, QtCore, QtUiTools
-from views.styles.StyleUserManagement import StyleUserManagement
+from views.styles.StyleAdminWidget import StyleAdminWidget
 
 
-class UserManagementWidget(QtWidgets.QDialog):
+class DepthermAdminWidget(QtWidgets.QDialog):
     """
-    Widget ofr user management (create, update delete, read)
+    docstring
     """
 
-    def __init__(self, *args, **kwargs):
-        super(UserManagementWidget, self).__init__(*args, **kwargs)
+    def __init__(self):
+        super().__init__()
         self.initGUI()
-        StyleUserManagement(self)
+        StyleAdminWidget(self)
 
     def initGUI(self):
         """
@@ -20,8 +20,7 @@ class UserManagementWidget(QtWidgets.QDialog):
         """
         self.loadForm()
         self.setWindowTitle("User Register")
-        self.setGeometry(200, 100, 930, 560)
-
+        self.setGeometry(0, 0, 1366, 750)
 
     def closeEvent(self, event):
         print('User UserManagementWidget has pressed the close button')
@@ -32,7 +31,7 @@ class UserManagementWidget(QtWidgets.QDialog):
         load form.ui create in Qt designer
         """
         formUI = os.path.join(
-            sys.path[0], 'views/managementUser/userManagement.ui')
+            sys.path[0], 'views/depthermAdminWidget.ui')
         file = QtCore.QFile(formUI)
         file.open(QtCore.QFile.ReadOnly)
         loader = QtUiTools.QUiLoader()
