@@ -315,3 +315,6 @@ class StyleInspectionAnalyzer():
             styleButtonReport)
         self.cameraFusionWidget.window.buttonAddReport.setStyleSheet(
             styleButtonReport)
+
+        self.cameraFusionWidget.window.buttonSaveConfig.setStyleSheet(
+            styleButtonReport)

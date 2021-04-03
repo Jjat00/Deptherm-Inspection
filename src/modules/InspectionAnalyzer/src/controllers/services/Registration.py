@@ -69,15 +69,17 @@ class Registration():
         newgroupTotalPoint = Points(groupTotalPoint, r=2)#.clean(0.001)
         #newgroupTotalPoint = Points(newgroupTotalPoint, r=3)
         scalars = newgroupTotalPoint.points()[:, 2]
-        newgroupTotalPoint.pointColors(scalars, cmap="coolwarm")
+        newgroupTotalPoint.pointColors(scalars, cmap="jet")
         #vp.show(newgroupTotalPoint, viewup='z')
         plt.show(newgroupTotalPoint, at=0)
+        write(newgroupTotalPoint, 'modules/InspectionAnalyzer/data/test_pc.ply')
         newgroupTotalPoint = Points(
             self.totalAlinedPoints[0], r=2)#.clean(0.001)
         #newgroupTotalPoint = Points(
         #    newgroupTotalPoint, r=3)
         scalars = newgroupTotalPoint.points()[:, 2]
-        newgroupTotalPoint.pointColors(scalars, cmap="coolwarm")
+        newgroupTotalPoint.pointColors(scalars, cmap="jet")
+        
         plt.show(newgroupTotalPoint, at=1, interactive=True)
         pointCloudAligend = {
             'pointCloud': groupTotalPoint,

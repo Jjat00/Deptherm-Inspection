@@ -5,6 +5,7 @@ Date create: 02-oct-2020
 """
 import numpy as np
 import cv2
+import json
 
 relativePathRgb = 'modules/InspectionAnalyzer/data/images/rgbImage.png'
 relativePathDepth = 'modules/InspectionAnalyzer/data/images/depthImage.png'
@@ -71,18 +72,28 @@ class Transformation():
 
                 self.homographyRgbToDepth = homographyMatrix
 
+
         def setHomographyThermalToRgb(self):
                 #homographyMatrix = np.array([
                 #    [0.29424046705638934, 0.0037388668083184816, 209.94738315208423],
                 #    [-0.004277747148311227, 0.30976870602627143, 144.43526131626922],
                 #    [-5.078621245575828e-05, 2.7181668475245755e-05, 1.0]
                 #])
-                homographyMatrix = np.array([
+                """ homographyMatrix = np.array([
                     [0.6871734366457675, 0.0014052801781046797, 99.59110485776192],
                     [-0.00029236439381231206, 0.5845205173606985, 99.72055327863976],
                     [-2.6274689270337406e-06, 4.4380963401159094e-06, 1.0]
-                ])
-                self.homographyThermalToRgb = homographyMatrix
+                ]) """
+                #self.homographyThermalToRgb = np.array([
+                #    [0.6554102740575146, 0.022118927097712262, 76.30597629068092],
+                #    [-0.018895694761297564, 0.5686113750107271, 111.11552879847683],
+                #    [3.564574086991081e-06, 2.5931736127552733e-05, 1.0]
+                #])
+                self.homographyThermalToRgb = np.array(self.getHomography(
+                    'modules/InspectionAnalyzer/src/controllers/services/HThermal2rgb.json'
+                ))
+                print('****************************')
+                print(self.homographyThermalToRgb)
 
         def rgbToDepthImage(self):
                 rgbImage = cv2.imread(relativePathRgb)
@@ -194,6 +205,12 @@ class Transformation():
                 #newThermal = thermal[self.mask < 1.5]
                 return newThermal
 
+        def getHomography(self, path):
+                data = ''
+                with open(path) as jsonFile:
+                        data = json.load(jsonFile)
+                homographyMatrix = data['homographyMatrix']
+                return homographyMatrix
 
 """ 
     def configTransformation(self):

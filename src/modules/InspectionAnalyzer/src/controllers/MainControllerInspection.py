@@ -33,6 +33,7 @@ class MainControllerInspection():
         self.connectButtonCameraTab()
         self.connectButtonAddClient()
         self.connectButtonAddConfig()
+        
 
     def connectButtonCameraTab(self):
         self.HandlerCamerasTab.connectOnButton()
@@ -55,6 +56,7 @@ class MainControllerInspection():
         self.HandlerCamerasTab.ConnectButtonLoadIntrinsic()
         self.HandlerCamerasTab.ConnectButtonLoadHomography1()
         self.HandlerCamerasTab.ConnectButtonLoadHomography2()
+        self.HandlerCamerasTab.ConnectButtonSaveConfig()
 
     def connectButtonAddClient(self):
         self.window.buttonAddClient.clicked.connect(

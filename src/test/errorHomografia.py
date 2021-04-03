@@ -7,7 +7,7 @@ patternDimensions = [9,6]
 
 criteria = (cv2.TERM_CRITERIA_EPS +
                  cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001)
-TIPO_CALIB = 0
+TIPO_CALIB = 1
 pathImagesSrc = ''
 pathImagesDst = ''
 

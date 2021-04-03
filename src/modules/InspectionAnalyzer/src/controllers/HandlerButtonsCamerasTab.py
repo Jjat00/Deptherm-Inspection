@@ -167,3 +167,10 @@ class HandlerButtonsCamerasTab():
         """
         self.window.buttonLoadH2.clicked.connect(
             self.controllerConfig.loadHomographyThermalToRgb)
+
+    def ConnectButtonSaveConfig(self):
+        """
+        """
+        self.window.buttonSaveConfig.clicked.connect(
+            self.controllerConfig.saveConfiguration
+        )

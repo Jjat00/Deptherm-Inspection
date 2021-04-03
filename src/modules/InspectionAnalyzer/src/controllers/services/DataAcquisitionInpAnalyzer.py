@@ -9,8 +9,18 @@ class DataAcquisitionInpAnalyzer():
         """
 
         def __init__(self):
-                print('init DataAcquisitionInpAnalyzer')
+                self.depthImage = []
+                self.rgbImage = []
 
+        def getDepthData(self):
+                """ 
+                Get depth data from kinect camera
+                return:
+                        depthData: np.array dimensions (640,480) each coordiante (u,v)
+                        has a depth data of 11 bits
+                """
+                depthData, _ = freenect.sync_get_depth()
+                return depthData
 
         def getDepthImage(self):
                 """
@@ -24,15 +34,6 @@ class DataAcquisitionInpAnalyzer():
                     self.depthImage, cv2.COLOR_GRAY2BGR)
                 return self.depthImage
 
-        def getDepthData(self):
-                """ 
-                Get depth data from kinect camera
-                return:
-                        depthData: np.array dimensions (640,480) each coordiante (u,v)
-                        has a depth data of 11 bits
-                """
-                return self.depthData
-
         def getRgbImage(self):
                 """
                 Get rgb image from kinect camera
@@ -44,14 +45,24 @@ class DataAcquisitionInpAnalyzer():
                 return self.rgbImage
 
         def getThermalImage(self):
-                """k
+                """
                 Get thermal image from FLIR 320 thermal camera
                 return:
                         thermalImage: thermal image
                 """
-                #ret, self.thermalImage = self.thermalCamera.read()
-                self.thermalImage = self.zoom(self.rgbImage)
+                ret, self.thermalImage = self.thermalCamera.read()
+                #rgbImage = self.getRgbImage()
+                self.thermalImage = self.zoom(self.thermalImage)
+                self.thermalImage = self.rotation(self.thermalImage)
                 return self.thermalImage
+
+        def rotation(self, image):
+                ancho = image.shape[1]  # columnas
+                alto = image.shape[0]  # filas}
+                # Rotación
+                M = cv2.getRotationMatrix2D((ancho//2,alto//2),180,1)
+                image = cv2.warpAffine(image, M, (ancho, alto))
+                return image
 
         def captureRgbImage(self):
                 """
@@ -114,18 +125,15 @@ class DataAcquisitionInpAnalyzer():
                         cv2.VideoCapture().open(1) -> get thermal camera
                 """
                 print("init thermal camera...")
-
-                #self.thermalCamera = cv2.VideoCapture()
-                ##self.thermalCamera.open(0)                
-                #self.thermalCamera.open(
-                #    'http://192.168.1.4:4747/videostream.cgi?.mjpg')
+                self.thermalCamera = cv2.VideoCapture()
+                self.thermalCamera.open(0)
 
         def closeThermalCamera(self):
                 """
                 docstring
                 """
                 print("closing thermal camera...")
-                #self.thermalCamera.release()
+                self.thermalCamera.release()
 
         def zoom(self, image):
                 height, width = image.shape[:2]

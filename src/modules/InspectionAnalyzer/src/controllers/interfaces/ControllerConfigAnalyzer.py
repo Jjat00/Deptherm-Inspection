@@ -6,12 +6,13 @@ class ControllerConfigAnalyzer():
     def __init__(self,  window):
         print('init ControllerConfigAnalyzer')
         self.window = window
+        self.extrinsicCalibrationData = {}
 
     def loadPath(self):
         """
         docstring
         """
-        relativePath = '../data'
+        relativePath = '../modules/ExtrinsicCalibration/data'
         pathImages = QtWidgets.QFileDialog.getOpenFileName(
             self.window, 'open file', relativePath, selectedFilter='*.json')
         return pathImages[0]
@@ -36,8 +37,8 @@ class ControllerConfigAnalyzer():
         """
         path = self.loadPath()
         data = self.openFile(path)
-        intrinsicMatrix = data['homographyMatrix']
-        self.window.textBrowserH1.setText(str(intrinsicMatrix))
+        homographyMatrix = data['homographyMatrix']
+        self.window.textBrowserH1.setText(str(homographyMatrix))
 
     def loadHomographyThermalToRgb(self):
         """
@@ -45,5 +46,14 @@ class ControllerConfigAnalyzer():
         """
         path = self.loadPath()
         data = self.openFile(path)
-        intrinsicMatrix = data['homographyMatrix']
-        self.window.textBrowserH2.setText(str(intrinsicMatrix))
+        homographyMatrix = data['homographyMatrix']
+        self.window.textBrowserH2.setText(str(homographyMatrix))
+        self.extrinsicCalibrationData['homographyMatrix'] = homographyMatrix
+
+    def saveConfiguration(self):
+        """
+        """
+        print(self.extrinsicCalibrationData)
+        with open('modules/InspectionAnalyzer/src/controllers/services/HThermal2rgb' + '.json', 'w') as outFile:
+            json.dump(self.extrinsicCalibrationData, outFile)
+

@@ -3,7 +3,7 @@ import cv2
 import os
 import threading
 import matplotlib.pyplot as plt
-
+from Filters import FilterImage
 class IntrinsicCameraCalibration():
         def __init__(self, window):
                 super(IntrinsicCameraCalibration).__init__()
@@ -16,6 +16,7 @@ class IntrinsicCameraCalibration():
                 self.distortionParameters = []
                 self.countNoImageAutoAcq = 0
                 self.nameImages = []
+                self.filters = FilterImage()
                 np.set_printoptions(suppress=True)
 
         def setPatternDimensions(self, patternDimensions):
@@ -34,6 +35,9 @@ class IntrinsicCameraCalibration():
                 for frame in pathImages:
                         imgColor = cv2.imread(frame)
                         imgColor = cv2.bilateralFilter(imgColor, 15, 75, 75)
+                        #imgColor = self.filters.filterRed(imgColor)
+                        #imgColor = self.filters.filterLog(imgColor)
+                        #imgColor = 255 - imgColor
                         imgCopy = imgColor.copy()
                         gray = cv2.cvtColor(imgColor, cv2.COLOR_BGR2GRAY)
                         ret, corners = cv2.findChessboardCorners(

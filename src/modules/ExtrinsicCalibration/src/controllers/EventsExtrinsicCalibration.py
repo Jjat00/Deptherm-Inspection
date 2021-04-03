@@ -14,7 +14,7 @@ class EventsExtrinsicCalibration():
         self.extrinsicCalibrationData = {}
 
     def selectDirectoryImages(self):
-        relativePath = 'modules/ExtrinsicCalibration/data'
+        relativePath = 'modules/AcquisitionExtrinsicCalibration/data'
         pathImages = QtWidgets.QFileDialog.getExistingDirectory(
             self.window, "Select Directory", relativePath)
         return pathImages

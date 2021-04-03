@@ -101,9 +101,9 @@ class EventsAcquisitionAllCam():
         frameDepthCamera = self.camera.getDepthImage()
         #frameThermalCamera = self.camera.getThermalImage()
         frame = self.camera.getThermalImage()
-        frame = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
-        frame = abs(255 - frame)
-        frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2RGB)
+        #frame = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
+        #frame = abs(255 - frame)
+        #frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2RGB)
         frameThermalCamera = frame
         depthData = self.camera.getDepthData()
         self.pixMapRgbCamera(frameRgbCamera)

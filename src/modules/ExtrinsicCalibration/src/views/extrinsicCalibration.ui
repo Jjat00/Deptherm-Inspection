@@ -131,7 +131,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>8</string>
+    <string>9</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="cornersY">
@@ -220,12 +220,12 @@
    </property>
    <item>
     <property name="text">
-     <string>RGB-&gt;DEPTH</string>
+     <string>THERMAL-&gt;RGB</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>THERMAL-&gt;RGB</string>
+     <string>RGB-&gt;DEPTH</string>
     </property>
    </item>
   </widget>

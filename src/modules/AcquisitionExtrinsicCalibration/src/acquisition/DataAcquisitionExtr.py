@@ -48,10 +48,20 @@ class DataAcquisitionExtr():
                 return:
                         thermalImage: thermal image
                 """
-                #ret, self.thermalImage = self.thermalCamera.read()
-                rgbImage = self.getRgbImage()
-                self.thermalImage = self.zoom(rgbImage)
+                ret, self.thermalImage = self.thermalCamera.read()
+                #rgbImage = self.getRgbImage()
+                self.thermalImage = self.zoom(self.thermalImage)
+                self.thermalImage = self.rotation(self.thermalImage)
                 return self.thermalImage
+
+        def rotation(self, image):
+                ancho = image.shape[1]  # columnas
+                alto = image.shape[0] # filas}             
+                # Rotación
+                M = cv2.getRotationMatrix2D((ancho//2,alto//2),180,1)
+                #M = cv2.getRotationMatrix2D((317.03,237.62),180,1)
+                image = cv2.warpAffine(image, M, (ancho, alto))
+                return image
 
         def captureRgbImage(self):
                 """
@@ -114,8 +124,8 @@ class DataAcquisitionExtr():
                         cv2.VideoCapture().open(1) -> get thermal camera
                 """
                 print("init thermal camera...")
-                #self.thermalCamera = cv2.VideoCapture()
-                ##self.thermalCamera.open(0)
+                self.thermalCamera = cv2.VideoCapture()
+                self.thermalCamera.open(0)
                 #self.thermalCamera.open(
                 #    'http://192.168.1.4:4747/videostream.cgi?.mjpg')
 
@@ -124,7 +134,7 @@ class DataAcquisitionExtr():
                 docstring
                 """
                 print("closing thermal camera...")
-                #self.thermalCamera.release()
+                self.thermalCamera.release()
 
 
         def zoom(self, image):

@@ -1,9 +1,10 @@
 import cv2
-from DataAcquisitionExtr import DataAcquisitionExtr
+
 
 def dropcam():
     thermalCamera = cv2.VideoCapture()
-    thermalCamera.open('http://192.168.1.4:4747/videostream.cgi?.mjpg')
+    #thermalCamera.open('http://192.168.1.4:4747/videostream.cgi?.mjpg')
+    thermalCamera.open(0)
 
     while(True):
         # Capture frame-by-frame
@@ -40,6 +41,5 @@ def zoom(image):
     if key == ord('q'):
         cv2.destroyAllWindows()
 
-acq = DataAcquisitionExtr()
-image = acq.getRgbImage()
-zoom(image)
+
+dropcam()
