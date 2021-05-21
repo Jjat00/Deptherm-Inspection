@@ -3,9 +3,6 @@ from PySide2 import QtWidgets
 from models.interfaces.ConfigurationDB import insertConfig
 
 class ControllerConfigInspec():
-    """
-    Controller for inspection configuration 
-    """
 
     def __init__(self,  configWidget):
         super().__init__()
@@ -57,6 +54,7 @@ class ControllerConfigInspec():
         """
         Show response request
         """
+        
         self.window.labelMessage.setText(message)
 
     def cleanLineEdit(self):

@@ -2,7 +2,6 @@ dev.py
 *~
 *.pyc
 __pycache__
-src/database/queries.sql
 src/test/depthImage.png
 src/test/insp2PointCloud.ply
 src/data

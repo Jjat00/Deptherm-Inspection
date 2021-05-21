@@ -5,10 +5,7 @@ from controllers.ControllerConfigInspec import ControllerConfigInspec
 from views.configurationInspection.InspectionConfigurationWidget import InspectionConfigurationWidget
 
 class ControllerClientInspection():
-    """
-    Controller for inspection configuration 
-    """
-
+    
     def __init__(self, clienWidget):
         super().__init__()
         self.window = clienWidget.window

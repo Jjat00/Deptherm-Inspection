@@ -11,7 +11,7 @@ from AcquisitionAllCamerasWidget import AcquisitionAllCamerasWidget
 
 class ControllerAcquisition():
     """
-    Controller for user management form
+    Controller for image acquisition
     """
 
     def __init__(self, mainWidget,  managemetWidget):
@@ -25,6 +25,7 @@ class ControllerAcquisition():
         """
         Connect the buttons with their events
         """
+        
         try:
             self.window.buttonIntAcq.clicked.connect(
                 self.showIntrinsicAcquisition)
@@ -33,12 +34,13 @@ class ControllerAcquisition():
             self.window.buttonAllAcq.clicked.connect(
                 self.showAllCamerasAcquisition)
         except:
-            pass
+            print("error connecting acquisition buttons with their events")
 
     def showIntrinsicAcquisition(self):
         """
-        Show intrinsic acquisition widget into main widget
+        Show acquisition widget into main widget
         """
+
         self.mainWidget.cleanWorkspace()
         intrinsicAcquisitionWidget = IntrinsicAcquisitionWidget()
         self.mainWidget.window.layoutDepthermInpesction.addWidget(intrinsicAcquisitionWidget)
@@ -48,6 +50,7 @@ class ControllerAcquisition():
         """
         Show extrinsic acquisition widget into main widget
         """
+
         self.mainWidget.cleanWorkspace()
         extrinsicAcquisitionWidget = ExtrinsicAcquisitionWidget()
         self.mainWidget.window.layoutDepthermInpesction.addWidget(
@@ -58,6 +61,7 @@ class ControllerAcquisition():
         """
         Show acquisition all cameras: rgb, depth and thermal
         """
+        
         self.mainWidget.cleanWorkspace()
         acquisitionAllCamerasWidget = AcquisitionAllCamerasWidget()
         self.mainWidget.window.layoutDepthermInpesction.addWidget(

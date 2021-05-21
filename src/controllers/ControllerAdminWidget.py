@@ -6,7 +6,7 @@ from controllers.ControllerUserManagement import ControllerUserManagement
 
 class ControllerAdminWidget():
     """
-    Controller for admin
+    Controller for administrator type user
     """ 
 
     def __init__(self, user, adminWidget):
@@ -23,6 +23,7 @@ class ControllerAdminWidget():
         """
         Connect the buttons with their events
         """
+
         self.window.buttonManUser.clicked.connect(
             self.showUserManagemet)
         self.window.buttonReports.clicked.connect(
@@ -32,8 +33,9 @@ class ControllerAdminWidget():
 
     def showUserManagemet(self):
         """
-        docstring
+        Show user management widget into main widget
         """
+
         self.cleanWorkspace()
         self.userManagementWidget = UserManagementWidget()
         self.window.layoutUserManagement.addWidget(
@@ -42,14 +44,16 @@ class ControllerAdminWidget():
         
     def showReports(self):
         """
-        docstring
+        show generated reports
         """
+
         self.cleanWorkspace()
 
     def logout(self):
         """
-        Logout session user
+        User logout
         """
+
         self.adminWidget.hide()
         from views.LoginWidget import LoginWidget
         from controllers.ControllerUserLogin import ControllerUserLogin
@@ -60,6 +64,7 @@ class ControllerAdminWidget():
         """
         Clean worksspace remove all widget
         """
+        
         for index in reversed(range(self.window.layoutUserManagement.count())):
             layoutItem = self.window.layoutUserManagement.itemAt(index)
             widgetToRemove = layoutItem.widget()

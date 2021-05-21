@@ -1,6 +1,9 @@
+<img src="./public/icons/portada.png" alt="" />
+
 # Deptherm Inspection 
 
 ## Description
+
 
 Deptherm Inspection is a 3D thermographic inspection application and it's also an application for rgb, depth and thermal camera intrinsic
 and extrinsic calibration. 
@@ -33,7 +36,7 @@ This project needs **[libfreenect](https://github.com/OpenKinect/libfreenect)** 
 ```
     python3.7 src/app.py
 ```
-
+<img src="./public/icons/captura-deptherm.png" alt="" />
 
 ## More Informatation
 Information about the OpenKinect project can be found at http://www.openkinect.org

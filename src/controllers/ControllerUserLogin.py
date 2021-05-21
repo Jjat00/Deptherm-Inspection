@@ -3,9 +3,6 @@ from models.interfaces.UserDB import UserDB
 from MainControllerDepthermInspection import MainControllerDepthermInspection
 from DepthermInspectionWidget import DepthermInspectionWidget
 
-#from views.managementUser.UserManagement import UserManagementWidget
-#from controllers.ControllerUserManagement import ControllerUserManagement
-
 from views.DepthermAdminWidget import DepthermAdminWidget
 from controllers.ControllerAdminWidget import ControllerAdminWidget
 
